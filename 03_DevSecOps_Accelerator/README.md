@@ -49,3 +49,10 @@ Initial schemas:
 - aira_observability
 
 Database profiles are configured but not auto-enabled.
+## Tomcat 11 Docker Runtime
+
+AIRA services are deployed as WAR files into Apache Tomcat 11 containers.
+
+Host ports remain 9090 through 9095.
+
+Container application port is 8080 because Tomcat listens internally on 8080.

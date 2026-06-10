@@ -1,11 +1,9 @@
-FROM eclipse-temurin:26-jre
+FROM tomcat:11-jdk21-temurin
 
-WORKDIR /app
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY target/accelerator-security-0.1.0-SNAPSHOT.jar app.jar
+COPY target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 
-EXPOSE 9091
+EXPOSE 8080
 
-ENV SPRING_PROFILES_ACTIVE=postgres
-
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+CMD ["catalina.sh", "run"]

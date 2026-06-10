@@ -28,11 +28,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_API_PORT:-9090}:9090"
+      - "${AIRA_API_PORT:-9090}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy
@@ -47,11 +44,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_SECURITY_PORT:-9091}:9091"
+      - "${AIRA_SECURITY_PORT:-9091}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy
@@ -66,11 +60,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_GOVERNANCE_PORT:-9092}:9092"
+      - "${AIRA_GOVERNANCE_PORT:-9092}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy
@@ -85,11 +76,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_EVIDENCE_PORT:-9093}:9093"
+      - "${AIRA_EVIDENCE_PORT:-9093}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy
@@ -104,11 +92,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_AGENTS_PORT:-9094}:9094"
+      - "${AIRA_AGENTS_PORT:-9094}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy
@@ -123,11 +108,8 @@ services:
     restart: unless-stopped
     environment:
       SPRING_PROFILES_ACTIVE: default
-      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
-      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
-      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
     ports:
-      - "${AIRA_OBSERVABILITY_PORT:-9095}:9095"
+      - "${AIRA_OBSERVABILITY_PORT:-9095}:8080"
     depends_on:
       aira-postgres:
         condition: service_healthy

@@ -20,7 +20,7 @@ foreach ($Endpoint in $Endpoints) {
     Write-Host "GET $Endpoint" -ForegroundColor Yellow
 
     try {
-        Invoke-RestMethod -Uri $Endpoint -TimeoutSec 10
+        Invoke-RestMethod -Uri $Endpoint -TimeoutSec 20
     }
     catch {
         Write-Host "Endpoint not ready or unavailable: $Endpoint" -ForegroundColor Red

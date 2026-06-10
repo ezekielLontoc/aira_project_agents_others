@@ -7,13 +7,13 @@ if (!(Test-Path ".env")) {
     Write-Host "Created local .env from .env.example" -ForegroundColor Yellow
 }
 
-Write-Host "Building runtime JARs..." -ForegroundColor Cyan
+Write-Host "Building AIRA WAR artifacts..." -ForegroundColor Cyan
 mvn clean package -DskipTests
 
-Write-Host "Starting AIRA Docker Runtime Stack..." -ForegroundColor Cyan
+Write-Host "Starting AIRA Tomcat 11 Docker Runtime Stack..." -ForegroundColor Cyan
 docker compose -f docker-compose.runtime.yml up -d --build
 
-Write-Host "AIRA Docker Runtime Stack started." -ForegroundColor Green
+Write-Host "AIRA Tomcat 11 Docker Runtime Stack started." -ForegroundColor Green
 Write-Host "Health URLs:"
 Write-Host "http://localhost:9090/api/health"
 Write-Host "http://localhost:9091/api/v1/security/health"

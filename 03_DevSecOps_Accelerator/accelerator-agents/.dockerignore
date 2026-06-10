@@ -1,10 +1,11 @@
 .git
 .gitignore
-target/classes
-target/generated-sources
-target/generated-test-sources
 src
 *.log
 *.iml
 .idea
 .vscode
+target/classes
+target/generated-sources
+target/generated-test-sources
+target/test-classes
