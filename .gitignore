@@ -1,4 +1,4 @@
-﻿# ============================================================
+# ============================================================
 # AIRA Root Ignore Rules
 # ============================================================
 
@@ -29,3 +29,7 @@ Thumbs.db
 application-local.yml
 application-local.yaml
 secrets/
+
+# Docker local runtime
+.env
+docker-compose.override.yml

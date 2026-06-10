@@ -1,0 +1,142 @@
+services:
+  aira-postgres:
+    image: postgres:17
+    container_name: aira-postgres17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${AIRA_POSTGRES_DB:-aira_platform}
+      POSTGRES_USER: ${AIRA_POSTGRES_USER:-aira_admin}
+      POSTGRES_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "5432:5432"
+    volumes:
+      - aira_postgres17_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${AIRA_POSTGRES_USER:-aira_admin} -d ${AIRA_POSTGRES_DB:-aira_platform}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - aira-runtime
+
+  accelerator-api:
+    build:
+      context: ./accelerator-api
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-api
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_API_PORT:-9090}:9090"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+  accelerator-security:
+    build:
+      context: ./accelerator-security
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-security
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_SECURITY_PORT:-9091}:9091"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+  accelerator-governance:
+    build:
+      context: ./accelerator-governance
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-governance
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_GOVERNANCE_PORT:-9092}:9092"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+  accelerator-evidence:
+    build:
+      context: ./accelerator-evidence
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-evidence
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_EVIDENCE_PORT:-9093}:9093"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+  accelerator-agents:
+    build:
+      context: ./accelerator-agents
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-agents
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_AGENTS_PORT:-9094}:9094"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+  accelerator-observability:
+    build:
+      context: ./accelerator-observability
+      dockerfile: Dockerfile
+    container_name: aira-accelerator-observability
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
+      SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
+      SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
+    ports:
+      - "${AIRA_OBSERVABILITY_PORT:-9095}:9095"
+    depends_on:
+      aira-postgres:
+        condition: service_healthy
+    networks:
+      - aira-runtime
+
+networks:
+  aira-runtime:
+    name: aira-runtime
+
+volumes:
+  aira_postgres17_data:
