@@ -27,7 +27,7 @@ services:
     container_name: aira-accelerator-api
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
@@ -46,7 +46,7 @@ services:
     container_name: aira-accelerator-security
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
@@ -65,7 +65,7 @@ services:
     container_name: aira-accelerator-governance
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
@@ -84,7 +84,7 @@ services:
     container_name: aira-accelerator-evidence
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
@@ -103,7 +103,7 @@ services:
     container_name: aira-accelerator-agents
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
@@ -122,7 +122,7 @@ services:
     container_name: aira-accelerator-observability
     restart: unless-stopped
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-postgres}
+      SPRING_PROFILES_ACTIVE: default
       SPRING_DATASOURCE_URL: jdbc:postgresql://aira-postgres:5432/${AIRA_POSTGRES_DB:-aira_platform}
       SPRING_DATASOURCE_USERNAME: ${AIRA_POSTGRES_USER:-aira_admin}
       SPRING_DATASOURCE_PASSWORD: ${AIRA_POSTGRES_PASSWORD:-aira_local_password_change_me}
