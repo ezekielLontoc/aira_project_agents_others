@@ -1,0 +1,35 @@
+﻿# ============================================================
+# AIRA DevSecOps Accelerator Ignore Rules
+# ============================================================
+
+# Maven build output
+target/
+**/target/
+
+# Compiled Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven temporary
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local configuration
+application-local.yml
+application-local.yaml
+.env
+*.env

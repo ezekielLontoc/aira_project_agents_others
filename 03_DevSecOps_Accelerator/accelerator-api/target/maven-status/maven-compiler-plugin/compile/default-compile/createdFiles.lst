@@ -1,5 +1,0 @@
-com\aira\accelerator\api\controller\HealthController.class
-com\aira\accelerator\api\AiraAcceleratorApiApplication.class
-com\aira\accelerator\api\controller\AgentRequestController.class
-com\aira\accelerator\api\dto\AgentRequest.class
-com\aira\accelerator\api\controller\RuntimeInfoController.class

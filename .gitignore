@@ -1,0 +1,31 @@
+﻿# ============================================================
+# AIRA Root Ignore Rules
+# ============================================================
+
+# Maven / Java build output
+target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / local env
+.env
+*.env
+application-local.yml
+application-local.yaml
+secrets/
