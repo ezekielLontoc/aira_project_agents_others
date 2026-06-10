@@ -1,4 +1,4 @@
-﻿package com.aira.accelerator.api.controller;
+package com.aira.accelerator.api.controller;
 
 import java.time.Instant;
 import java.util.LinkedHashMap;

@@ -1,0 +1,20 @@
+﻿server:
+  port: 9095
+
+spring:
+  application:
+    name: accelerator-observability
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+aira:
+  runtime:
+    name: AIRA DevSecOps Accelerator
+    module: accelerator-observability
+    version: 0.1.0-SNAPSHOT
+    port: 9095
+    approval-required-for-production: true

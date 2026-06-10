@@ -1,26 +1,19 @@
-﻿# AIRA Accelerator API
+﻿# accelerator-api
 
 ## Purpose
 
-The accelerator-api module is the REST/API boundary for the AIRA DevSecOps Accelerator.
+AIRA API boundary
 
 ## Port
 
 9090
 
-## Initial Endpoints
+## Endpoints
 
 | Endpoint | Method | Purpose |
 |---|---|---|
-| /api/health | GET | Runtime health check |
-| /api/agents/request | POST | Agent request placeholder |
-| /api/runtime/info | GET | Runtime metadata |
-
-## Runtime
-
-Spring Boot  
-Java 26 target workstation  
-Tomcat-compatible service strategy
+| /api/health | GET | Module health check |
+| /api/runtime/info | GET | Module runtime metadata |
 
 ## Governance
 

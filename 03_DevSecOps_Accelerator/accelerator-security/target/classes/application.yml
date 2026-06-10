@@ -1,0 +1,25 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: accelerator-security
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+aira:
+  runtime:
+    name: AIRA DevSecOps Accelerator
+    module: accelerator-security
+    version: 0.1.0-SNAPSHOT
+    port: 9091
+    approval-required-for-production: true
+
+  security:
+    mode: scaffold
+    token-issuer: AIRA-LOCAL-SECURITY
+    production-actions-blocked: true

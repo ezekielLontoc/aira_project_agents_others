@@ -1,0 +1,20 @@
+﻿server:
+  port: 9094
+
+spring:
+  application:
+    name: accelerator-agents
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+aira:
+  runtime:
+    name: AIRA DevSecOps Accelerator
+    module: accelerator-agents
+    version: 0.1.0-SNAPSHOT
+    port: 9094
+    approval-required-for-production: true

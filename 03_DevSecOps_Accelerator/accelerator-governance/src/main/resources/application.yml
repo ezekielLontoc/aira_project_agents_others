@@ -1,0 +1,20 @@
+﻿server:
+  port: 9092
+
+spring:
+  application:
+    name: accelerator-governance
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+aira:
+  runtime:
+    name: AIRA DevSecOps Accelerator
+    module: accelerator-governance
+    version: 0.1.0-SNAPSHOT
+    port: 9092
+    approval-required-for-production: true

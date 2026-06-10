@@ -1,0 +1,13 @@
+com\aira\accelerator\security\dto\ApiKeyRequest.class
+com\aira\accelerator\security\model\AiraRole.class
+com\aira\accelerator\security\controller\PolicyController.class
+com\aira\accelerator\security\controller\SecurityHealthController.class
+com\aira\accelerator\security\model\AiraPermission.class
+com\aira\accelerator\security\service\SecurityCatalogService.class
+com\aira\accelerator\security\controller\ApiKeyController.class
+com\aira\accelerator\security\AiraAcceleratorSecurityApplication.class
+com\aira\accelerator\security\controller\AuthController.class
+com\aira\accelerator\security\dto\AuthTokenRequest.class
+com\aira\accelerator\security\controller\RuntimeInfoController.class
+com\aira\accelerator\security\controller\HealthController.class
+com\aira\accelerator\security\model\SecurityPolicy.class
