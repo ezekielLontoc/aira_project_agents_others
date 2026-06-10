@@ -1,0 +1,22 @@
+services:
+  aira-postgres:
+    image: postgres:17
+    container_name: aira-postgres17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aira_platform
+      POSTGRES_USER: aira_admin
+      POSTGRES_PASSWORD: aira_local_password_change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - aira_postgres17_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aira_admin -d aira_platform"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  aira_postgres17_data:

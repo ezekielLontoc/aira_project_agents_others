@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aira_platform
+    username: aira_admin
+    password: aira_local_password_change_me
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    enabled: false
+
+aira:
+  database:
+    engine: PostgreSQL
+    version: 17
+    database: aira_platform
+    mandatory: true
+    status: configured-not-auto-enabled

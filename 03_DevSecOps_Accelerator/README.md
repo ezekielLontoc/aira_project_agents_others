@@ -1,4 +1,4 @@
-﻿# AIRA DevSecOps Accelerator
+# AIRA DevSecOps Accelerator
 
 ## Purpose
 
@@ -34,3 +34,18 @@ It provides:
 Java/Spring/Tomcat owns the governed enterprise platform.
 
 AI agent execution can be integrated through Python, MCP, or future agent runtimes.
+
+## PostgreSQL 17 Foundation
+
+PostgreSQL 17 is mandatory for the AIRA DevSecOps Accelerator persistence foundation.
+
+Initial schemas:
+
+- aira_security
+- aira_governance
+- aira_evidence
+- aira_agents
+- aira_runtime
+- aira_observability
+
+Database profiles are configured but not auto-enabled.
