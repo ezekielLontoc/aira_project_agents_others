@@ -1,0 +1,37 @@
+﻿AIRA WORKSTATION CHECK REPORT
+
+AIRA_HOME:
+D:\ChatGPT Workspace Folder Projects\AIRA Projects
+
+JAVA_HOME:
+C:\Program Files\Java\jdk-26.0.1
+
+CATALINA_HOME:
+C:\Program Files\Apache Software Foundation\Tomcat 11.0
+
+Java Exists:
+True
+
+Tomcat Exists:
+True
+
+Tomcat Catalina Exists:
+True
+
+Recommended tools to install separately:
+- Git
+- GitHub CLI
+- VS Code
+- Maven
+- Gradle
+- Docker Desktop
+- PostgreSQL
+- Python
+- Node.js LTS
+- jq
+- yq
+- Trivy
+- Gitleaks
+- Syft
+- Grype
+- 7-Zip
