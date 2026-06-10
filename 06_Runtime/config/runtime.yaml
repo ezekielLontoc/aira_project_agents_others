@@ -1,0 +1,12 @@
+﻿runtime:
+  name: AIRA DevSecOps Agent Runtime
+  version: 0.1.0
+  mode: local-workstation
+  approval_required_for_production: true
+
+paths:
+  agents: 02_Agents
+  evidence: 05_Evidence
+  runtime: 06_Runtime
+  logs: 06_Runtime/logs
+  scripts: 08_Scripts

@@ -1,0 +1,13 @@
+﻿{
+  "agent": "developer-agent",
+  "output": {
+    "type": "object",
+    "required": ["task_id", "status", "result", "evidence"],
+    "properties": {
+      "task_id": { "type": "string" },
+      "status": { "type": "string" },
+      "result": { "type": "object" },
+      "evidence": { "type": "array" }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+﻿{
+  "agent": "test-agent",
+  "input": {
+    "type": "object",
+    "required": ["task_id", "request", "context"],
+    "properties": {
+      "task_id": { "type": "string" },
+      "request": { "type": "string" },
+      "context": { "type": "object" }
+    }
+  }
+}

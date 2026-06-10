@@ -2,20 +2,24 @@
 
 ## Purpose
 
-Collects audit evidence, compliance records, and traceability packs.
+AIRA DevSecOps agent.
 
-## Runtime
+## Runtime Status
 
-AIRA DevSecOps Accelerator
+Skeleton created.
 
-## Status
+## Standard Folders
 
-Planned
+- config
+- contracts
+- prompts
+- src
+- tests
+- logs
+- evidence
 
-## Classification
+## Governance
 
-Strategic AIRA Agent
-
-## Owner
-
-AIRA Platform Team
+Classification: Strategic AIRA Agent  
+Runtime: AIRA DevSecOps Accelerator  
+Repository: aira_project_agents_others

@@ -1,0 +1,16 @@
+﻿agent:
+  name: documentation-agent
+  classification: Strategic AIRA Agent
+  runtime: AIRA DevSecOps Accelerator
+  status: skeleton
+  enabled: true
+
+governance:
+  requires_evidence: true
+  requires_logging: true
+  requires_human_approval_for_production: true
+
+interfaces:
+  input_contract: contracts/input.schema.json
+  output_contract: contracts/output.schema.json
+  prompt_contract: prompts/system-prompt.md
