@@ -140,3 +140,28 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-10-agent-
 Show summary:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\show-milestone-10-api-summary.ps1"
+## Milestone 11 - Security Enforcement Foundation
+
+AIRA now protects Agent Registry and Governance APIs using API-key based enforcement.
+
+Header:
+
+X-AIRA-API-Key
+
+Local development key:
+
+aira-local-dev-key-change-me
+
+Protected examples:
+
+powershell -Command "Invoke-RestMethod -Uri 'http://localhost:9094/api/v1/agents' -Headers @{ 'X-AIRA-API-Key' = 'aira-local-dev-key-change-me' }"
+
+powershell -Command "Invoke-RestMethod -Uri 'http://localhost:9092/api/v1/governance/readiness' -Headers @{ 'X-AIRA-API-Key' = 'aira-local-dev-key-change-me' }"
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-11-security-enforcement.ps1"
+
+Security audit summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-security-audit-summary.ps1"
