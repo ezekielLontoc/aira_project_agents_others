@@ -1,20 +1,36 @@
-﻿server:
-  port: 9092
-
 spring:
   application:
     name: accelerator-governance
+  datasource:
+    url: \
+    username: \
+    password: \
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: accelerator-governance-pool
+      maximum-pool-size: \
+      minimum-idle: \
+      connection-timeout: \
+      validation-timeout: \
+      initialization-fail-timeout: 1
+
+server:
+  port: 9092
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 aira:
-  runtime:
-    name: AIRA DevSecOps Accelerator
-    module: accelerator-governance
-    version: 0.1.0-SNAPSHOT
-    port: 9092
-    approval-required-for-production: true
+  service:
+    name: accelerator-governance
+    host-port: 9092
+    persistence:
+      required: true
+      fail-closed: true

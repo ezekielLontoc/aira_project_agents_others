@@ -1,25 +1,36 @@
-server:
-  port: 9091
-
 spring:
   application:
     name: accelerator-security
+  datasource:
+    url: \
+    username: \
+    password: \
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: accelerator-security-pool
+      maximum-pool-size: \
+      minimum-idle: \
+      connection-timeout: \
+      validation-timeout: \
+      initialization-fail-timeout: 1
+
+server:
+  port: 9091
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 aira:
-  runtime:
-    name: AIRA DevSecOps Accelerator
-    module: accelerator-security
-    version: 0.1.0-SNAPSHOT
-    port: 9091
-    approval-required-for-production: true
-
-  security:
-    mode: scaffold
-    token-issuer: AIRA-LOCAL-SECURITY
-    production-actions-blocked: true
+  service:
+    name: accelerator-security
+    host-port: 9091
+    persistence:
+      required: true
+      fail-closed: true

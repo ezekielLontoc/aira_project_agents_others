@@ -92,3 +92,23 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-runtime-persistence
 Health check:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\check-runtime-persistence-health.ps1"
+## Milestone 9 - Service Persistence Integration
+
+AIRA services now connect to PostgreSQL 17 runtime persistence.
+
+Persistence health endpoints:
+
+- http://localhost:9090/api/persistence/health
+- http://localhost:9091/api/persistence/health
+- http://localhost:9092/api/persistence/health
+- http://localhost:9093/api/persistence/health
+- http://localhost:9094/api/persistence/health
+- http://localhost:9095/api/persistence/health
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-service-persistence-integration.ps1"
+
+Restart and validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\restart-and-validate-service-persistence.ps1"

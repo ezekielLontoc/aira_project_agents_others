@@ -1,20 +1,36 @@
-﻿server:
-  port: 9095
-
 spring:
   application:
     name: accelerator-observability
+  datasource:
+    url: \
+    username: \
+    password: \
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: accelerator-observability-pool
+      maximum-pool-size: \
+      minimum-idle: \
+      connection-timeout: \
+      validation-timeout: \
+      initialization-fail-timeout: 1
+
+server:
+  port: 9095
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 aira:
-  runtime:
-    name: AIRA DevSecOps Accelerator
-    module: accelerator-observability
-    version: 0.1.0-SNAPSHOT
-    port: 9095
-    approval-required-for-production: true
+  service:
+    name: accelerator-observability
+    host-port: 9095
+    persistence:
+      required: true
+      fail-closed: true

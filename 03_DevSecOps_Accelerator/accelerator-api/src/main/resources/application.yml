@@ -1,20 +1,36 @@
-﻿server:
-  port: 9090
-
 spring:
   application:
     name: accelerator-api
+  datasource:
+    url: \
+    username: \
+    password: \
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: accelerator-api-pool
+      maximum-pool-size: \
+      minimum-idle: \
+      connection-timeout: \
+      validation-timeout: \
+      initialization-fail-timeout: 1
+
+server:
+  port: 9090
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 aira:
-  runtime:
-    name: AIRA DevSecOps Accelerator
-    module: accelerator-api
-    version: 0.1.0-SNAPSHOT
-    port: 9090
-    approval-required-for-production: true
+  service:
+    name: accelerator-api
+    host-port: 9090
+    persistence:
+      required: true
+      fail-closed: true
