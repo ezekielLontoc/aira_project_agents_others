@@ -1,27 +1,21 @@
 package com.aira.accelerator.agents.security;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ApiSecurityProperties {
 
-    private final String serviceName;
-    private final String localDevelopmentApiKey;
-
-    public ApiSecurityProperties(
-            @Value("$\{spring.application.name:accelerator-agents}") String serviceName,
-            @Value("$\{aira.security.local-api-key:aira-local-dev-key-change-me}") String localDevelopmentApiKey
-    ) {
-        this.serviceName = serviceName;
-        this.localDevelopmentApiKey = localDevelopmentApiKey;
-    }
-
     public String serviceName() {
-        return serviceName;
+        return "accelerator-agents";
     }
 
     public String localDevelopmentApiKey() {
-        return localDevelopmentApiKey;
+        String configured = System.getenv("AIRA_SECURITY_LOCAL_API_KEY");
+
+        if (configured == null || configured.isBlank()) {
+            return "aira-local-dev-key-change-me";
+        }
+
+        return configured;
     }
 }

@@ -39,7 +39,6 @@ public class ApiSecurityAuditService {
             );
         }
         catch (Exception ignored) {
-            // Fail closed behavior is handled by the validator.
             // Audit write failures must not expose internal details to callers.
         }
     }
