@@ -46,10 +46,13 @@ public class PortalReadinessService {
                 && apiKeyRequiredForBackend
                 && !embedsSecret;
 
+        String serverHost = System.getenv().getOrDefault("AIRA_SERVER_HOST", "localhost");
+        String portalUrl = "http://" + serverHost + ":9090/portal/index.html";
+
         return new PortalReadinessResponse(
                 ready ? "UP" : "BLOCKED",
                 "AIRA Portal",
-                "http://localhost:9090/portal/index.html",
+                portalUrl,
                 "accelerator-api",
                 portalReadinessRecords,
                 activeAgents,

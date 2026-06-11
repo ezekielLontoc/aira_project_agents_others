@@ -1,14 +1,18 @@
 (function () {
+  const host = window.location.hostname || "localhost";
+
   const endpoints = {
-    portalReadiness: "http://localhost:9090/api/v1/portal/readiness",
-    agentSummary: "http://localhost:9094/api/v1/agents/governance/summary",
-    governanceReadiness: "http://localhost:9092/api/v1/governance/readiness",
-    evidenceReadiness: "http://localhost:9093/api/v1/evidence/readiness",
-    evidencePack: "http://localhost:9093/api/v1/evidence/packs/MILESTONE-8-RUNTIME-PERSISTENCE",
-    evidenceArtifacts: "http://localhost:9093/api/v1/evidence/packs/MILESTONE-8-RUNTIME-PERSISTENCE/artifacts"
+    apiHealth: "http://" + host + ":9090/api/health",
+    portalReadiness: "http://" + host + ":9090/api/v1/portal/readiness",
+    agentSummary: "http://" + host + ":9094/api/v1/agents/governance/summary",
+    governanceReadiness: "http://" + host + ":9092/api/v1/governance/readiness",
+    evidenceReadiness: "http://" + host + ":9093/api/v1/evidence/readiness",
+    evidencePack: "http://" + host + ":9093/api/v1/evidence/packs/MILESTONE-8-RUNTIME-PERSISTENCE",
+    evidenceArtifacts: "http://" + host + ":9093/api/v1/evidence/packs/MILESTONE-8-RUNTIME-PERSISTENCE/artifacts",
+    releaseReadiness: "http://" + host + ":9092/api/v1/governance/release/readiness"
   };
 
-  const localKeyName = "aira.portal.localApiKey";
+  const localKeyName = "aira.portal.apiKey." + host;
 
   function element(id) {
     return document.getElementById(id);
@@ -79,15 +83,26 @@
     return response.json();
   }
 
+  function configureLinks() {
+    element("detectedHostText").textContent = "Detected host: " + host;
+
+    element("linkApiHealth").href = endpoints.apiHealth;
+    element("linkPortalReadiness").href = endpoints.portalReadiness;
+    element("linkAgentSummary").href = endpoints.agentSummary;
+    element("linkGovernanceReadiness").href = endpoints.governanceReadiness;
+    element("linkEvidenceReadiness").href = endpoints.evidenceReadiness;
+    element("linkReleaseReadiness").href = endpoints.releaseReadiness;
+  }
+
   async function runChecks() {
-    element("consoleOutput").textContent = "Running AIRA Portal checks...";
+    element("consoleOutput").textContent = "Running AIRA Portal checks against host: " + host;
     setOverall("CHECKING");
 
     let failures = 0;
 
     try {
       const portal = await fetchJson("Portal readiness", endpoints.portalReadiness);
-      setMetric("portalStatus", "portalDetails", portal.status, "Quality gates: " + portal.qualityGateDefinitions + ", passed runs: " + portal.passedQualityGateRuns);
+      setMetric("portalStatus", "portalDetails", portal.status, "Portal URL: " + portal.portalUrl);
       log("Portal readiness: " + portal.status);
       if (portal.status !== "UP") failures++;
     } catch (error) {
@@ -154,8 +169,21 @@
       log(error.message);
     }
 
+    try {
+      const release = await fetchJson("Release readiness", endpoints.releaseReadiness, protectedHeaders);
+      if (release.status === "UP" && release.mvpReady === true && release.failClosed === true) {
+        log("Release readiness: UP / MVP_READY / failClosed true");
+      } else {
+        failures++;
+        log("Release readiness is not fully ready.");
+      }
+    } catch (error) {
+      failures++;
+      log(error.message);
+    }
+
     if (failures === 0) {
-      setMetric("gateStatus", "gateDetails", "UP", "Portal checks passed.");
+      setMetric("gateStatus", "gateDetails", "UP", "Portal checks passed against host " + host + ".");
       setOverall("UP");
       log("All portal checks passed.");
     } else {
@@ -166,6 +194,8 @@
   }
 
   function boot() {
+    configureLinks();
+
     const saved = getApiKey();
 
     if (saved) {
@@ -174,19 +204,13 @@
 
     element("saveKeyButton").addEventListener("click", function () {
       localStorage.setItem(localKeyName, element("apiKeyInput").value || "");
-      log("API key saved locally.");
-    });
-
-    element("useDevKeyButton").addEventListener("click", function () {
-      element("apiKeyInput").value = "aira-local-dev-key-change-me";
-      localStorage.setItem(localKeyName, "aira-local-dev-key-change-me");
-      log("Local development key saved locally.");
+      log("API key saved locally for host: " + host);
     });
 
     element("clearKeyButton").addEventListener("click", function () {
       localStorage.removeItem(localKeyName);
       element("apiKeyInput").value = "";
-      log("API key cleared.");
+      log("API key cleared for host: " + host);
     });
 
     element("runChecksButton").addEventListener("click", runChecks);

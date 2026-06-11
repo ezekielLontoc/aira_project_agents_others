@@ -21,9 +21,10 @@
       <div>
         <h2>Runtime Control Surface</h2>
         <p>
-          This portal is served by accelerator-api and reads protected backend APIs using your local
-          <strong>X-AIRA-API-Key</strong>. It does not embed secrets.
+          This portal is served by accelerator-api and reads protected backend APIs using your
+          <strong>X-AIRA-API-Key</strong>. Runtime API URLs are resolved automatically from the server host/IP used in the browser.
         </p>
+        <p class="small" id="detectedHostText">Detected host: resolving...</p>
       </div>
 
       <div class="key-card">
@@ -31,10 +32,9 @@
         <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Enter X-AIRA-API-Key">
         <div class="button-row">
           <button id="saveKeyButton" type="button">Save key locally</button>
-          <button id="useDevKeyButton" type="button" class="secondary">Use local dev key</button>
           <button id="clearKeyButton" type="button" class="secondary">Clear</button>
         </div>
-        <p class="small">The key is stored only in this browser localStorage for local development.</p>
+        <p class="small">The key is stored only in this browser localStorage for this machine profile.</p>
       </div>
     </section>
 
@@ -90,17 +90,18 @@
     <section class="panel">
       <h2>Runtime Links</h2>
       <div class="links">
-        <a href="http://localhost:9090/api/health" target="_blank" rel="noreferrer">accelerator-api health</a>
-        <a href="http://localhost:9090/api/v1/portal/readiness" target="_blank" rel="noreferrer">portal readiness</a>
-        <a href="http://localhost:9094/api/v1/agents/governance/summary" target="_blank" rel="noreferrer">agent summary</a>
-        <a href="http://localhost:9092/api/v1/governance/readiness" target="_blank" rel="noreferrer">governance readiness</a>
-        <a href="http://localhost:9093/api/v1/evidence/readiness" target="_blank" rel="noreferrer">evidence readiness</a>
+        <a id="linkApiHealth" href="#" target="_blank" rel="noreferrer">accelerator-api health</a>
+        <a id="linkPortalReadiness" href="#" target="_blank" rel="noreferrer">portal readiness</a>
+        <a id="linkAgentSummary" href="#" target="_blank" rel="noreferrer">agent summary</a>
+        <a id="linkGovernanceReadiness" href="#" target="_blank" rel="noreferrer">governance readiness</a>
+        <a id="linkEvidenceReadiness" href="#" target="_blank" rel="noreferrer">evidence readiness</a>
+        <a id="linkReleaseReadiness" href="#" target="_blank" rel="noreferrer">release readiness</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>Milestone 14 - AIRA Portal / Frontend Foundation</span>
+    <span>Enterprise Server-IP Runtime Baseline</span>
     <span>Fail-closed governed baseline</span>
   </footer>
 

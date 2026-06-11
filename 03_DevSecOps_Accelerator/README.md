@@ -239,3 +239,18 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-15-mvp-re
 Show summary:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\show-mvp-release-readiness-summary.ps1"
+## Enterprise Server-IP Runtime Hardening
+
+AIRA supports server-IP-aware portal and API access.
+
+Start enterprise server-IP runtime:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\start-enterprise-ip-runtime.ps1"
+
+Validate enterprise server-IP runtime:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-enterprise-ip-runtime.ps1"
+
+Portal:
+
+http:///portal/index.html
