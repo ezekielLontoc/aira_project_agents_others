@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,11 @@ public class RuntimePersistenceService {
 
     public RuntimePersistenceService(
             JdbcTemplate jdbcTemplate,
-            DataSource dataSource,
-            @Value("$\{spring.application.name:accelerator-agents}") String serviceName
+            DataSource dataSource
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.dataSource = dataSource;
-        this.serviceName = serviceName;
+        this.serviceName = "accelerator-agents";
     }
 
     public PersistenceHealthResponse health() {
@@ -86,6 +84,7 @@ public class RuntimePersistenceService {
         }
         catch (Exception exception) {
             Map<String, Integer> counts = new LinkedHashMap<>();
+
             return new PersistenceHealthResponse(
                     "DOWN",
                     serviceName,

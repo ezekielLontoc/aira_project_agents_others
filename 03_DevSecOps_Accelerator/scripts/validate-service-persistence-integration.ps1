@@ -31,6 +31,9 @@ foreach ($Endpoint in $Endpoints) {
             PromptVersions = $Response.baselineCounts.promptVersions
             ModelVersions = $Response.baselineCounts.modelVersions
             EvidencePacks = $Response.baselineCounts.evidencePacks
+            EvidenceArtifacts = $Response.baselineCounts.evidenceArtifacts
+            SecretControls = $Response.baselineCounts.secretControls
+            PersistenceAuditRecords = $Response.baselineCounts.persistenceAuditRecords
             FailClosed = $Response.failClosed
         }
 
@@ -44,6 +47,38 @@ foreach ($Endpoint in $Endpoints) {
 
         if ($Response.failClosed -ne $true) {
             $Failures += "$($Endpoint.Service) failClosed is not true"
+        }
+
+        if ($Response.baselineCounts.agentDefinitions -lt 8) {
+            $Failures += "$($Endpoint.Service) has insufficient agent definitions"
+        }
+
+        if ($Response.baselineCounts.controlGates -lt 10) {
+            $Failures += "$($Endpoint.Service) has insufficient control gates"
+        }
+
+        if ($Response.baselineCounts.promptVersions -lt 8) {
+            $Failures += "$($Endpoint.Service) has insufficient prompt versions"
+        }
+
+        if ($Response.baselineCounts.modelVersions -lt 8) {
+            $Failures += "$($Endpoint.Service) has insufficient model versions"
+        }
+
+        if ($Response.baselineCounts.evidencePacks -lt 1) {
+            $Failures += "$($Endpoint.Service) has insufficient evidence packs"
+        }
+
+        if ($Response.baselineCounts.evidenceArtifacts -lt 4) {
+            $Failures += "$($Endpoint.Service) has insufficient evidence artifacts"
+        }
+
+        if ($Response.baselineCounts.secretControls -lt 2) {
+            $Failures += "$($Endpoint.Service) has insufficient secret controls"
+        }
+
+        if ($Response.baselineCounts.persistenceAuditRecords -lt 1) {
+            $Failures += "$($Endpoint.Service) has insufficient persistence audit records"
         }
     }
     catch {
