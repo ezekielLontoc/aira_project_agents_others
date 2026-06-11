@@ -56,3 +56,39 @@ AIRA services are deployed as WAR files into Apache Tomcat 11 containers.
 Host ports remain 9090 through 9095.
 
 Container application port is 8080 because Tomcat listens internally on 8080.
+## Milestone 8 - Runtime Persistence Foundation
+
+AIRA now includes a governed PostgreSQL 17 runtime persistence foundation.
+
+Core capabilities:
+
+- Agent definitions
+- Agent prompt versions
+- Agent model versions
+- Agent tool permissions
+- Agent execution audit
+- Governance decisions
+- Control gates
+- Approval records
+- Evidence packs
+- Evidence artifacts
+- Security findings
+- Secret controls
+- Test execution records
+- Release gate checks
+- Deployment readiness
+- Rollback readiness
+- Runtime health snapshots
+- Knowledge artifacts
+
+Apply:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\apply-runtime-persistence.ps1"
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-runtime-persistence.ps1"
+
+Health check:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\check-runtime-persistence-health.ps1"
