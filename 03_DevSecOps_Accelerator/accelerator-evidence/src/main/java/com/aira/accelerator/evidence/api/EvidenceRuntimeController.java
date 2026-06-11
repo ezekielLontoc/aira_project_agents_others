@@ -26,12 +26,12 @@ public class EvidenceRuntimeController {
     }
 
     @GetMapping("/api/v1/evidence/packs/{evidencePackKey}")
-    public ResponseEntity<?> getEvidencePack(@PathVariable String evidencePackKey) {
+    public ResponseEntity<?> getEvidencePack(@PathVariable("evidencePackKey") String evidencePackKey) {
         return ResponseEntity.ok(evidenceRuntimeService.getEvidencePack(evidencePackKey));
     }
 
     @GetMapping("/api/v1/evidence/packs/{evidencePackKey}/artifacts")
-    public ResponseEntity<?> listArtifactsForPack(@PathVariable String evidencePackKey) {
+    public ResponseEntity<?> listArtifactsForPack(@PathVariable("evidencePackKey") String evidencePackKey) {
         return ResponseEntity.ok(evidenceRuntimeService.listArtifactsForPack(evidencePackKey));
     }
 
