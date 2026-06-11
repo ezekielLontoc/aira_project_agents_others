@@ -1,20 +1,48 @@
 $ErrorActionPreference = "Stop"
 
-$Endpoints = @(
-    @{ Service = "accelerator-api"; Port = 9090; Url = "http://localhost:9090/api/persistence/health" },
-    @{ Service = "accelerator-security"; Port = 9091; Url = "http://localhost:9091/api/persistence/health" },
-    @{ Service = "accelerator-governance"; Port = 9092; Url = "http://localhost:9092/api/persistence/health" },
-    @{ Service = "accelerator-evidence"; Port = 9093; Url = "http://localhost:9093/api/persistence/health" },
-    @{ Service = "accelerator-agents"; Port = 9094; Url = "http://localhost:9094/api/persistence/health" },
-    @{ Service = "accelerator-observability"; Port = 9095; Url = "http://localhost:9095/api/persistence/health" }
+$BaseEndpoints = @(
+    @{ Name = "accelerator-api"; Url = "http://localhost:9090/api/health" },
+    @{ Name = "accelerator-security"; Url = "http://localhost:9091/api/v1/security/health" },
+    @{ Name = "accelerator-governance"; Url = "http://localhost:9092/api/health" },
+    @{ Name = "accelerator-evidence"; Url = "http://localhost:9093/api/health" },
+    @{ Name = "accelerator-agents"; Url = "http://localhost:9094/api/health" },
+    @{ Name = "accelerator-observability"; Url = "http://localhost:9095/api/health" }
 )
 
-Write-Host "Validating AIRA service persistence integration..." -ForegroundColor Cyan
+$PersistenceEndpoints = @(
+    @{ Name = "accelerator-api"; Url = "http://localhost:9090/api/persistence/health" },
+    @{ Name = "accelerator-security"; Url = "http://localhost:9091/api/persistence/health" },
+    @{ Name = "accelerator-governance"; Url = "http://localhost:9092/api/persistence/health" },
+    @{ Name = "accelerator-evidence"; Url = "http://localhost:9093/api/persistence/health" },
+    @{ Name = "accelerator-agents"; Url = "http://localhost:9094/api/persistence/health" },
+    @{ Name = "accelerator-observability"; Url = "http://localhost:9095/api/persistence/health" }
+)
 
 $Failures = @()
 $Results = @()
 
-foreach ($Endpoint in $Endpoints) {
+Write-Host "Validating base service endpoints..." -ForegroundColor Cyan
+
+foreach ($Endpoint in $BaseEndpoints) {
+    Write-Host ""
+    Write-Host "GET $($Endpoint.Url)" -ForegroundColor Yellow
+
+    try {
+        $Response = Invoke-RestMethod -Uri $Endpoint.Url -TimeoutSec 30
+
+        if ($Response.status -ne "UP") {
+            $Failures += "$($Endpoint.Name) base status is not UP"
+        }
+    }
+    catch {
+        $Failures += "$($Endpoint.Name) base endpoint failed: $($_.Exception.Message)"
+    }
+}
+
+Write-Host ""
+Write-Host "Validating persistence endpoints..." -ForegroundColor Cyan
+
+foreach ($Endpoint in $PersistenceEndpoints) {
     Write-Host ""
     Write-Host "GET $($Endpoint.Url)" -ForegroundColor Yellow
 
@@ -22,8 +50,7 @@ foreach ($Endpoint in $Endpoints) {
         $Response = Invoke-RestMethod -Uri $Endpoint.Url -TimeoutSec 30
 
         $Results += [PSCustomObject]@{
-            Service = $Endpoint.Service
-            Port = $Endpoint.Port
+            Service = $Endpoint.Name
             Status = $Response.status
             DatabaseStatus = $Response.databaseStatus
             AgentDefinitions = $Response.baselineCounts.agentDefinitions
@@ -38,51 +65,51 @@ foreach ($Endpoint in $Endpoints) {
         }
 
         if ($Response.status -ne "UP") {
-            $Failures += "$($Endpoint.Service) status is $($Response.status)"
+            $Failures += "$($Endpoint.Name) persistence status is $($Response.status)"
         }
 
         if ($Response.databaseStatus -ne "UP") {
-            $Failures += "$($Endpoint.Service) databaseStatus is $($Response.databaseStatus)"
+            $Failures += "$($Endpoint.Name) databaseStatus is $($Response.databaseStatus)"
         }
 
         if ($Response.failClosed -ne $true) {
-            $Failures += "$($Endpoint.Service) failClosed is not true"
+            $Failures += "$($Endpoint.Name) failClosed is not true"
         }
 
         if ($Response.baselineCounts.agentDefinitions -lt 8) {
-            $Failures += "$($Endpoint.Service) has insufficient agent definitions"
+            $Failures += "$($Endpoint.Name) has insufficient agent definitions"
         }
 
         if ($Response.baselineCounts.controlGates -lt 10) {
-            $Failures += "$($Endpoint.Service) has insufficient control gates"
+            $Failures += "$($Endpoint.Name) has insufficient control gates"
         }
 
         if ($Response.baselineCounts.promptVersions -lt 8) {
-            $Failures += "$($Endpoint.Service) has insufficient prompt versions"
+            $Failures += "$($Endpoint.Name) has insufficient prompt versions"
         }
 
         if ($Response.baselineCounts.modelVersions -lt 8) {
-            $Failures += "$($Endpoint.Service) has insufficient model versions"
+            $Failures += "$($Endpoint.Name) has insufficient model versions"
         }
 
         if ($Response.baselineCounts.evidencePacks -lt 1) {
-            $Failures += "$($Endpoint.Service) has insufficient evidence packs"
+            $Failures += "$($Endpoint.Name) has insufficient evidence packs"
         }
 
         if ($Response.baselineCounts.evidenceArtifacts -lt 4) {
-            $Failures += "$($Endpoint.Service) has insufficient evidence artifacts"
+            $Failures += "$($Endpoint.Name) has insufficient evidence artifacts"
         }
 
         if ($Response.baselineCounts.secretControls -lt 2) {
-            $Failures += "$($Endpoint.Service) has insufficient secret controls"
+            $Failures += "$($Endpoint.Name) has insufficient secret controls"
         }
 
         if ($Response.baselineCounts.persistenceAuditRecords -lt 1) {
-            $Failures += "$($Endpoint.Service) has insufficient persistence audit records"
+            $Failures += "$($Endpoint.Name) has insufficient persistence audit records"
         }
     }
     catch {
-        $Failures += "$($Endpoint.Service) endpoint failed: $($_.Exception.Message)"
+        $Failures += "$($Endpoint.Name) persistence endpoint failed: $($_.Exception.Message)"
     }
 }
 

@@ -12,7 +12,7 @@ $Endpoints = @(
 $Summary = @()
 
 foreach ($Endpoint in $Endpoints) {
-    $Response = Invoke-RestMethod -Uri $Endpoint.Url -TimeoutSec 20
+    $Response = Invoke-RestMethod -Uri $Endpoint.Url -TimeoutSec 30
 
     $Summary += [PSCustomObject]@{
         Service = $Endpoint.Service

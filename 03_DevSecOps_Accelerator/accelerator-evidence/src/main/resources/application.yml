@@ -1,18 +1,19 @@
 spring:
   application:
     name: accelerator-evidence
+
   datasource:
-    url: \
-    username: \
-    password: \
+    url: jdbc:postgresql://localhost:5432/aira_platform
+    username: aira_admin
+    password: aira_local_password_change_me
     driver-class-name: org.postgresql.Driver
     hikari:
       pool-name: accelerator-evidence-pool
-      maximum-pool-size: \
-      minimum-idle: \
-      connection-timeout: \
-      validation-timeout: \
-      initialization-fail-timeout: 1
+      maximum-pool-size: 5
+      minimum-idle: 1
+      connection-timeout: 20000
+      validation-timeout: 5000
+      initialization-fail-timeout: -1
 
 server:
   port: 9093
