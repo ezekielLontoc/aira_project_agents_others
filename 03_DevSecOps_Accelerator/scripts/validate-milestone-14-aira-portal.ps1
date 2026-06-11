@@ -198,7 +198,7 @@ Write-Host ""
 Write-Host "Validating portal static assets..." -ForegroundColor Cyan
 
 Invoke-TextEndpoint -Name "AIRA Portal page" -Url "http://localhost:9090/portal/index.html" -ExpectedText "AIRA Portal"
-Invoke-TextEndpoint -Name "AIRA Portal CSS" -Url "http://localhost:9090/portal/assets/aira-portal.css" -ExpectedText "Runtime Control Surface"
+Invoke-TextEndpoint -Name "AIRA Portal CSS" -Url "http://localhost:9090/portal/assets/aira-portal.css" -ExpectedText "--accent"
 Invoke-TextEndpoint -Name "AIRA Portal JS" -Url "http://localhost:9090/portal/assets/aira-portal.js" -ExpectedText "runChecks"
 
 Write-Host ""
