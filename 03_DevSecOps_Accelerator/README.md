@@ -165,3 +165,28 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-11-securi
 Security audit summary:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\show-security-audit-summary.ps1"
+## Milestone 12 - Evidence and Audit Runtime Foundation
+
+AIRA now exposes protected Evidence and Audit Runtime APIs.
+
+Header:
+
+X-AIRA-API-Key
+
+Local development key:
+
+aira-local-dev-key-change-me
+
+Protected examples:
+
+powershell -Command "Invoke-RestMethod -Uri 'http://localhost:9093/api/v1/evidence/readiness' -Headers @{ 'X-AIRA-API-Key' = 'aira-local-dev-key-change-me' }"
+
+powershell -Command "Invoke-RestMethod -Uri 'http://localhost:9093/api/v1/evidence/packs' -Headers @{ 'X-AIRA-API-Key' = 'aira-local-dev-key-change-me' }"
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-12-evidence-audit-runtime.ps1"
+
+Show summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-milestone-12-evidence-summary.ps1"
