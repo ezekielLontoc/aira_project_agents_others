@@ -224,3 +224,18 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-14-aira-p
 Show summary:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\show-portal-readiness-summary.ps1"
+## Milestone 15 - End-to-End Release Readiness and Operating Model
+
+AIRA now includes MVP release readiness, rollback readiness, operating model, human acceptance, and protected release readiness APIs.
+
+Protected release readiness API:
+
+http://localhost:9092/api/v1/governance/release/readiness
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-15-mvp-release-readiness.ps1"
+
+Show summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-mvp-release-readiness-summary.ps1"

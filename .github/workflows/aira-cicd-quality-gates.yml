@@ -65,6 +65,17 @@ jobs:
           test -f accelerator-api/src/main/java/com/aira/accelerator/api/portal/PortalController.java
           grep -q "AIRA Portal" accelerator-api/src/main/resources/static/portal/index.html
 
+      - name: Validate MVP release readiness files
+        shell: bash
+        run: |
+          test -f database/migrations/V14__aira_mvp_release_readiness_foundation.sql
+          test -f database/seed/V15__aira_mvp_release_readiness_seed.sql
+          test -f scripts/validate-milestone-15-mvp-release-readiness.ps1
+          test -f scripts/show-mvp-release-readiness-summary.ps1
+          test -f accelerator-governance/src/main/java/com/aira/accelerator/governance/release/ReleaseReadinessController.java
+          test -f accelerator-governance/src/main/java/com/aira/accelerator/governance/release/ReleaseReadinessService.java
+          test -f accelerator-governance/src/main/java/com/aira/accelerator/governance/release/ReleaseReadinessResponse.java
+
       - name: Validate Dockerfiles
         shell: bash
         run: |
