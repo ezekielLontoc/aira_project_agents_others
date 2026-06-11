@@ -8,6 +8,14 @@ Complete after validation passes.
 
 192.168.179.193
 
+## Correct Browser Origin
+
+http://192.168.179.193:9090
+
+## Allowed Origins
+
+http://localhost:9090,http://192.168.179.193:9090
+
 ## Evidence
 
 | Evidence | Location |
@@ -27,15 +35,13 @@ Complete after validation passes.
 
 This hardening is accepted when:
 
-- GitHub source remains clean before commit.
 - Maven build succeeds.
-- All six WAR files build.
 - Docker runtime starts using enterprise override.
 - localhost endpoints return UP.
 - server-IP endpoints return UP.
 - portal loads from server IP.
 - portal readiness returns server-IP URL.
-- CORS accepts server-IP portal origin.
+- CORS accepts exact server-IP portal origin.
 - protected APIs deny missing key.
 - protected APIs allow valid key.
 - release readiness returns UP.

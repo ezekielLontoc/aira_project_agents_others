@@ -117,7 +117,7 @@ function Invoke-TextEndpoint {
     Write-Host "[PASS] $Name HTTP 200 and contains expected text" -ForegroundColor Green
 }
 
-function Invoke-CorsPreflight {
+function Invoke-CorsPreflightStrict {
     param(
         [string]$Name,
         [string]$Url,
@@ -140,15 +140,30 @@ function Invoke-CorsPreflight {
         throw "$Name returned HTTP $($Response.StatusCode), expected 2xx"
     }
 
-    Write-Host "[PASS] $Name CORS preflight HTTP $($Response.StatusCode)" -ForegroundColor Green
+    $AllowOrigin = $Response.Headers["Access-Control-Allow-Origin"]
+
+    if (!$AllowOrigin) {
+        throw "$Name did not return Access-Control-Allow-Origin header."
+    }
+
+    if ($AllowOrigin -ne $Origin) {
+        throw "$Name returned Access-Control-Allow-Origin '$AllowOrigin', expected '$Origin'."
+    }
+
+    Write-Host "[PASS] $Name allowed exact CORS origin $AllowOrigin" -ForegroundColor Green
 }
 
 $ServerIp = Get-AiraServerIp
-$ServerOrigin = "http://$ServerIp:9090"
+$ServerOrigin = "http://$($ServerIp):9090"
+$LocalOrigin = "http://localhost:9090"
 
 $env:AIRA_SERVER_HOST = $ServerIp
-$env:AIRA_PORTAL_ALLOWED_ORIGINS = "http://localhost:9090,http://$ServerIp:9090"
+$env:AIRA_PORTAL_ALLOWED_ORIGINS = "$LocalOrigin,$ServerOrigin"
 $env:AIRA_SECURITY_LOCAL_API_KEY = $ApiKey
+
+if ($ServerOrigin -eq "http://") {
+    throw "Server origin was generated incorrectly."
+}
 
 Set-Location $AccelRoot
 
@@ -156,6 +171,7 @@ Write-Host ""
 Write-Host "Enterprise Server-IP validation starting..." -ForegroundColor Cyan
 Write-Host "Server IP: $ServerIp" -ForegroundColor Cyan
 Write-Host "Server origin: $ServerOrigin" -ForegroundColor Cyan
+Write-Host "Allowed origins: $env:AIRA_PORTAL_ALLOWED_ORIGINS" -ForegroundColor Cyan
 
 Invoke-CheckedCommand "mvn clean package -DskipTests"
 Invoke-CheckedCommand "docker compose -f docker-compose.runtime.yml -f docker-compose.enterprise-ip.yml up -d --build --force-recreate"
@@ -165,21 +181,21 @@ Write-Host "Waiting for Tomcat deployments..." -ForegroundColor Yellow
 Start-Sleep -Seconds 90
 
 $LocalBase = "http://localhost"
-$ServerBase = "http://$ServerIp"
+$ServerBase = "http://$($ServerIp)"
 
 $BaseEndpoints = @(
-    @{ Name = "api localhost"; Url = "$LocalBase`:9090/api/health" },
-    @{ Name = "api server-ip"; Url = "$ServerBase`:9090/api/health" },
-    @{ Name = "security localhost"; Url = "$LocalBase`:9091/api/v1/security/health" },
-    @{ Name = "security server-ip"; Url = "$ServerBase`:9091/api/v1/security/health" },
-    @{ Name = "governance localhost"; Url = "$LocalBase`:9092/api/health" },
-    @{ Name = "governance server-ip"; Url = "$ServerBase`:9092/api/health" },
-    @{ Name = "evidence localhost"; Url = "$LocalBase`:9093/api/health" },
-    @{ Name = "evidence server-ip"; Url = "$ServerBase`:9093/api/health" },
-    @{ Name = "agents localhost"; Url = "$LocalBase`:9094/api/health" },
-    @{ Name = "agents server-ip"; Url = "$ServerBase`:9094/api/health" },
-    @{ Name = "observability localhost"; Url = "$LocalBase`:9095/api/health" },
-    @{ Name = "observability server-ip"; Url = "$ServerBase`:9095/api/health" }
+    @{ Name = "api localhost"; Url = "$LocalBase:9090/api/health" },
+    @{ Name = "api server-ip"; Url = "$ServerBase:9090/api/health" },
+    @{ Name = "security localhost"; Url = "$LocalBase:9091/api/v1/security/health" },
+    @{ Name = "security server-ip"; Url = "$ServerBase:9091/api/v1/security/health" },
+    @{ Name = "governance localhost"; Url = "$LocalBase:9092/api/health" },
+    @{ Name = "governance server-ip"; Url = "$ServerBase:9092/api/health" },
+    @{ Name = "evidence localhost"; Url = "$LocalBase:9093/api/health" },
+    @{ Name = "evidence server-ip"; Url = "$ServerBase:9093/api/health" },
+    @{ Name = "agents localhost"; Url = "$LocalBase:9094/api/health" },
+    @{ Name = "agents server-ip"; Url = "$ServerBase:9094/api/health" },
+    @{ Name = "observability localhost"; Url = "$LocalBase:9095/api/health" },
+    @{ Name = "observability server-ip"; Url = "$ServerBase:9095/api/health" }
 )
 
 foreach ($Endpoint in $BaseEndpoints) {
@@ -190,11 +206,11 @@ foreach ($Endpoint in $BaseEndpoints) {
     }
 }
 
-Invoke-TextEndpoint -Name "Portal localhost" -Url "$LocalBase`:9090/portal/index.html" -ExpectedText "Enterprise Server-IP Runtime Baseline"
-Invoke-TextEndpoint -Name "Portal server-ip" -Url "$ServerBase`:9090/portal/index.html" -ExpectedText "Enterprise Server-IP Runtime Baseline"
+Invoke-TextEndpoint -Name "Portal localhost" -Url "$LocalBase:9090/portal/index.html" -ExpectedText "Enterprise Server-IP Runtime Baseline"
+Invoke-TextEndpoint -Name "Portal server-ip" -Url "$ServerBase:9090/portal/index.html" -ExpectedText "Enterprise Server-IP Runtime Baseline"
 
-$PortalLocal = Invoke-JsonEndpoint -Name "Portal readiness localhost" -Url "$LocalBase`:9090/api/v1/portal/readiness"
-$PortalIp = Invoke-JsonEndpoint -Name "Portal readiness server-ip" -Url "$ServerBase`:9090/api/v1/portal/readiness"
+$PortalLocal = Invoke-JsonEndpoint -Name "Portal readiness localhost" -Url "$LocalBase:9090/api/v1/portal/readiness"
+$PortalIp = Invoke-JsonEndpoint -Name "Portal readiness server-ip" -Url "$ServerBase:9090/api/v1/portal/readiness"
 
 if ($PortalLocal.status -ne "UP") {
     throw "Portal localhost readiness did not return UP"
@@ -208,24 +224,25 @@ if ($PortalIp.portalUrl -notmatch [Regex]::Escape($ServerIp)) {
     throw "Portal readiness did not return server-IP portalUrl"
 }
 
-Invoke-CorsPreflight -Name "Agents CORS server origin" -Url "$ServerBase`:9094/api/v1/agents/governance/summary" -Origin $ServerOrigin
-Invoke-CorsPreflight -Name "Governance CORS server origin" -Url "$ServerBase`:9092/api/v1/governance/readiness" -Origin $ServerOrigin
-Invoke-CorsPreflight -Name "Evidence CORS server origin" -Url "$ServerBase`:9093/api/v1/evidence/readiness" -Origin $ServerOrigin
+Invoke-CorsPreflightStrict -Name "Agents CORS server origin" -Url "$ServerBase:9094/api/v1/agents/governance/summary" -Origin $ServerOrigin
+Invoke-CorsPreflightStrict -Name "Governance CORS server origin" -Url "$ServerBase:9092/api/v1/governance/readiness" -Origin $ServerOrigin
+Invoke-CorsPreflightStrict -Name "Evidence CORS server origin" -Url "$ServerBase:9093/api/v1/evidence/readiness" -Origin $ServerOrigin
 
-Invoke-JsonEndpoint -Name "agents without key server-ip" -Url "$ServerBase`:9094/api/v1/agents" -ExpectedStatusCode 401
-Invoke-JsonEndpoint -Name "governance without key server-ip" -Url "$ServerBase`:9092/api/v1/governance/readiness" -ExpectedStatusCode 401
-Invoke-JsonEndpoint -Name "evidence without key server-ip" -Url "$ServerBase`:9093/api/v1/evidence/readiness" -ExpectedStatusCode 401
-Invoke-JsonEndpoint -Name "release without key server-ip" -Url "$ServerBase`:9092/api/v1/governance/release/readiness" -ExpectedStatusCode 401
+Invoke-JsonEndpoint -Name "agents without key server-ip" -Url "$ServerBase:9094/api/v1/agents" -ExpectedStatusCode 401
+Invoke-JsonEndpoint -Name "governance without key server-ip" -Url "$ServerBase:9092/api/v1/governance/readiness" -ExpectedStatusCode 401
+Invoke-JsonEndpoint -Name "evidence without key server-ip" -Url "$ServerBase:9093/api/v1/evidence/readiness" -ExpectedStatusCode 401
+Invoke-JsonEndpoint -Name "release without key server-ip" -Url "$ServerBase:9092/api/v1/governance/release/readiness" -ExpectedStatusCode 401
 
 $Headers = @{
     "X-AIRA-API-Key" = $ApiKey
     "Origin" = $ServerOrigin
 }
 
-$AgentSummary = Invoke-JsonEndpoint -Name "Agent summary server-ip" -Url "$ServerBase`:9094/api/v1/agents/governance/summary" -Headers $Headers
-$GovernanceReadiness = Invoke-JsonEndpoint -Name "Governance readiness server-ip" -Url "$ServerBase`:9092/api/v1/governance/readiness" -Headers $Headers
-$EvidenceReadiness = Invoke-JsonEndpoint -Name "Evidence readiness server-ip" -Url "$ServerBase`:9093/api/v1/evidence/readiness" -Headers $Headers
-$ReleaseReadiness = Invoke-JsonEndpoint -Name "Release readiness server-ip" -Url "$ServerBase`:9092/api/v1/governance/release/readiness" -Headers $Headers
+$AgentSummary = Invoke-JsonEndpoint -Name "Agent summary server-ip" -Url "$ServerBase:9094/api/v1/agents/governance/summary" -Headers $Headers
+$GovernanceReadiness = Invoke-JsonEndpoint -Name "Governance readiness server-ip" -Url "$ServerBase:9092/api/v1/governance/readiness" -Headers $Headers
+$EvidenceReadiness = Invoke-JsonEndpoint -Name "Evidence readiness server-ip" -Url "$ServerBase:9093/api/v1/evidence/readiness" -Headers $Headers
+$EvidencePack = Invoke-JsonEndpoint -Name "Evidence pack server-ip" -Url "$ServerBase:9093/api/v1/evidence/packs/MILESTONE-8-RUNTIME-PERSISTENCE" -Headers $Headers
+$ReleaseReadiness = Invoke-JsonEndpoint -Name "Release readiness server-ip" -Url "$ServerBase:9092/api/v1/governance/release/readiness" -Headers $Headers
 
 if ($AgentSummary.status -ne "UP") {
     throw "Agent summary server-ip did not return UP"
@@ -237,6 +254,10 @@ if ($GovernanceReadiness.status -ne "UP") {
 
 if ($EvidenceReadiness.status -ne "UP") {
     throw "Evidence readiness server-ip did not return UP"
+}
+
+if ($EvidencePack.evidence_pack_key -ne "MILESTONE-8-RUNTIME-PERSISTENCE") {
+    throw "Evidence pack server-ip returned wrong key"
 }
 
 if ($ReleaseReadiness.status -ne "UP") {
@@ -253,5 +274,5 @@ if ($ReleaseReadiness.failClosed -ne $true) {
 
 Write-Host ""
 Write-Host "Enterprise Server-IP Runtime validation PASSED." -ForegroundColor Green
-Write-Host "Portal: http://$ServerIp`:9090/portal/index.html" -ForegroundColor Green
-Write-Host "Release readiness: http://$ServerIp`:9092/api/v1/governance/release/readiness" -ForegroundColor Green
+Write-Host "Portal: http://$($ServerIp):9090/portal/index.html" -ForegroundColor Green
+Write-Host "Release readiness: http://$($ServerIp):9092/api/v1/governance/release/readiness" -ForegroundColor Green

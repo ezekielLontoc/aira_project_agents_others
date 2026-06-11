@@ -1,7 +1,6 @@
 $ErrorActionPreference = "Stop"
 
 $AccelRoot = "D:\ChatGPT Workspace Folder Projects\AIRA Projects\03_DevSecOps_Accelerator"
-
 function Get-AiraServerIp {
     $DefaultRoute = Get-NetRoute -DestinationPrefix "0.0.0.0/0" -ErrorAction SilentlyContinue |
         Where-Object { $_.NextHop -ne "0.0.0.0" } |
@@ -38,12 +37,18 @@ function Get-AiraServerIp {
 }
 
 $ServerIp = Get-AiraServerIp
+$ServerOrigin = "http://$($ServerIp):9090"
+$LocalOrigin = "http://localhost:9090"
 
 $env:AIRA_SERVER_HOST = $ServerIp
-$env:AIRA_PORTAL_ALLOWED_ORIGINS = "http://localhost:9090,http://$ServerIp:9090"
+$env:AIRA_PORTAL_ALLOWED_ORIGINS = "$LocalOrigin,$ServerOrigin"
 
 if (!$env:AIRA_SECURITY_LOCAL_API_KEY) {
     $env:AIRA_SECURITY_LOCAL_API_KEY = "aira-local-dev-key-change-me"
+}
+
+if ($ServerOrigin -eq "http://") {
+    throw "Server origin was generated incorrectly."
 }
 
 Set-Location $AccelRoot
@@ -57,4 +62,5 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host ""
 Write-Host "AIRA Enterprise IP runtime started." -ForegroundColor Green
 Write-Host "Server IP: $ServerIp" -ForegroundColor Green
-Write-Host "Portal: http://$ServerIp:9090/portal/index.html" -ForegroundColor Green
+Write-Host "Allowed origins: $env:AIRA_PORTAL_ALLOWED_ORIGINS" -ForegroundColor Green
+Write-Host "Portal: http://$($ServerIp):9090/portal/index.html" -ForegroundColor Green

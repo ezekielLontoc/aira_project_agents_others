@@ -10,15 +10,11 @@ This hardening removes hardcoded localhost assumptions from the AIRA runtime and
 
 ## Server IP
 
-Detected server IP during hardening:
-
 192.168.179.193
 
 ## Portal
 
-The portal is available at:
-
-http:///portal/index.html
+http://192.168.179.193:9090/portal/index.html
 
 ## Runtime behavior
 
@@ -35,7 +31,7 @@ AIRA_PORTAL_ALLOWED_ORIGINS
 
 Current allowed origins:
 
-http://localhost:9090,http://
+http://localhost:9090,http://192.168.179.193:9090
 
 ## Protected APIs
 
