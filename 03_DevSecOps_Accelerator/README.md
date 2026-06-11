@@ -205,3 +205,22 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\show-cicd-quality-gate-summa
 GitHub Actions workflow:
 
 .github/workflows/aira-cicd-quality-gates.yml
+## Milestone 14 - AIRA Portal / Frontend Foundation
+
+AIRA now includes a dependency-light portal served by accelerator-api.
+
+Portal:
+
+http://localhost:9090/portal/index.html
+
+Portal readiness:
+
+http://localhost:9090/api/v1/portal/readiness
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-14-aira-portal.ps1"
+
+Show summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-portal-readiness-summary.ps1"

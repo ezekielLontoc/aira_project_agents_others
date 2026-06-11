@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AIRA Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/portal/assets/aira-portal.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">AIRA AI-Native Platform</p>
+      <h1>AIRA Portal</h1>
+      <p class="subtitle">Governed runtime dashboard for agents, governance, evidence, and quality gates.</p>
+    </div>
+    <div class="status-pill" id="overallStatus">Not checked</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel hero-panel">
+      <div>
+        <h2>Runtime Control Surface</h2>
+        <p>
+          This portal is served by accelerator-api and reads protected backend APIs using your local
+          <strong>X-AIRA-API-Key</strong>. It does not embed secrets.
+        </p>
+      </div>
+
+      <div class="key-card">
+        <label for="apiKeyInput">API key for protected runtime APIs</label>
+        <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Enter X-AIRA-API-Key">
+        <div class="button-row">
+          <button id="saveKeyButton" type="button">Save key locally</button>
+          <button id="useDevKeyButton" type="button" class="secondary">Use local dev key</button>
+          <button id="clearKeyButton" type="button" class="secondary">Clear</button>
+        </div>
+        <p class="small">The key is stored only in this browser localStorage for local development.</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Portal Readiness</h3>
+        <div class="metric" id="portalStatus">-</div>
+        <p id="portalDetails">Waiting for check.</p>
+      </article>
+
+      <article class="card">
+        <h3>Agent Registry</h3>
+        <div class="metric" id="agentStatus">-</div>
+        <p id="agentDetails">Waiting for check.</p>
+      </article>
+
+      <article class="card">
+        <h3>Governance</h3>
+        <div class="metric" id="governanceStatus">-</div>
+        <p id="governanceDetails">Waiting for check.</p>
+      </article>
+
+      <article class="card">
+        <h3>Evidence</h3>
+        <div class="metric" id="evidenceStatus">-</div>
+        <p id="evidenceDetails">Waiting for check.</p>
+      </article>
+
+      <article class="card">
+        <h3>Evidence Pack</h3>
+        <div class="metric" id="packStatus">-</div>
+        <p id="packDetails">Waiting for check.</p>
+      </article>
+
+      <article class="card">
+        <h3>Quality Gates</h3>
+        <div class="metric" id="gateStatus">-</div>
+        <p id="gateDetails">Waiting for check.</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-header">
+        <div>
+          <h2>Validation Console</h2>
+          <p>Run live checks against the AIRA runtime stack.</p>
+        </div>
+        <button id="runChecksButton" type="button">Run portal checks</button>
+      </div>
+      <pre id="consoleOutput" class="console">Ready.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Runtime Links</h2>
+      <div class="links">
+        <a href="http://localhost:9090/api/health" target="_blank" rel="noreferrer">accelerator-api health</a>
+        <a href="http://localhost:9090/api/v1/portal/readiness" target="_blank" rel="noreferrer">portal readiness</a>
+        <a href="http://localhost:9094/api/v1/agents/governance/summary" target="_blank" rel="noreferrer">agent summary</a>
+        <a href="http://localhost:9092/api/v1/governance/readiness" target="_blank" rel="noreferrer">governance readiness</a>
+        <a href="http://localhost:9093/api/v1/evidence/readiness" target="_blank" rel="noreferrer">evidence readiness</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Milestone 14 - AIRA Portal / Frontend Foundation</span>
+    <span>Fail-closed governed baseline</span>
+  </footer>
+
+  <script src="/portal/assets/aira-portal.js"></script>
+</body>
+</html>

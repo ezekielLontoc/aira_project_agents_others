@@ -23,6 +23,10 @@ public class ApiKeySecurityInterceptor implements HandlerInterceptor {
         String path = request.getRequestURI();
         String method = request.getMethod();
 
+        if ("OPTIONS".equalsIgnoreCase(method)) {
+            return true;
+        }
+
         if (isPublic(path)) {
             return true;
         }

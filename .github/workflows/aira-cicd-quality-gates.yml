@@ -56,6 +56,15 @@ jobs:
           test -f accelerator-agents/target/ROOT.war
           test -f accelerator-observability/target/ROOT.war
 
+      - name: Validate portal foundation files
+        shell: bash
+        run: |
+          test -f accelerator-api/src/main/resources/static/portal/index.html
+          test -f accelerator-api/src/main/resources/static/portal/assets/aira-portal.css
+          test -f accelerator-api/src/main/resources/static/portal/assets/aira-portal.js
+          test -f accelerator-api/src/main/java/com/aira/accelerator/api/portal/PortalController.java
+          grep -q "AIRA Portal" accelerator-api/src/main/resources/static/portal/index.html
+
       - name: Validate Dockerfiles
         shell: bash
         run: |

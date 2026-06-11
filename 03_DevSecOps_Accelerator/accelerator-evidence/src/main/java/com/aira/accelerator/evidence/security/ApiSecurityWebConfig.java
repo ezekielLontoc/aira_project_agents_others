@@ -1,6 +1,7 @@
 package com.aira.accelerator.evidence.security;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,5 +18,15 @@ public class ApiSecurityWebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(apiKeySecurityInterceptor)
                 .addPathPatterns("/api/v1/**");
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/v1/**")
+                .allowedOrigins("http://localhost:9090")
+                .allowedMethods("GET", "OPTIONS")
+                .allowedHeaders("X-AIRA-API-Key", "Content-Type", "Authorization")
+                .exposedHeaders("Content-Type")
+                .maxAge(3600);
     }
 }
