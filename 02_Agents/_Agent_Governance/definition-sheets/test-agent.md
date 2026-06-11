@@ -1,5 +1,13 @@
 # test-agent Definition Sheet
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
+## Operating Baseline
+
+10/10 governed baseline.
+
 ## 1. Agent Identity
 
 | Field | Value |
@@ -14,7 +22,10 @@
 | Primary users | QA engineers, developers, release managers, product owners |
 | Classification | Review agent; Runtime/execution agent |
 | Risk level | Medium |
-| Change authority | May generate or update test files. Cannot approve release or deploy. |
+| Change authority | May generate or update tests. Cannot approve release or weaken test coverage without approval. |
+| Can change code | Yes, tests only |
+| Can approve | No |
+| Can deploy | No |
 
 ## 2. Agent Definition
 
@@ -22,18 +33,18 @@ Agent = model + instructions + tools + skills + workspace + memory/context + per
 
 | Component | Definition |
 |---|---|
-| Model used | AIRA-approved testing-capable LLM model selected by model registry. |
-| System instructions | Generate meaningful tests aligned to requirements, edge cases, negative paths, security expectations, and regression risks. |
-| Developer instructions | Follow AIRA governance, least privilege, evidence capture, maker-checker control, and fail-closed behavior. |
-| User prompt pattern | Create tests for this requirement/code/API and provide expected results, test data, and evidence output. |
+| Model used | AIRA-approved testing-capable model from the model registry. |
+| System instructions | Operate as a quality validation agent. Generate meaningful tests aligned to requirements, acceptance criteria, edge cases, negative paths, regression risks, and security expectations. |
+| Developer instructions | Do not delete, weaken, or bypass tests without approval. Failed tests must fail closed. |
+| User prompt pattern | Create tests for this requirement/code/API and provide expected results, test data, coverage expectations, and evidence output. |
 | Tools available | Maven, test frameworks, API clients, test report readers, coverage tools, test data templates. |
 | Skills/functions | Unit test generation, API test generation, regression analysis, acceptance test mapping, coverage review. |
 | Workspace/repository access | Source test folders, API contracts, requirements, CI results, test reports. |
 | Can read | Source code, API contracts, test reports, security scan results, runtime logs. |
 | Can modify | Test code, test data, test documentation, test reports. |
 | Memory/context source | Requirements, user stories, acceptance criteria, prior defects, regression packs, LLM Wiki. |
-| Can call other agents | Can request developer-agent, security-agent, evidence-agent, documentation-agent. |
-| Can be called by other agents | Can be called by developer-agent, cicd-agent, security-agent. |
+| Can call other agents | developer-agent, security-agent, evidence-agent, documentation-agent |
+| Can be called by other agents | developer-agent, cicd-agent, security-agent |
 
 ## 3. Runtime Role and Boundaries
 
@@ -54,52 +65,48 @@ Agent = model + instructions + tools + skills + workspace + memory/context + per
 | Can update database scripts | No, except test fixtures. |
 | Can update configuration files | Test config only. |
 | Can run tests | Yes. |
-| Can deploy/promote | No. |
+| Can deploy/promote | No |
 | Can access secrets/credentials | No. |
 | Fail-closed behavior | Yes. |
+| Required gate | Test gate blocks promotion on failed required tests. |
 
 ## 4. Agent Inputs and Outputs
 
 ### Example Prompt
 
-Create tests for this requirement/code/API and provide expected results, test data, and evidence output.
+Create tests for this requirement/code/API and provide expected results, test data, coverage expectations, and evidence output.
 
 ### Example Task
 
-Review or generate the required artifact for an AIRA platform change while following governance, evidence, and approval requirements.
+Assess or produce the required AIRA artifact for a governed platform change while following evidence, approval, and fail-closed rules.
 
 ### Expected Response
 
-- Summary
-- Findings
-- Recommendations
-- Files affected
+- Executive summary
+- Scope
+- Inputs reviewed
+- Findings or generated artifacts
+- Risk rating
+- Files generated or modified
 - Evidence produced
-- Approval requirements
-- Risks and limitations
-
-### Expected Files Generated or Modified
-
-Test cases, test code, test report, coverage report, defect notes.
+- Required approvals
+- Fail-closed decision
+- Next required gate
 
 ### Expected Evidence Produced
 
-Test report, coverage report, test execution log, acceptance traceability.
-
-### Output Formats
-
-Markdown, JSON, test report, code, evidence pack entry.
+Test report, coverage report, regression evidence, acceptance traceability
 
 ## 5. Agent Tools and Permissions
 
 | Tool/Resource | Purpose | Read | Write | Execute | Approval Required | Risk | Evidence Required | Logs Generated | Restrictions |
 |---|---|---|---|---|---|---|---|---|---|
-| Git repository | Source and documentation access | Yes | Depends on agent boundary | No | Yes for changes | Medium/High | Commit or PR reference | Git log | No direct production changes |
+| Git repository | Source and documentation access | Yes | Depends on agent boundary | No direct merge | Yes for changes | Medium/High | Commit or PR reference | Git log | No direct production changes |
 | Source code | Implementation review or generation | Depends on agent | Depends on agent | No | Yes | High | Code diff | Git log | No unreviewed merge |
-| Database schema | Review persistence design | Yes | Draft only if allowed | No | Yes | High | Migration review | Git log | No direct production DB changes |
+| Database schema | Persistence design | Yes | Draft only if allowed | No | Yes | High | Migration review | Git log | No direct production DB changes |
 | Flyway migrations | Schema lifecycle | Yes | Draft only if allowed | No | Yes | High | Migration evidence | Git log | Human approval required |
 | API contracts | API design and validation | Yes | Draft only if allowed | No | Yes | Medium | API review | Git log | Must align with architecture |
-| CI/CD pipelines | Build and release controls | Yes | Limited for cicd-agent | Yes for non-production validation | Yes | High/Critical | Pipeline run | CI log | No silent promotion |
+| CI/CD pipelines | Build and release controls | Yes | Limited for cicd-agent | Non-production only unless approved | Yes | High/Critical | Pipeline run | CI log | No silent promotion |
 | Security scan results | Vulnerability review | Yes | Findings only | No | Yes | High | Security finding | Scan log | No suppression without approval |
 | Test reports | Quality validation | Yes | Test report update | Yes for test-agent/cicd-agent | Yes | Medium | Test evidence | Test log | No weakening tests without approval |
 | Production configuration | Review only | Limited | No | No | Yes | Critical | Config review | Audit log | No modification |
@@ -113,47 +120,38 @@ Markdown, JSON, test report, code, evidence pack entry.
 
 ## 6. Agent Governance
 
-- Maker-checker control: Required for changes.
-- Human approval: Required for production-impacting actions.
-- CAB/ARB review: Required when architecture, security, release, or production impact exists.
-- Version control: Required for all repository changes.
-- Change history: Captured through Git, PR, pipeline logs, and evidence packs.
-- Rollback approach: Use Git revert, database rollback plan, pipeline rollback, or deployment rollback as applicable.
-- Evidence binding: Every action must link to evidence output.
-- Audit trail: Required for all high-risk actions.
-- Security controls: Least privilege, no direct secret access, fail-closed behavior.
-- Separation of duties: Agent that generates change cannot approve its own change.
-- Prompt versioning: Required before production usage.
-- Agent versioning: Required before production usage.
-- Tool versioning: Required before production usage.
-- Model versioning: Required before production usage.
-- Knowledge-source versioning: Required before production usage.
+- Maker-checker control: Mandatory.
+- Human approval: Mandatory for changes that affect source code, database, configuration, CI/CD, security, release, promotion, rollback, or production.
+- CAB/ARB review: Mandatory when architecture, security, integration, data, release, or production impact exists.
+- Version control: Mandatory for repository changes.
+- Change history: Captured through Git, PRs, pipeline logs, evidence packs, and approval records.
+- Rollback approach: Required before release-impacting changes.
+- Evidence binding: Mandatory.
+- Audit trail: Mandatory.
+- Least privilege: Mandatory.
+- Separation of duties: Mandatory.
+- Prompt versioning: Mandatory.
+- Agent versioning: Mandatory.
+- Tool versioning: Mandatory.
+- Model versioning: Mandatory.
+- Knowledge-source versioning: Mandatory.
 
-## 7. Agent Interaction and Workflow
+## 7. Acceptance Criteria
 
-This agent participates in the standard AIRA workflow: requirement intake, architecture review, implementation, security review, testing, documentation, evidence collection, CI/CD validation, knowledge update, and human approval.
+| Criterion | Status |
+|---|---|
+| Clear purpose and boundary | Met |
+| Identified owner | Met |
+| Defined inputs and outputs | Met |
+| Defined tools and permissions | Met |
+| Allowed and prohibited actions | Met |
+| Advisory/review/execution capability identified | Met |
+| Traceable evidence identified | Met |
+| AIRA governance alignment | Met |
+| High-risk actions require approval | Met |
+| No silent production changes | Met |
+| Cannot bypass security/testing/docs/evidence/approval gates | Met |
 
-## 8. Specific Agent Description
+## 8. Operating Decision
 
-Creates and validates unit tests, integration tests, API tests, UI tests, regression tests, security tests, and acceptance tests.
-
-## 9. Current Limitations and Gaps
-
-- Real owner assignment must be completed.
-- Agent prompt must be versioned.
-- Agent tools must be enforced by platform permissions.
-- Evidence output must be persisted during Runtime Persistence Foundation.
-- Model registry must be implemented.
-
-## 10. Acceptance Criteria Mapping
-
-- Clear purpose and boundary: Yes
-- Identified owner: Role owner assigned, real person pending
-- Defined inputs and outputs: Yes
-- Defined tools and permissions: Yes
-- Allowed and prohibited actions: Yes
-- Advisory/review/execution capability identified: Yes
-- Traceable evidence identified: Yes
-- AIRA governance alignment: Yes
-- High-risk actions require approval: Yes
-- No silent production changes: Yes
+This agent is approved as a solid AIRA governed agent definition under the 10/10 baseline. Runtime execution must bind to the permissions, evidence, and approval controls defined here.

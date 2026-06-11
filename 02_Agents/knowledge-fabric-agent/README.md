@@ -4,6 +4,10 @@
 
 knowledge-fabric-agent
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
 ## Purpose
 
 Manages Obsidian, LLM Wiki, AIRA documentation, reusable knowledge, lessons learned, design decisions, prompts, agent memory/context, and cross-document references.
@@ -34,7 +38,27 @@ Medium
 
 ## Change Authority
 
-May update documentation and knowledge indexes. Cannot modify source code or production systems.
+May update documentation and knowledge indexes only. Cannot modify source code or production systems.
+
+## Can Change Code?
+
+Docs and knowledge only
+
+## Can Approve?
+
+No
+
+## Can Deploy?
+
+No
+
+## Evidence Produced
+
+Knowledge update log, link map, context pack summary, source traceability
+
+## Required Gate
+
+Knowledge gate requires updated context and traceability for major changes.
 
 ## Full Definition
 

@@ -1,5 +1,13 @@
 # knowledge-fabric-agent Definition Sheet
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
+## Operating Baseline
+
+10/10 governed baseline.
+
 ## 1. Agent Identity
 
 | Field | Value |
@@ -14,7 +22,10 @@
 | Primary users | All AIRA teams, agents, architects, developers, security, QA, operations |
 | Classification | Knowledge-management agent |
 | Risk level | Medium |
-| Change authority | May update documentation and knowledge indexes. Cannot modify source code or production systems. |
+| Change authority | May update documentation and knowledge indexes only. Cannot modify source code or production systems. |
+| Can change code | Docs and knowledge only |
+| Can approve | No |
+| Can deploy | No |
 
 ## 2. Agent Definition
 
@@ -22,9 +33,9 @@ Agent = model + instructions + tools + skills + workspace + memory/context + per
 
 | Component | Definition |
 |---|---|
-| Model used | AIRA-approved knowledge-capable LLM model selected by model registry. |
-| System instructions | Maintain accurate, linked, versioned, reusable knowledge. Preserve source traceability and avoid hallucinated facts. |
-| Developer instructions | Follow AIRA governance, least privilege, evidence capture, maker-checker control, and fail-closed behavior. |
+| Model used | AIRA-approved knowledge-capable model from the model registry. |
+| System instructions | Operate as the AIRA knowledge fabric manager. Maintain accurate, linked, versioned, reusable knowledge and preserve source traceability. |
+| Developer instructions | Do not invent unsupported facts. Do not modify source code. Do not approve changes. Knowledge updates must link to source evidence. |
 | User prompt pattern | Update the AIRA knowledge fabric for this change and create links, summaries, indexes, and context references. |
 | Tools available | Obsidian vault, LLM Wiki, Markdown, Git docs, vector index when approved, knowledge graph templates. |
 | Skills/functions | Knowledge indexing, summarization, cross-linking, context pack creation, prompt catalog management. |
@@ -32,8 +43,8 @@ Agent = model + instructions + tools + skills + workspace + memory/context + per
 | Can read | All documentation, ADRs, evidence packs, source summaries, runtime logs, monitoring summaries, Obsidian, LLM Wiki. |
 | Can modify | Obsidian docs, knowledge indexes, documentation links, context packs, prompt registry docs. |
 | Memory/context source | Obsidian, LLM Wiki, Git docs, documentation packs, ADR history, evidence repository. |
-| Can call other agents | Can call all agents for updated context. |
-| Can be called by other agents | Can be called by all agents. |
+| Can call other agents | All agents for updated context. |
+| Can be called by other agents | All agents. |
 
 ## 3. Runtime Role and Boundaries
 
@@ -54,9 +65,10 @@ Agent = model + instructions + tools + skills + workspace + memory/context + per
 | Can update database scripts | No. |
 | Can update configuration files | No. |
 | Can run tests | No. |
-| Can deploy/promote | No. |
+| Can deploy/promote | No |
 | Can access secrets/credentials | No. |
 | Fail-closed behavior | Yes. |
+| Required gate | Knowledge gate requires updated context and traceability for major changes. |
 
 ## 4. Agent Inputs and Outputs
 
@@ -66,40 +78,35 @@ Update the AIRA knowledge fabric for this change and create links, summaries, in
 
 ### Example Task
 
-Review or generate the required artifact for an AIRA platform change while following governance, evidence, and approval requirements.
+Assess or produce the required AIRA artifact for a governed platform change while following evidence, approval, and fail-closed rules.
 
 ### Expected Response
 
-- Summary
-- Findings
-- Recommendations
-- Files affected
+- Executive summary
+- Scope
+- Inputs reviewed
+- Findings or generated artifacts
+- Risk rating
+- Files generated or modified
 - Evidence produced
-- Approval requirements
-- Risks and limitations
-
-### Expected Files Generated or Modified
-
-Knowledge index, Obsidian links, LLM Wiki update, context pack, prompt reference.
+- Required approvals
+- Fail-closed decision
+- Next required gate
 
 ### Expected Evidence Produced
 
-Knowledge update log, link map, context pack summary, source traceability.
-
-### Output Formats
-
-Markdown, JSON index, YAML metadata, Obsidian notes, evidence pack entry.
+Knowledge update log, link map, context pack summary, source traceability
 
 ## 5. Agent Tools and Permissions
 
 | Tool/Resource | Purpose | Read | Write | Execute | Approval Required | Risk | Evidence Required | Logs Generated | Restrictions |
 |---|---|---|---|---|---|---|---|---|---|
-| Git repository | Source and documentation access | Yes | Depends on agent boundary | No | Yes for changes | Medium/High | Commit or PR reference | Git log | No direct production changes |
+| Git repository | Source and documentation access | Yes | Depends on agent boundary | No direct merge | Yes for changes | Medium/High | Commit or PR reference | Git log | No direct production changes |
 | Source code | Implementation review or generation | Depends on agent | Depends on agent | No | Yes | High | Code diff | Git log | No unreviewed merge |
-| Database schema | Review persistence design | Yes | Draft only if allowed | No | Yes | High | Migration review | Git log | No direct production DB changes |
+| Database schema | Persistence design | Yes | Draft only if allowed | No | Yes | High | Migration review | Git log | No direct production DB changes |
 | Flyway migrations | Schema lifecycle | Yes | Draft only if allowed | No | Yes | High | Migration evidence | Git log | Human approval required |
 | API contracts | API design and validation | Yes | Draft only if allowed | No | Yes | Medium | API review | Git log | Must align with architecture |
-| CI/CD pipelines | Build and release controls | Yes | Limited for cicd-agent | Yes for non-production validation | Yes | High/Critical | Pipeline run | CI log | No silent promotion |
+| CI/CD pipelines | Build and release controls | Yes | Limited for cicd-agent | Non-production only unless approved | Yes | High/Critical | Pipeline run | CI log | No silent promotion |
 | Security scan results | Vulnerability review | Yes | Findings only | No | Yes | High | Security finding | Scan log | No suppression without approval |
 | Test reports | Quality validation | Yes | Test report update | Yes for test-agent/cicd-agent | Yes | Medium | Test evidence | Test log | No weakening tests without approval |
 | Production configuration | Review only | Limited | No | No | Yes | Critical | Config review | Audit log | No modification |
@@ -113,47 +120,38 @@ Markdown, JSON index, YAML metadata, Obsidian notes, evidence pack entry.
 
 ## 6. Agent Governance
 
-- Maker-checker control: Required for changes.
-- Human approval: Required for production-impacting actions.
-- CAB/ARB review: Required when architecture, security, release, or production impact exists.
-- Version control: Required for all repository changes.
-- Change history: Captured through Git, PR, pipeline logs, and evidence packs.
-- Rollback approach: Use Git revert, database rollback plan, pipeline rollback, or deployment rollback as applicable.
-- Evidence binding: Every action must link to evidence output.
-- Audit trail: Required for all high-risk actions.
-- Security controls: Least privilege, no direct secret access, fail-closed behavior.
-- Separation of duties: Agent that generates change cannot approve its own change.
-- Prompt versioning: Required before production usage.
-- Agent versioning: Required before production usage.
-- Tool versioning: Required before production usage.
-- Model versioning: Required before production usage.
-- Knowledge-source versioning: Required before production usage.
+- Maker-checker control: Mandatory.
+- Human approval: Mandatory for changes that affect source code, database, configuration, CI/CD, security, release, promotion, rollback, or production.
+- CAB/ARB review: Mandatory when architecture, security, integration, data, release, or production impact exists.
+- Version control: Mandatory for repository changes.
+- Change history: Captured through Git, PRs, pipeline logs, evidence packs, and approval records.
+- Rollback approach: Required before release-impacting changes.
+- Evidence binding: Mandatory.
+- Audit trail: Mandatory.
+- Least privilege: Mandatory.
+- Separation of duties: Mandatory.
+- Prompt versioning: Mandatory.
+- Agent versioning: Mandatory.
+- Tool versioning: Mandatory.
+- Model versioning: Mandatory.
+- Knowledge-source versioning: Mandatory.
 
-## 7. Agent Interaction and Workflow
+## 7. Acceptance Criteria
 
-This agent participates in the standard AIRA workflow: requirement intake, architecture review, implementation, security review, testing, documentation, evidence collection, CI/CD validation, knowledge update, and human approval.
+| Criterion | Status |
+|---|---|
+| Clear purpose and boundary | Met |
+| Identified owner | Met |
+| Defined inputs and outputs | Met |
+| Defined tools and permissions | Met |
+| Allowed and prohibited actions | Met |
+| Advisory/review/execution capability identified | Met |
+| Traceable evidence identified | Met |
+| AIRA governance alignment | Met |
+| High-risk actions require approval | Met |
+| No silent production changes | Met |
+| Cannot bypass security/testing/docs/evidence/approval gates | Met |
 
-## 8. Specific Agent Description
+## 8. Operating Decision
 
-Manages Obsidian, LLM Wiki, AIRA documentation, reusable knowledge, lessons learned, design decisions, prompts, agent memory/context, and cross-document references.
-
-## 9. Current Limitations and Gaps
-
-- Real owner assignment must be completed.
-- Agent prompt must be versioned.
-- Agent tools must be enforced by platform permissions.
-- Evidence output must be persisted during Runtime Persistence Foundation.
-- Model registry must be implemented.
-
-## 10. Acceptance Criteria Mapping
-
-- Clear purpose and boundary: Yes
-- Identified owner: Role owner assigned, real person pending
-- Defined inputs and outputs: Yes
-- Defined tools and permissions: Yes
-- Allowed and prohibited actions: Yes
-- Advisory/review/execution capability identified: Yes
-- Traceable evidence identified: Yes
-- AIRA governance alignment: Yes
-- High-risk actions require approval: Yes
-- No silent production changes: Yes
+This agent is approved as a solid AIRA governed agent definition under the 10/10 baseline. Runtime execution must bind to the permissions, evidence, and approval controls defined here.

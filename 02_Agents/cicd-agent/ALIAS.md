@@ -18,4 +18,8 @@ The correct repository and technical name is:
 
 cicd-agent
 
-The term cicid-agent is treated as a typo and should not be used in future documentation, source folders, prompts, or governance records.
+The term cicid-agent is a typo and must not be used in future documentation, folders, prompts, governance records, agent registries, or runtime references.
+
+## Control
+
+Any reference to cicid-agent must be corrected to cicd-agent during documentation review, agent registry review, and release governance review.

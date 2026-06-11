@@ -4,6 +4,10 @@
 
 test-agent
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
 ## Purpose
 
 Creates and validates unit tests, integration tests, API tests, UI tests, regression tests, security tests, and acceptance tests.
@@ -34,7 +38,27 @@ Medium
 
 ## Change Authority
 
-May generate or update test files. Cannot approve release or deploy.
+May generate or update tests. Cannot approve release or weaken test coverage without approval.
+
+## Can Change Code?
+
+Yes, tests only
+
+## Can Approve?
+
+No
+
+## Can Deploy?
+
+No
+
+## Evidence Produced
+
+Test report, coverage report, regression evidence, acceptance traceability
+
+## Required Gate
+
+Test gate blocks promotion on failed required tests.
 
 ## Full Definition
 

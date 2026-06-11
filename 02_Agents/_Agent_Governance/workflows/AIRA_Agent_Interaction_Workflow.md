@@ -1,5 +1,9 @@
 # AIRA Agent Interaction Workflow
 
+## Status
+
+Accepted
+
 ## Standard Flow
 
 New Requirement
@@ -15,23 +19,54 @@ New Requirement
 -> Merge or Reject
 -> Promotion Recommendation
 
+## Text Diagram
+
+[Requirement]
+      |
+      v
+[architecture-agent]
+      |
+      v
+[developer-agent]
+      |
+      +--> [security-agent]
+      |
+      +--> [test-agent]
+      |
+      +--> [documentation-agent]
+      |
+      v
+[evidence-agent]
+      |
+      v
+[cicd-agent]
+      |
+      v
+[knowledge-fabric-agent]
+      |
+      v
+[Human Approver]
+      |
+      +--> Merge
+      +--> Reject
+      +--> Request Rework
+      +--> Approve Promotion
+
 ## Workflow Details
 
 ### 1. New Requirement
 
-Started by product owner, architect, platform lead, or developer.
-
-architecture-agent reviews the requirement for enterprise alignment, solution boundaries, integration design, API design, data impact, and ADR needs.
+architecture-agent reviews the requirement for enterprise architecture alignment, design boundaries, API impact, database impact, integration impact, and ADR requirements.
 
 ### 2. Code Generation
 
-developer-agent creates proposed code, configuration, API contracts, or migration drafts in a branch.
+developer-agent drafts code, configuration, tests, API contracts, or migration drafts in a branch.
 
 developer-agent cannot approve or deploy its own output.
 
 ### 3. Security Review
 
-security-agent reviews authentication, authorization, RBAC, ABAC, OPA policies, secrets handling, vulnerabilities, secure coding, and fail-closed behavior.
+security-agent reviews authentication, authorization, RBAC, ABAC, OPA, secrets handling, vulnerabilities, secure coding, and fail-closed behavior.
 
 High and critical findings block promotion.
 
@@ -39,15 +74,19 @@ High and critical findings block promotion.
 
 test-agent creates or updates unit tests, integration tests, API tests, regression tests, security tests, and acceptance tests.
 
-test-agent produces test evidence and coverage evidence.
+Failed required tests block promotion.
 
 ### 5. Documentation Update
 
 documentation-agent updates README files, architecture docs, API docs, release notes, decision records, and Obsidian documentation.
 
+Missing required documentation blocks release readiness.
+
 ### 6. Evidence Collection
 
 evidence-agent collects commits, pull requests, test results, security scans, CI/CD logs, approvals, screenshots, deployment records, and runtime logs.
+
+Missing required evidence blocks promotion.
 
 ### 7. CI/CD Validation
 
@@ -61,21 +100,25 @@ knowledge-fabric-agent updates Obsidian, LLM Wiki, cross-document references, co
 
 ### 9. Approval and Promotion
 
-Human approver reviews outputs and evidence.
+Human approver reviews all outputs and evidence.
 
 Only approved changes may be merged or promoted.
 
-## Review Responsibilities
+## Promotion Recommendation
 
-| Responsibility | Agent |
-|---|---|
-| Starts architecture workflow | architecture-agent |
-| Drafts implementation | developer-agent |
-| Reviews security | security-agent |
-| Validates tests | test-agent |
-| Prepares documentation | documentation-agent |
-| Produces evidence | evidence-agent |
-| Validates CI/CD | cicd-agent |
-| Updates knowledge | knowledge-fabric-agent |
-| Recommends promotion | cicd-agent with architecture/security/test/evidence inputs |
-| Approves promotion | Human approver only |
+cicd-agent may recommend promotion only when:
+
+- Architecture gate passed
+- Development gate passed
+- Security gate passed
+- Test gate passed
+- Documentation gate passed
+- Evidence gate passed
+- CI/CD gate passed
+- Rollback gate passed
+- Knowledge gate passed
+- Human approval exists
+
+## Final Approval
+
+Only a human approver can approve merge, release, production deployment, or promotion.

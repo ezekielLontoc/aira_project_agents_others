@@ -1,10 +1,14 @@
 # AIRA Agent Sample Prompts and Outputs
 
+## Status
+
+Accepted
+
 ## architecture-agent
 
 ### Example Prompt
 
-Review this architecture/design/API/database/workflow against AIRA standards and produce findings, recommendations, ADR impacts, and evidence.
+Review this architecture/design/API/database/workflow against AIRA standards and produce findings, recommendations, ADR impacts, risks, and evidence.
 
 ### Example Task
 
@@ -12,27 +16,26 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-ADR, architecture review report, design review checklist, decision traceability record.
-
-### Output Format
-
-Markdown, ADR, review matrix, JSON finding summary, evidence pack entry.
+ADR, design review, architecture risk review, standard alignment record
 
 ## developer-agent
 
 ### Example Prompt
 
-Implement this requirement within the AIRA repository using existing standards. Produce code, tests, documentation notes, and evidence.
+Implement this approved requirement within the AIRA repository using existing standards. Produce code, tests, documentation notes, risk notes, and evidence.
 
 ### Example Task
 
@@ -40,21 +43,20 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Code diff, PR summary, build log, test log, implementation evidence.
-
-### Output Format
-
-Code, Markdown, JSON, YAML, PR draft, test report, evidence pack entry.
+PR draft, code diff, build log, implementation notes, test evidence
 
 ## security-agent
 
@@ -68,27 +70,26 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Security finding, threat model, policy review, vulnerability triage, approval record.
-
-### Output Format
-
-Security finding, Markdown, JSON, evidence pack entry, policy review.
+Security finding, threat model, policy review, vulnerability triage, approval requirement
 
 ## test-agent
 
 ### Example Prompt
 
-Create tests for this requirement/code/API and provide expected results, test data, and evidence output.
+Create tests for this requirement/code/API and provide expected results, test data, coverage expectations, and evidence output.
 
 ### Example Task
 
@@ -96,21 +97,20 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Test report, coverage report, test execution log, acceptance traceability.
-
-### Output Format
-
-Markdown, JSON, test report, code, evidence pack entry.
+Test report, coverage report, regression evidence, acceptance traceability
 
 ## documentation-agent
 
@@ -124,21 +124,20 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Documentation update record, release notes, linked evidence references.
-
-### Output Format
-
-Markdown, ADR, release notes, API documentation, evidence pack entry.
+Documentation update record, release notes, linked evidence references
 
 ## evidence-agent
 
@@ -152,21 +151,20 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Evidence pack, audit trail, traceability matrix, missing evidence report.
-
-### Output Format
-
-Markdown, JSON, evidence pack, audit log, traceability matrix.
+Evidence pack, audit trail, traceability matrix, missing evidence check
 
 ## cicd-agent
 
@@ -180,21 +178,20 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Pipeline logs, scan results, build logs, release gate report, rollback checklist.
-
-### Output Format
-
-Markdown, JSON, pipeline report, security finding summary, evidence pack entry.
+Pipeline logs, scan results, build logs, release gate report, rollback checklist
 
 ## knowledge-fabric-agent
 
@@ -208,19 +205,18 @@ Assess or produce the required AIRA artifact for a governed platform change.
 
 ### Expected Response
 
-- Summary
+- Executive summary
 - Scope
+- Inputs reviewed
 - Findings or generated artifacts
-- Risks
+- Risk rating
 - Files generated or modified
 - Evidence produced
 - Approval requirements
+- Fail-closed decision
+- Next gate
 
 ### Expected Evidence
 
-Knowledge update log, link map, context pack summary, source traceability.
-
-### Output Format
-
-Markdown, JSON index, YAML metadata, Obsidian notes, evidence pack entry.
+Knowledge update log, link map, context pack summary, source traceability
 

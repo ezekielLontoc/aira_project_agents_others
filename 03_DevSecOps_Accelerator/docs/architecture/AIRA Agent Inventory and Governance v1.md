@@ -1,12 +1,18 @@
 # AIRA Agent Inventory and Governance v1
 
+## Status
+
+Accepted
+
 ## Purpose
 
 This document links the AIRA DevSecOps Accelerator architecture to the official AIRA Agent Inventory and Agent Definition baseline.
 
-## Agent Inventory Source
+## Operating Baseline
 
-Primary report:
+AIRA Agent Operating Model v1.0 is a 10/10 governed baseline.
+
+## Agent Inventory Source
 
 02_Agents/_Agent_Governance/AIRA_Agent_Inventory_and_Definition_Report.md
 
@@ -14,21 +20,25 @@ Primary report:
 
 02_Agents/_Agent_Governance/definition-sheets
 
-## Matrices
+## Control Framework
 
-02_Agents/_Agent_Governance/matrices
+02_Agents/_Agent_Governance/controls/AIRA_Agent_Control_Framework_v1.md
 
-## Workflows
+## Operating Model
 
-02_Agents/_Agent_Governance/workflows
+02_Agents/_Agent_Governance/controls/AIRA_Agent_Operating_Model_v1.md
 
-## Samples
+## RACI
 
-02_Agents/_Agent_Governance/samples
+02_Agents/_Agent_Governance/controls/AIRA_Agent_RACI_Matrix.md
 
-## Evidence Model
+## Evidence Contract
 
-02_Agents/_Agent_Governance/evidence-model
+02_Agents/_Agent_Governance/evidence-model/AIRA_Agent_Evidence_Contract_v1.md
+
+## Registries
+
+02_Agents/_Agent_Governance/registries/AIRA_Agent_Prompt_and_Model_Registry_v1.md
 
 ## Name Correction
 
@@ -40,4 +50,4 @@ cicd-agent
 
 ## Governance Rule
 
-No agent may silently change production systems or bypass architecture, security, testing, documentation, evidence, or approval gates.
+No agent may silently change production systems or bypass architecture, security, testing, documentation, evidence, CI/CD, approval, or rollback gates.

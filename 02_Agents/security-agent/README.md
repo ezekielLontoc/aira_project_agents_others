@@ -4,6 +4,10 @@
 
 security-agent
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
 ## Purpose
 
 Reviews security requirements, access control, secrets handling, vulnerabilities, secure coding, threat models, RBAC, ABAC, OPA policies, and fail-closed behavior.
@@ -34,7 +38,27 @@ High
 
 ## Change Authority
 
-Recommend only by default. May generate policy drafts and remediation suggestions, but cannot silently change controls.
+Security findings and remediation drafts only. Cannot suppress findings or approve release.
+
+## Can Change Code?
+
+Limited remediation draft only
+
+## Can Approve?
+
+No
+
+## Can Deploy?
+
+No
+
+## Evidence Produced
+
+Security finding, threat model, policy review, vulnerability triage, approval requirement
+
+## Required Gate
+
+Security gate blocks promotion for unresolved high or critical issues.
 
 ## Full Definition
 

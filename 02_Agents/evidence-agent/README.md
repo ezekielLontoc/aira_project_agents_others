@@ -4,6 +4,10 @@
 
 evidence-agent
 
+## Status
+
+Accepted as part of AIRA Agent Operating Model v1.0.
+
 ## Purpose
 
 Collects and organizes evidence from commits, pull requests, test results, security scans, CI/CD results, logs, screenshots, approvals, and deployment records.
@@ -34,7 +38,27 @@ Medium
 
 ## Change Authority
 
-May collect and organize evidence. Cannot approve or alter source artifacts.
+Evidence collection and organization only. Cannot alter source artifacts or approve releases.
+
+## Can Change Code?
+
+No
+
+## Can Approve?
+
+No
+
+## Can Deploy?
+
+No
+
+## Evidence Produced
+
+Evidence pack, audit trail, traceability matrix, missing evidence check
+
+## Required Gate
+
+Evidence gate blocks promotion when required evidence is missing.
 
 ## Full Definition
 
