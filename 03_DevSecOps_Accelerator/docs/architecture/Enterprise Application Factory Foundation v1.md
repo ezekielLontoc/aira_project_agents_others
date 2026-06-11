@@ -25,25 +25,25 @@ It enables AIRA to help generate enterprise applications from approved blueprint
 
 ## Protected API base
 
-/api/v1/application-factory
+/api/v1/agents/application-factory
 
 ## Endpoints
 
-GET /api/v1/application-factory/readiness
+GET /api/v1/agents/application-factory/readiness
 
-GET /api/v1/application-factory/capabilities
+GET /api/v1/agents/application-factory/capabilities
 
-GET /api/v1/application-factory/templates
+GET /api/v1/agents/application-factory/templates
 
-GET /api/v1/application-factory/generators
+GET /api/v1/agents/application-factory/generators
 
-GET /api/v1/application-factory/orchestration-steps
+GET /api/v1/agents/application-factory/orchestration-steps
 
-GET /api/v1/application-factory/acceptance-gates
+GET /api/v1/agents/application-factory/acceptance-gates
 
-GET /api/v1/application-factory/production-profiles
+GET /api/v1/agents/application-factory/production-profiles
 
-GET /api/v1/application-factory/blueprint-requests
+GET /api/v1/agents/application-factory/blueprint-requests
 
 ## Governance
 

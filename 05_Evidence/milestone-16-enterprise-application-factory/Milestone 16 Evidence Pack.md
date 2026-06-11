@@ -8,6 +8,10 @@ Accepted after validation.
 
 This evidence pack covers the Enterprise Application Factory Foundation.
 
+## Protected API base
+
+/api/v1/agents/application-factory
+
 ## Source files
 
 | Evidence | Location |

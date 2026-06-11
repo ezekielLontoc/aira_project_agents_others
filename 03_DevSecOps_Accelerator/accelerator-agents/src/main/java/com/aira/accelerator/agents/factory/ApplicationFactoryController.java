@@ -15,42 +15,42 @@ public class ApplicationFactoryController {
         this.applicationFactoryService = applicationFactoryService;
     }
 
-    @GetMapping("/api/v1/application-factory/readiness")
+    @GetMapping("/api/v1/agents/application-factory/readiness")
     public Map<String, Object> readiness() {
         return applicationFactoryService.readiness();
     }
 
-    @GetMapping("/api/v1/application-factory/capabilities")
+    @GetMapping("/api/v1/agents/application-factory/capabilities")
     public List<Map<String, Object>> capabilities() {
         return applicationFactoryService.capabilities();
     }
 
-    @GetMapping("/api/v1/application-factory/templates")
+    @GetMapping("/api/v1/agents/application-factory/templates")
     public List<Map<String, Object>> templates() {
         return applicationFactoryService.templates();
     }
 
-    @GetMapping("/api/v1/application-factory/generators")
+    @GetMapping("/api/v1/agents/application-factory/generators")
     public List<Map<String, Object>> generators() {
         return applicationFactoryService.generators();
     }
 
-    @GetMapping("/api/v1/application-factory/orchestration-steps")
+    @GetMapping("/api/v1/agents/application-factory/orchestration-steps")
     public List<Map<String, Object>> orchestrationSteps() {
         return applicationFactoryService.orchestrationSteps();
     }
 
-    @GetMapping("/api/v1/application-factory/acceptance-gates")
+    @GetMapping("/api/v1/agents/application-factory/acceptance-gates")
     public List<Map<String, Object>> acceptanceGates() {
         return applicationFactoryService.acceptanceGates();
     }
 
-    @GetMapping("/api/v1/application-factory/production-profiles")
+    @GetMapping("/api/v1/agents/application-factory/production-profiles")
     public List<Map<String, Object>> productionProfiles() {
         return applicationFactoryService.productionProfiles();
     }
 
-    @GetMapping("/api/v1/application-factory/blueprint-requests")
+    @GetMapping("/api/v1/agents/application-factory/blueprint-requests")
     public List<Map<String, Object>> blueprintRequests() {
         return applicationFactoryService.blueprintRequests();
     }
