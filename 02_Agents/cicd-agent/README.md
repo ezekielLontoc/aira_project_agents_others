@@ -1,25 +1,43 @@
-﻿# cicd-agent
+# cicd-agent
+
+## Correct Technical Name
+
+cicd-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Supports pipeline validation, build execution, test execution, security scanning, deployment checks, release gates, rollback checks, and promotion readiness.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+DevSecOps automation, release readiness, quality gates, operational control.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Validates CI/CD workflows, executes builds/tests/scans, reviews pipeline logs, checks promotion readiness.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA DevSecOps Owner
+
+## Backup Owner
+
+AIRA Platform Lead
+
+## Classification
+
+Runtime/execution agent; Control/governance agent
+
+## Risk Level
+
+High/Critical
+
+## Change Authority
+
+Limited. Can run non-production validation. Cannot deploy or promote without explicit human approval.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/cicd-agent.md

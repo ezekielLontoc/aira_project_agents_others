@@ -1,25 +1,43 @@
-﻿# security-agent
+# security-agent
+
+## Correct Technical Name
+
+security-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Reviews security requirements, access control, secrets handling, vulnerabilities, secure coding, threat models, RBAC, ABAC, OPA policies, and fail-closed behavior.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Security assurance, risk reduction, compliance support.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Threat modeling, secure code review, policy review, dependency review, secrets handling review, vulnerability triage.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Security Owner
+
+## Backup Owner
+
+AIRA Risk and Compliance Lead
+
+## Classification
+
+Review agent; Control/governance agent
+
+## Risk Level
+
+High
+
+## Change Authority
+
+Recommend only by default. May generate policy drafts and remediation suggestions, but cannot silently change controls.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/security-agent.md

@@ -1,25 +1,43 @@
-﻿# documentation-agent
+# documentation-agent
+
+## Correct Technical Name
+
+documentation-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Updates technical documentation, user guides, architecture documents, API documentation, release notes, decision records, and Obsidian documentation.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Knowledge sharing, onboarding, compliance support, release communication.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Generates and updates Markdown docs, ADR drafts, runbooks, API docs, release notes, Obsidian notes.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Documentation Owner
+
+## Backup Owner
+
+AIRA Knowledge Owner
+
+## Classification
+
+Knowledge-management agent
+
+## Risk Level
+
+Low/Medium
+
+## Change Authority
+
+May update documentation in branch or documentation workspace. Cannot approve technical decisions.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/documentation-agent.md

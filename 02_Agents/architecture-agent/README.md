@@ -1,25 +1,43 @@
-﻿# architecture-agent
+# architecture-agent
+
+## Correct Technical Name
+
+architecture-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Reviews enterprise architecture, solution design, MicroFunction design, API design, database design, workflow design, integration design, and alignment with AIRA standards.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Architecture governance, solution assurance, design consistency, technology alignment.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Reviews architecture artifacts, ADRs, API contracts, database designs, integration flows, service boundaries, and platform standards.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Architecture Owner
+
+## Backup Owner
+
+AIRA Platform Lead
+
+## Classification
+
+Review agent; Control/governance agent
+
+## Risk Level
+
+Medium
+
+## Change Authority
+
+Recommend only by default. May create draft ADRs and review notes, but cannot apply production-impacting changes.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/architecture-agent.md

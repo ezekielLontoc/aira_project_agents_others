@@ -1,25 +1,43 @@
-﻿# knowledge-fabric-agent
+# knowledge-fabric-agent
+
+## Correct Technical Name
+
+knowledge-fabric-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Manages Obsidian, LLM Wiki, AIRA documentation, reusable knowledge, lessons learned, design decisions, prompts, agent memory/context, and cross-document references.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Enterprise knowledge management, memory, reuse, decision continuity.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Indexes knowledge, links documents, maintains context packs, updates Obsidian and LLM Wiki references.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Knowledge Owner
+
+## Backup Owner
+
+AIRA Documentation Owner
+
+## Classification
+
+Knowledge-management agent
+
+## Risk Level
+
+Medium
+
+## Change Authority
+
+May update documentation and knowledge indexes. Cannot modify source code or production systems.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/knowledge-fabric-agent.md

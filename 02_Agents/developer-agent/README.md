@@ -1,25 +1,43 @@
-﻿# developer-agent
+# developer-agent
+
+## Correct Technical Name
+
+developer-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Generates, modifies, or reviews code, configuration, API contracts, MicroFunctions, database migration drafts, and implementation notes.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Software delivery acceleration, implementation support, code quality improvement.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Creates source code, refactors code, generates configuration, API contracts, database migration drafts, and unit test scaffolds.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Development Lead
+
+## Backup Owner
+
+AIRA Platform Lead
+
+## Classification
+
+Code-generation agent; Runtime/execution agent with restrictions
+
+## Risk Level
+
+High
+
+## Change Authority
+
+May generate files in a branch or local workspace. Cannot merge, deploy, or promote changes without approval.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/developer-agent.md

@@ -1,25 +1,43 @@
-﻿# evidence-agent
+# evidence-agent
+
+## Correct Technical Name
+
+evidence-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Collects and organizes evidence from commits, pull requests, test results, security scans, CI/CD results, logs, screenshots, approvals, and deployment records.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Audit readiness, compliance evidence, traceability, operational assurance.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Creates evidence packs, links artifacts, captures audit trails, validates evidence completeness.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA Evidence and Compliance Owner
+
+## Backup Owner
+
+AIRA Security Owner
+
+## Classification
+
+Evidence agent; Control/governance agent
+
+## Risk Level
+
+Medium
+
+## Change Authority
+
+May collect and organize evidence. Cannot approve or alter source artifacts.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/evidence-agent.md

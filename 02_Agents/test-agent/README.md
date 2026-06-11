@@ -1,25 +1,43 @@
-﻿# test-agent
+# test-agent
+
+## Correct Technical Name
+
+test-agent
 
 ## Purpose
 
-AIRA DevSecOps agent.
+Creates and validates unit tests, integration tests, API tests, UI tests, regression tests, security tests, and acceptance tests.
 
-## Runtime Status
+## Business Function
 
-Skeleton created.
+Quality assurance, release confidence, regression protection.
 
-## Standard Folders
+## Technical Function
 
-- config
-- contracts
-- prompts
-- src
-- tests
-- logs
-- evidence
+Generates tests, executes tests, reviews coverage, validates acceptance criteria, produces test evidence.
 
-## Governance
+## Owner
 
-Classification: Strategic AIRA Agent  
-Runtime: AIRA DevSecOps Accelerator  
-Repository: aira_project_agents_others
+AIRA QA/Test Lead
+
+## Backup Owner
+
+AIRA Development Lead
+
+## Classification
+
+Review agent; Runtime/execution agent
+
+## Risk Level
+
+Medium
+
+## Change Authority
+
+May generate or update test files. Cannot approve release or deploy.
+
+## Full Definition
+
+See:
+
+../_Agent_Governance/definition-sheets/test-agent.md
