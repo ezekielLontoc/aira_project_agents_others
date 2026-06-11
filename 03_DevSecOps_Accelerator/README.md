@@ -112,3 +112,31 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-service-persistence
 Restart and validate:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\restart-and-validate-service-persistence.ps1"
+## Milestone 10 - Agent Registry API and Governance API
+
+AIRA now exposes read-first runtime APIs for Agent Registry and Governance.
+
+Agent Registry:
+
+- http://localhost:9094/api/v1/agents
+- http://localhost:9094/api/v1/agents/architecture-agent
+- http://localhost:9094/api/v1/agents/architecture-agent/prompts
+- http://localhost:9094/api/v1/agents/architecture-agent/models
+- http://localhost:9094/api/v1/agents/architecture-agent/tools
+- http://localhost:9094/api/v1/agents/governance/summary
+
+Governance:
+
+- http://localhost:9092/api/v1/governance/control-gates
+- http://localhost:9092/api/v1/governance/decisions
+- http://localhost:9092/api/v1/governance/change-requests
+- http://localhost:9092/api/v1/governance/approvals
+- http://localhost:9092/api/v1/governance/readiness
+
+Validate:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-10-agent-governance-api.ps1"
+
+Show summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-milestone-10-api-summary.ps1"
