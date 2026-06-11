@@ -190,3 +190,18 @@ powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-12-eviden
 Show summary:
 
 powershell -ExecutionPolicy Bypass -File ".\scripts\show-milestone-12-evidence-summary.ps1"
+## Milestone 13 - CI/CD Quality Gate Foundation
+
+AIRA now includes database-backed CI/CD quality gates, local validation scripts, and GitHub Actions workflow.
+
+Validate locally:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\validate-milestone-13-cicd-quality-gates.ps1"
+
+Show quality gate summary:
+
+powershell -ExecutionPolicy Bypass -File ".\scripts\show-cicd-quality-gate-summary.ps1"
+
+GitHub Actions workflow:
+
+.github/workflows/aira-cicd-quality-gates.yml

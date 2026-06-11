@@ -1,0 +1,78 @@
+name: AIRA CI/CD Quality Gates
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  quality-gates:
+    name: Build and Package Quality Gates
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: 03_DevSecOps_Accelerator
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Validate source structure
+        shell: bash
+        run: |
+          test -f pom.xml
+          test -f docker-compose.runtime.yml
+          test -d accelerator-api
+          test -d accelerator-security
+          test -d accelerator-governance
+          test -d accelerator-evidence
+          test -d accelerator-agents
+          test -d accelerator-observability
+          test -d database
+          test -d scripts
+
+      - name: Maven package
+        run: mvn clean package -DskipTests
+
+      - name: Validate WAR artifacts
+        shell: bash
+        run: |
+          test -f accelerator-api/target/ROOT.war
+          test -f accelerator-security/target/ROOT.war
+          test -f accelerator-governance/target/ROOT.war
+          test -f accelerator-evidence/target/ROOT.war
+          test -f accelerator-agents/target/ROOT.war
+          test -f accelerator-observability/target/ROOT.war
+
+      - name: Validate Dockerfiles
+        shell: bash
+        run: |
+          test -f accelerator-api/Dockerfile
+          test -f accelerator-security/Dockerfile
+          test -f accelerator-governance/Dockerfile
+          test -f accelerator-evidence/Dockerfile
+          test -f accelerator-agents/Dockerfile
+          test -f accelerator-observability/Dockerfile
+
+      - name: Build Docker images
+        run: docker compose -f docker-compose.runtime.yml build
+
+      - name: CI summary
+        shell: bash
+        run: |
+          echo "AIRA CI/CD Quality Gates passed."
+          echo "Maven build: passed"
+          echo "WAR artifacts: passed"
+          echo "Docker image build: passed"
