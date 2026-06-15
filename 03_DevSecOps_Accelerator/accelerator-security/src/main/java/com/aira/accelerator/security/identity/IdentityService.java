@@ -576,7 +576,7 @@ public class IdentityService {
             UUID sessionId = (UUID) row.get("session_id");
             UUID identityId = (UUID) row.get("identity_id");
             UUID institutionId = (UUID) row.get("institution_id");
-            OffsetDateTime expiresAt = (OffsetDateTime) row.get("expires_at");
+            OffsetDateTime expiresAt = toOffsetDateTime(row.get("expires_at"));
 
             jdbcTemplate.update(
                 "update aira_security.identity_session set last_activity_at = now(), updated_at = now() where session_id = ?",
@@ -702,6 +702,31 @@ public class IdentityService {
         return value;
     }
 
+
+
+    private OffsetDateTime toOffsetDateTime(Object value) {
+        if (value == null) {
+            return OffsetDateTime.now();
+        }
+
+        if (value instanceof OffsetDateTime offsetDateTime) {
+            return offsetDateTime;
+        }
+
+        if (value instanceof java.sql.Timestamp timestamp) {
+            return timestamp.toInstant().atOffset(java.time.ZoneOffset.UTC);
+        }
+
+        if (value instanceof java.time.Instant instant) {
+            return instant.atOffset(java.time.ZoneOffset.UTC);
+        }
+
+        if (value instanceof java.time.LocalDateTime localDateTime) {
+            return localDateTime.atOffset(java.time.ZoneOffset.UTC);
+        }
+
+        return OffsetDateTime.parse(value.toString());
+    }
 
     private record SessionRecord(
         UUID sessionId,

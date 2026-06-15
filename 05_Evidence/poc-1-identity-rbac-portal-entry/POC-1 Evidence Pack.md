@@ -486,3 +486,34 @@ Runtime validation test identity:
 Next phase:
 
 - POC-1 Build Phase 3: portal pages and browser flow.
+
+---
+
+## POC-1 Exact Login Timestamp Runtime Repair Evidence
+
+Status: PASSED
+
+Root cause:
+
+- IdentityService.loadSession attempted to cast java.sql.Timestamp directly to OffsetDateTime.
+
+Repair:
+
+- Added safe toOffsetDateTime conversion.
+- Rebuilt accelerator-security WAR.
+- Redeployed ROOT.war to Tomcat.
+- Re-ran full runtime identity flow.
+
+Runtime validation accepted:
+
+- Signup passed.
+- Email verification passed.
+- Admin approval passed.
+- Login passed.
+- Session passed.
+- Landing context returned /portal/developer-dashboard.html.
+- Logout passed.
+
+Test identity:
+
+- poc1.runtime.timestampfix.20260615172824@aira.local
