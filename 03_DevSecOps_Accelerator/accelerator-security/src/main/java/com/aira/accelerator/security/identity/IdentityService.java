@@ -385,25 +385,51 @@ public class IdentityService {
             roleKey = "VIEWER";
         }
 
-        Map<String, Object> accessRequest = jdbcTemplate.queryForMap(
-            "select ar.access_request_id, ar.identity_id, ar.requested_institution_id, i.normalized_email " +
-            "from aira_security.identity_access_request ar " +
-            "join aira_security.platform_identity i on i.identity_id = ar.identity_id " +
-            "where ar.access_request_id = ?",
-            requestId
-        );
+        Map<String, Object> accessRequest;
+
+        try {
+            accessRequest = jdbcTemplate.queryForMap(
+                "select ar.access_request_id, ar.identity_id, " +
+                "coalesce(ar.requested_institution_id, i.institution_id) as institution_id, " +
+                "i.normalized_email " +
+                "from aira_security.identity_access_request ar " +
+                "join aira_security.platform_identity i on i.identity_id = ar.identity_id " +
+                "where ar.access_request_id = ?",
+                requestId
+            );
+        } catch (EmptyResultDataAccessException ex) {
+            return IdentityModels.denied("Access request not found.");
+        }
 
         UUID identityId = (UUID) accessRequest.get("identity_id");
-        UUID institutionId = (UUID) accessRequest.get("requested_institution_id");
+        UUID institutionId = (UUID) accessRequest.get("institution_id");
         String email = String.valueOf(accessRequest.get("normalized_email"));
 
+        if (identityId == null) {
+            throw new IllegalStateException("Access request has no identity_id.");
+        }
+
+        if (institutionId == null) {
+            institutionId = resolveInstitutionId("AIRA-DEMO-INSTITUTION", email);
+        }
+
+        if (institutionId == null) {
+            auditLogin(identityId, null, email, "ACCESS_REQUEST_APPROVAL_FAILED", "DENIED", "INSTITUTION_NOT_FOUND");
+            return IdentityModels.denied("Access request cannot be approved because institution context is missing.");
+        }
+
         jdbcTemplate.update(
-            "update aira_security.identity_access_request set request_status = 'APPROVED', approval_decision = 'APPROVED', reviewed_at = now(), updated_at = now() where access_request_id = ?",
+            "update aira_security.identity_access_request " +
+            "set requested_institution_id = ?, request_status = 'APPROVED', approval_decision = 'APPROVED', reviewed_at = now(), updated_at = now() " +
+            "where access_request_id = ?",
+            institutionId,
             requestId
         );
 
         jdbcTemplate.update(
-            "update aira_security.platform_identity set identity_status = 'ACTIVE', institution_approved = true, institution_id = ?, updated_at = now() where identity_id = ?",
+            "update aira_security.platform_identity " +
+            "set identity_status = 'ACTIVE', institution_approved = true, institution_id = ?, updated_at = now() " +
+            "where identity_id = ?",
             institutionId,
             identityId
         );
@@ -430,13 +456,16 @@ public class IdentityService {
         auditLogin(identityId, institutionId, email, "ACCESS_REQUEST_APPROVED", "ALLOWED", null);
         recordMicrofunction("MF-IDENTITY-020", identityId, institutionId, requestId, null, "PASSED", "Access request approved.", "Identity activated.", null);
         recordMicrofunction("MF-IDENTITY-022", identityId, institutionId, requestId, null, "PASSED", "Role assigned.", roleKey, null);
+        recordMicrofunction("MF-IDENTITY-023", identityId, institutionId, requestId, null, "PASSED", "Identity activation requested.", "Identity is ACTIVE.", null);
 
-        return Map.of(
-            "status", "APPROVED",
-            "identityId", identityId.toString(),
-            "institutionId", institutionId.toString(),
-            "roleKey", roleKey
-        );
+        java.util.LinkedHashMap<String, Object> response = new java.util.LinkedHashMap<>();
+        response.put("status", "APPROVED");
+        response.put("identityId", identityId.toString());
+        response.put("institutionId", institutionId.toString());
+        response.put("roleKey", roleKey);
+        response.put("message", "Access request approved.");
+
+        return response;
     }
 
     @Transactional

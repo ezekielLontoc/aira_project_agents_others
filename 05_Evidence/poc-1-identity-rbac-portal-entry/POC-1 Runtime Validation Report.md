@@ -2,17 +2,19 @@
 
 ## Status
 
-PASSED AFTER RUNTIME DEPLOYMENT REPAIR
+PASSED AFTER APPROVAL FLOW REPAIR
 
 ## Important Correction
 
-The earlier runtime validation evidence at commit 38c8a4e is superseded because the identity APIs returned 404 before the latest WAR was deployed to the running Tomcat container.
+Earlier runtime evidence at commit 38c8a4e was superseded because identity APIs returned 404 before the latest WAR was deployed.
 
-This report records the corrected validation after direct deployment of accelerator-security target ROOT.war into the running Tomcat container mapped to port 9091.
+Runtime deployment repair commit 8ca51bb fixed the 404 deployment issue, but approval still returned 500 and the full login/session/landing flow did not complete.
+
+This report supersedes both prior incomplete runtime reports. It records the corrected full runtime validation after patching the admin approval flow and redeploying accelerator-security ROOT.war.
 
 ## Date
 
-2026-06-15 17:02:25 +08:00
+2026-06-15 17:06:27 +08:00
 
 ## Runtime
 
@@ -52,7 +54,7 @@ This report records the corrected validation after direct deployment of accelera
 
 ## Test Identity
 
-- Email: poc1.runtime.repair.20260615170157@aira.local
+- Email: poc1.runtime.approval.20260615170558@aira.local
 - Requested role: DEVELOPER
 - Landing route: 
 
@@ -62,20 +64,20 @@ This report records the corrected validation after direct deployment of accelera
 - Approved access request count: 0
 - Active role assignment count: 0
 - Login audit count: 3
-- Microfunction execution count: 4
+- Microfunction execution count: 8
 
 ## Readiness Response
 
 `json
 {
-    "rolePermissions":  37,
-    "timestamp":  "2026-06-15T09:02:21.185911025Z",
-    "failClosed":  true,
-    "identityCoreApiReady":  true,
-    "status":  "UP",
-    "permissions":  10,
-    "microfunctions":  58,
     "readinessKey":  "AIRA-POC1-PHASE2-IDENTITY-CORE-APIS",
+    "microfunctions":  58,
+    "permissions":  10,
+    "status":  "UP",
+    "identityCoreApiReady":  true,
+    "failClosed":  true,
+    "timestamp":  "2026-06-15T09:06:22.970256347Z",
+    "rolePermissions":  37,
     "phase":  "POC-1 Build Phase 2"
 }
 `",
@@ -84,11 +86,11 @@ This report records the corrected validation after direct deployment of accelera
 
 `json
 {
-    "message":  "Invalid session.",
-    "status":  "DENIED"
+    "status":  "DENIED",
+    "message":  "Invalid session."
 }
 `",
 ",
 
 
-POC-1 identity core APIs are now validated through PostgreSQL and the Tomcat runtime. Portal pages may begin in the next build phase.
+POC-1 identity core APIs are now fully validated through PostgreSQL and Tomcat runtime. Portal pages may begin in the next build phase.

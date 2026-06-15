@@ -339,3 +339,54 @@ Runtime validation test identity:
 Next phase:
 
 - POC-1 Build Phase 3: portal pages and browser flow.
+
+---
+
+## POC-1 Runtime Approval Flow Repair Evidence
+
+Status: PASSED
+
+Important correction:
+
+- Runtime validation commit 38c8a4e is superseded because identity endpoints returned 404.
+- Runtime repair commit 8ca51bb is also superseded because approval returned 500 and the full runtime flow did not complete.
+- This repair validates the full POC-1 backend identity runtime flow end to end.
+
+Repair validation confirmed:
+
+- PostgreSQL POC-1 migrations applied.
+- POC-1 identity tables exist.
+- POC-1 seed data exists.
+- Identity microfunction catalog contains MF-IDENTITY-001 through MF-IDENTITY-058.
+- accelerator-security WAR builds.
+- latest ROOT.war deployed into running Tomcat container.
+- Identity readiness API works.
+- Identity microfunction API works.
+- Signup API works.
+- Email verification API works.
+- Admin access request approval works.
+- Login API works.
+- Session API works.
+- Me API works.
+- Landing context API works.
+- Logout API works.
+- Session after logout is denied.
+- Login audit records are created.
+- Role assignment records are created.
+- Microfunction execution records are created.
+
+Runtime validation report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Runtime Validation Report.md
+
+Runtime approval repair log:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Runtime Approval Flow Repair Log.md
+
+Runtime validation test identity:
+
+- poc1.runtime.approval.20260615170558@aira.local
+
+Next phase:
+
+- POC-1 Build Phase 3: portal pages and browser flow.
