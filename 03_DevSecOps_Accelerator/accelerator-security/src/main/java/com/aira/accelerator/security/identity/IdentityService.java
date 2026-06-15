@@ -702,6 +702,7 @@ public class IdentityService {
         return value;
     }
 
+
     private record SessionRecord(
         UUID sessionId,
         UUID identityId,

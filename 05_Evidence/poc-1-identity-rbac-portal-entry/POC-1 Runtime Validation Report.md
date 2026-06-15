@@ -2,25 +2,21 @@
 
 ## Status
 
-PASSED AFTER PATHVARIABLE APPROVAL REPAIR
+PASSED AFTER LOGIN SESSION REPAIR
 
 ## Important Correction
 
 Earlier runtime evidence at commit 38c8a4e was superseded because identity APIs returned 404 before the latest WAR was deployed.
 
-Runtime deployment repair commit 8ca51bb fixed the 404 deployment issue, but approval still returned 500.
+Runtime deployment repair commit 8ca51bb fixed the 404 deployment issue.
 
-Approval-flow repair commit c396965 still failed because the actual root cause was Spring MVC PathVariable binding.
+Approval repair commit 2b5b500 fixed Spring MVC PathVariable requestId binding and allowed approval to pass.
 
-Diagnostic commit 611ca9a and stack-trace commit 45f409a captured the exact backend exception:
-
-Name for argument of type java.util.UUID not specified, and parameter name information not available via reflection.
-
-This report supersedes all prior incomplete runtime reports. It records the corrected full runtime validation after explicitly naming @PathVariable requestId in IdentityAdminController.
+Login then failed at runtime. This repair patched safe OffsetDateTime conversion in IdentityService.loadSession so PostgreSQL timestamptz values can be handled safely.
 
 ## Date
 
-2026-06-15 17:18:55 +08:00
+2026-06-15 17:23:31 +08:00
 
 ## Runtime
 
@@ -69,22 +65,22 @@ This report supersedes all prior incomplete runtime reports. It records the corr
 - Runtime identity count: 1
 - Approved access request count: 1
 - Active role assignment count: 1
-- Login audit count: 3
-- Microfunction execution count: 19
+- Login audit count: 5
+- Microfunction execution count: 22
 
 ## Readiness Response
 
 `json
 {
-    "failClosed":  true,
-    "identityCoreApiReady":  true,
-    "status":  "UP",
     "permissions":  10,
     "microfunctions":  58,
     "readinessKey":  "AIRA-POC1-PHASE2-IDENTITY-CORE-APIS",
     "phase":  "POC-1 Build Phase 2",
     "rolePermissions":  37,
-    "timestamp":  "2026-06-15T09:18:51.866880471Z"
+    "timestamp":  "2026-06-15T09:23:28.157879391Z",
+    "failClosed":  true,
+    "identityCoreApiReady":  true,
+    "status":  "UP"
 }
 `",
 ",
@@ -92,8 +88,8 @@ This report supersedes all prior incomplete runtime reports. It records the corr
 
 `json
 {
-    "status":  "DENIED",
-    "message":  "Invalid session."
+    "message":  "Invalid session.",
+    "status":  "DENIED"
 }
 `",
 ",

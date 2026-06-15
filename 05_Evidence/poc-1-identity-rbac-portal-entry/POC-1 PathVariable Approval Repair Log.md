@@ -1,4 +1,4 @@
-# POC-1 Runtime Approval Flow Repair Log
+# POC-1 Login Session Runtime Repair Log
 
 ## Status
 
@@ -6,32 +6,34 @@ PASSED
 
 ## Date
 
-2026-06-15 17:06:27 +08:00
+2026-06-15 17:23:31 +08:00
 
 ## Issue
 
-Admin access request approval returned 500 during runtime validation, so the user was not approved, role assignment was not created, login did not return a session token, and landing route was empty.
+Login returned HTTP 500 after successful approval.
+
+## Likely Root Cause
+
+IdentityService.loadSession cast the PostgreSQL expires_at timestamptz value directly to OffsetDateTime. The JDBC driver may return java.sql.Timestamp or another temporal type.
 
 ## Repair
 
-- Patched IdentityService.approveAccessRequest.
-- Added institution fallback resolution.
-- Updated request institution context before approval.
-- Preserved fail-closed behavior when institution context cannot be resolved.
-- Added MF-IDENTITY-023 execution record for activation.
+- Replaced direct OffsetDateTime cast with toOffsetDateTime(row.get("expires_at")).
+- Added helper conversion for OffsetDateTime, java.sql.Timestamp, Instant, and LocalDateTime.
 - Rebuilt accelerator-security WAR.
-- Redeployed ROOT.war directly into running Tomcat container.
-- Re-ran full identity workflow.
+- Redeployed ROOT.war into Tomcat container mapped to port 9091.
+- Re-ran the complete runtime identity flow.
 
-## Result
+## Runtime Result
 
-- Approval API returned APPROVED.
+- Approval returned APPROVED.
 - Login returned session token.
 - Session returned authenticated true.
+- Me returned authenticated true.
 - Landing route resolved to /portal/developer-dashboard.html.
 - Logout returned LOGGED_OUT.
 - Session after logout returned DENIED.
 
 ## Test Identity
 
-- poc1.runtime.approval.20260615170558@aira.local
+- poc1.runtime.pathvariable.20260615171825@aira.local
