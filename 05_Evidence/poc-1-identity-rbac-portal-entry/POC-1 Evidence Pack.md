@@ -560,3 +560,29 @@ Validation report:
 Next phase:
 
 - POC-1 Phase 3B browser flow validation: signup, verify, admin approve, login, home route, developer dashboard, logout.
+
+---
+
+## POC-1 Phase 3B Portal CORS Repair Evidence
+
+Status: PASSED
+
+Issue:
+
+- Browser login showed Failed to fetch from portal runtime.
+
+Repair:
+
+- Added CORS configuration in accelerator-security for /api/v1/identity/**.
+- Allowed origin: http://192.168.179.193:9090.
+- Allowed headers: Authorization, Content-Type, X-AIRA-API-Key, X-AIRA-Admin-Key.
+- Redeployed security WAR to Tomcat on port 9091.
+
+Validation:
+
+- CORS OPTIONS preflight passed.
+- Identity readiness reachable.
+
+Report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3B Portal CORS Repair Report.md
