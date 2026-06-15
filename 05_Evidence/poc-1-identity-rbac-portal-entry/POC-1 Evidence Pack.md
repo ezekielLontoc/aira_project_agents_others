@@ -251,3 +251,43 @@ Repair acceptance:
 - Maven build succeeds.
 - Phase 2 validation succeeds.
 - GitHub push succeeds.
+
+---
+
+## POC-1 Runtime Validation Evidence
+
+Status: PASSED
+
+Runtime validation confirmed:
+
+- PostgreSQL POC-1 migrations applied.
+- POC-1 identity tables exist.
+- POC-1 seed data exists.
+- Identity microfunction catalog contains MF-IDENTITY-001 through MF-IDENTITY-058.
+- accelerator-security WAR builds.
+- accelerator-security Tomcat runtime restarts.
+- Identity readiness API works.
+- Identity microfunction API works.
+- Signup API works.
+- Email verification API works.
+- Admin access request approval works.
+- Login API works.
+- Session API works.
+- Me API works.
+- Landing context API works.
+- Logout API works.
+- Session after logout is denied.
+- Login audit records are created.
+- Microfunction execution records are created.
+
+Runtime validation report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Runtime Validation Report.md
+
+Runtime validation test identity:
+
+- poc1.runtime.20260615165844@aira.local
+
+Next phase:
+
+- POC-1 Build Phase 3: portal pages and browser flow.
