@@ -1045,3 +1045,239 @@ The best AIRA-grade design is:
 Landing Page -> Signup / Request Access -> Email Verification -> Institution Approval -> Login -> Session Context -> RBAC + Institution Landing Page -> Role-Based Dashboard -> Audit + Evidence.
 
 This keeps AIRA governed, enterprise-grade, fail-closed, evidence-backed, institution-aware, role-aware, and application-factory-ready.
+
+---
+
+# 31. POC-1 Microfunctions
+
+## 31.1 Purpose
+
+POC-1 should include AIRA Microfunctions as governed workflow functions inside the identity layer.
+
+Microfunctions are not separate deployable microservices in POC-1. They are small, auditable, reusable, fail-closed identity workflow functions that can later be extracted, orchestrated, tested, and agent-assisted.
+
+Recommended classification:
+
+- POC-1 Microfunctions = governed workflow functions inside the identity layer.
+- They support signup, verification, approval, login, session, RBAC landing, logout, audit, and evidence.
+- They prepare POC-1 for future AIRA agent execution and automated validation.
+
+## 31.2 Why Microfunctions Matter for AIRA
+
+Microfunctions align POC-1 with the AIRA operating model because they are:
+
+- Agent-ready
+- Audit-ready
+- Evidence-ready
+- Reusable
+- Composable
+- Governed
+- Fail-closed
+- Workflow-driven
+- Future automation-ready
+
+Microfunctions allow AIRA agents to reason about identity workflows step by step instead of treating login and signup as one opaque block.
+
+## 31.3 Signup Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-001 | ValidateSignupInput | Validate submitted signup fields and required governance acceptance | Yes | Yes | Yes |
+| MF-IDENTITY-002 | NormalizeEmailAddress | Lowercase and canonicalize email address | Yes | No | Yes |
+| MF-IDENTITY-003 | ResolveInstitutionFromDomain | Match email domain or submitted institution key to institution | Yes | Yes | Yes |
+| MF-IDENTITY-004 | CreatePendingIdentity | Create identity with PENDING_EMAIL_VERIFICATION status | Yes | Yes | Yes |
+| MF-IDENTITY-005 | HashIdentityPassword | Hash submitted password using approved algorithm | Yes | No | Yes |
+| MF-IDENTITY-006 | CreateAccessRequest | Create request access workflow record | Yes | Yes | Yes |
+| MF-IDENTITY-007 | CreateEmailVerificationToken | Create single-use time-limited verification token | Yes | Yes | Yes |
+| MF-IDENTITY-008 | QueueVerificationEmail | Queue or send verification email | Yes | Yes | Yes |
+| MF-IDENTITY-009 | RecordSignupAudit | Record signup attempt and result | Yes | No | Yes |
+| MF-IDENTITY-010 | CreateSignupEvidenceEvent | Create evidence event for signup submission | Yes | Yes | Yes |
+
+## 31.4 Email Verification Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-011 | ValidateVerificationToken | Validate verification token hash, expiry, and status | Yes | Yes | Yes |
+| MF-IDENTITY-012 | ExpireOldVerificationTokens | Mark expired pending tokens as expired | Yes | No | Yes |
+| MF-IDENTITY-013 | MarkEmailVerified | Mark identity email_verified = true | Yes | Yes | Yes |
+| MF-IDENTITY-014 | MoveAccessRequestToPendingApproval | Move request to PENDING_INSTITUTION_APPROVAL | Yes | Yes | Yes |
+| MF-IDENTITY-015 | NotifyInstitutionAdmin | Notify institution admin of verified pending request | Yes | Yes | Yes |
+| MF-IDENTITY-016 | RecordVerificationAudit | Record verification attempt and result | Yes | No | Yes |
+| MF-IDENTITY-017 | CreateVerificationEvidenceEvent | Create evidence event for email verification | Yes | Yes | Yes |
+
+## 31.5 Institution Approval Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-018 | ListPendingAccessRequests | List verified requests awaiting review | Yes | No | Yes |
+| MF-IDENTITY-019 | ValidateReviewerAuthority | Confirm reviewer can approve for institution | Yes | Yes | Yes |
+| MF-IDENTITY-020 | ApproveAccessRequest | Approve a verified access request | Yes | Yes | Yes |
+| MF-IDENTITY-021 | RejectAccessRequest | Reject an access request | Yes | Yes | Yes |
+| MF-IDENTITY-022 | AssignInstitutionRole | Assign institution-scoped role to identity | Yes | Yes | Yes |
+| MF-IDENTITY-023 | ActivateIdentity | Mark identity ACTIVE after approval and role assignment | Yes | Yes | Yes |
+| MF-IDENTITY-024 | NotifyUserAccessApproved | Notify user access is approved | Yes | Yes | No |
+| MF-IDENTITY-025 | NotifyUserAccessRejected | Notify user request update without sensitive policy detail | Yes | Yes | No |
+| MF-IDENTITY-026 | RecordApprovalAudit | Record approval/rejection audit event | Yes | No | Yes |
+| MF-IDENTITY-027 | CreateApprovalEvidenceEvent | Create evidence event for approval decision | Yes | Yes | Yes |
+
+## 31.6 Login and Session Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-028 | ValidateLoginInput | Validate email, password, and institution selector | Yes | No | Yes |
+| MF-IDENTITY-029 | LoadIdentityByEmail | Load identity using normalized email | Yes | No | Yes |
+| MF-IDENTITY-030 | VerifyPassword | Verify password against stored hash | Yes | No | Yes |
+| MF-IDENTITY-031 | CheckEmailVerified | Block login if email is not verified | Yes | Yes | Yes |
+| MF-IDENTITY-032 | CheckInstitutionApproved | Block login if institution approval is missing | Yes | Yes | Yes |
+| MF-IDENTITY-033 | CheckIdentityStatus | Block login if identity is suspended, locked, rejected, or deactivated | Yes | Yes | Yes |
+| MF-IDENTITY-034 | CheckRoleAssignment | Block login if no active role assignment exists | Yes | Yes | Yes |
+| MF-IDENTITY-035 | CreateIdentitySession | Create governed active session | Yes | Yes | Yes |
+| MF-IDENTITY-036 | RecordLoginSuccessAudit | Record successful login | Yes | No | Yes |
+| MF-IDENTITY-037 | RecordLoginFailureAudit | Record failed login | Yes | No | Yes |
+| MF-IDENTITY-038 | IncrementFailedLoginCounter | Increment failed login count | Yes | No | Yes |
+| MF-IDENTITY-039 | LockIdentityIfThresholdExceeded | Lock identity when threshold is exceeded | Yes | Yes | Yes |
+
+## 31.7 RBAC Landing Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-040 | LoadActiveSession | Load and validate active session | Yes | No | Yes |
+| MF-IDENTITY-041 | ResolveInstitutionContext | Resolve active institution context | Yes | Yes | Yes |
+| MF-IDENTITY-042 | ResolveRoleAssignments | Resolve active role assignments | Yes | Yes | Yes |
+| MF-IDENTITY-043 | ResolvePermissionSet | Resolve permissions from roles | Yes | Yes | Yes |
+| MF-IDENTITY-044 | ResolveLandingRoute | Select correct dashboard route | Yes | Yes | Yes |
+| MF-IDENTITY-045 | ValidateDashboardAccess | Validate access to requested dashboard | Yes | Yes | Yes |
+| MF-IDENTITY-046 | BlockUnauthorizedDashboard | Fail closed when dashboard is unauthorized | Yes | Yes | Yes |
+| MF-IDENTITY-047 | RecordUnauthorizedAccessAudit | Record unauthorized dashboard attempt | Yes | No | Yes |
+| MF-IDENTITY-048 | CreateRBACEvidenceEvent | Create evidence event for RBAC route decision | Yes | Yes | Yes |
+
+## 31.8 Logout Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-049 | ValidateLogoutSession | Validate logout session reference | Yes | No | Yes |
+| MF-IDENTITY-050 | RevokeSession | Revoke active session | Yes | Yes | Yes |
+| MF-IDENTITY-051 | ClearSessionContext | Clear local session context | Yes | No | No |
+| MF-IDENTITY-052 | RecordLogoutAudit | Record logout event | Yes | No | Yes |
+| MF-IDENTITY-053 | CreateLogoutEvidenceEvent | Create evidence event for logout | Yes | Yes | Yes |
+
+## 31.9 Evidence Microfunctions
+
+| Key | Microfunction | Purpose | Audit | Evidence | Fail Closed |
+|---|---|---|---|---|---|
+| MF-IDENTITY-054 | CreateIdentityEvidenceRecord | Create standard identity evidence record | Yes | Yes | Yes |
+| MF-IDENTITY-055 | LinkEvidenceToIdentity | Link evidence event to identity | Yes | Yes | Yes |
+| MF-IDENTITY-056 | LinkEvidenceToInstitution | Link evidence event to institution | Yes | Yes | Yes |
+| MF-IDENTITY-057 | LinkEvidenceToAccessRequest | Link evidence event to access request | Yes | Yes | Yes |
+| MF-IDENTITY-058 | ValidateEvidenceCompleteness | Validate required evidence exists for acceptance | Yes | Yes | Yes |
+
+## 31.10 Agent Alignment
+
+POC-1 Microfunctions allow AIRA agents to participate safely:
+
+- security-agent can inspect login failures, lockout, token use, and session anomalies.
+- evidence-agent can collect verification, approval, login, logout, and RBAC route evidence.
+- governance-agent can validate institution approval and role assignment rules.
+- developer-agent can implement microfunctions as reusable identity-layer units.
+- test-agent can generate acceptance tests per microfunction.
+- cicd-agent can validate identity quality gates.
+- documentation-agent can keep API, database, and workflow docs aligned.
+- knowledge-fabric-agent can map identity decisions to institutional knowledge.
+
+---
+
+# 32. Microfunction Database Tables
+
+## 32.1 Table: aira_security.identity_microfunction_catalog
+
+Purpose: defines the governed POC-1 identity microfunctions.
+
+| Column | Type | Required | Key | Description |
+|---|---|---|---|---|
+| microfunction_key | VARCHAR(120) | Yes | PK | Stable microfunction key such as MF-IDENTITY-001 |
+| microfunction_name | VARCHAR(240) | Yes | | Human-readable microfunction name |
+| microfunction_category | VARCHAR(120) | Yes | | SIGNUP, VERIFICATION, APPROVAL, LOGIN_SESSION, RBAC_LANDING, LOGOUT, EVIDENCE |
+| microfunction_description | TEXT | Yes | | Description of the microfunction responsibility |
+| owning_module | VARCHAR(120) | Yes | | accelerator-security for POC-1 |
+| execution_phase | VARCHAR(120) | Yes | | Workflow phase where function runs |
+| fail_closed_required | BOOLEAN | Yes | | Whether failure must block the workflow |
+| audit_required | BOOLEAN | Yes | | Whether audit event is required |
+| evidence_required | BOOLEAN | Yes | | Whether evidence event is required |
+| microfunction_status | VARCHAR(40) | Yes | | ACTIVE, PLANNED, DEPRECATED, DISABLED |
+| created_at | TIMESTAMPTZ | Yes | | Record creation time |
+| updated_at | TIMESTAMPTZ | Yes | | Last update time |
+
+Recommended constraints:
+
+    PRIMARY KEY (microfunction_key)
+
+## 32.2 Table: aira_security.identity_microfunction_execution
+
+Purpose: records execution outcomes for POC-1 identity microfunctions.
+
+| Column | Type | Required | Key | Description |
+|---|---|---|---|---|
+| execution_id | UUID | Yes | PK | Unique execution record |
+| microfunction_key | VARCHAR(120) | Yes | FK | Executed microfunction |
+| identity_id | UUID | No | FK | Related identity when available |
+| institution_id | UUID | No | FK | Related institution when available |
+| access_request_id | UUID | No | FK | Related access request when available |
+| session_id | UUID | No | FK | Related session when available |
+| correlation_id | VARCHAR(160) | Yes | | Workflow correlation ID |
+| execution_status | VARCHAR(40) | Yes | | STARTED, PASSED, FAILED, BLOCKED, SKIPPED |
+| input_summary | TEXT | No | | Safe summary of inputs, no secrets |
+| output_summary | TEXT | No | | Safe summary of outputs, no secrets |
+| failure_reason | TEXT | No | | Failure or block reason |
+| started_at | TIMESTAMPTZ | Yes | | Execution start |
+| completed_at | TIMESTAMPTZ | No | | Execution completion |
+| created_at | TIMESTAMPTZ | Yes | | Record creation time |
+
+Recommended constraints:
+
+    PRIMARY KEY (execution_id)
+    FOREIGN KEY (microfunction_key) REFERENCES aira_security.identity_microfunction_catalog(microfunction_key)
+    FOREIGN KEY (identity_id) REFERENCES aira_security.platform_identity(identity_id)
+    FOREIGN KEY (institution_id) REFERENCES aira_security.institution(institution_id)
+    FOREIGN KEY (access_request_id) REFERENCES aira_security.identity_access_request(access_request_id)
+    FOREIGN KEY (session_id) REFERENCES aira_security.identity_session(session_id)
+
+---
+
+# 33. Microfunction Acceptance Criteria
+
+POC-1 Microfunctions are accepted when:
+
+- All planned microfunctions are documented in the architecture markdown.
+- Microfunction catalog table is created or planned in migration scope.
+- Microfunction execution table is created or planned in migration scope.
+- Signup flow references signup microfunctions.
+- Email verification flow references verification microfunctions.
+- Institution approval flow references approval microfunctions.
+- Login/session flow references login and session microfunctions.
+- RBAC landing flow references RBAC microfunctions.
+- Logout flow references logout microfunctions.
+- Evidence flow references evidence microfunctions.
+- Fail-closed microfunctions block unsafe continuation.
+- Audit-required microfunctions create audit records.
+- Evidence-required microfunctions create evidence records.
+- Validation script checks microfunction catalog and execution readiness.
+- Agents can use the microfunction list as the POC-1 build breakdown.
+
+---
+
+# 34. Agent Build Readiness
+
+After this Microfunctions update is pushed, POC-1 is ready for the next step: having the AIRA agents build the POC-1 implementation.
+
+The recommended agent build sequence is:
+
+1. architecture-agent validates the POC-1 architecture and microfunction model.
+2. security-agent validates identity, session, token, and RBAC controls.
+3. developer-agent implements migrations, services, controllers, and portal pages.
+4. test-agent creates validation and regression checks.
+5. evidence-agent creates evidence records and evidence pack updates.
+6. documentation-agent keeps architecture, ADR, and API docs aligned.
+7. cicd-agent adds quality gates for POC-1 identity flows.
+8. knowledge-fabric-agent maps identity workflow knowledge for future reuse.
+
+POC-1 should not begin implementation until this documentation, ADR, and evidence baseline are committed and pushed.

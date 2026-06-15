@@ -56,3 +56,38 @@ The portal will support institution-aware routing and role-based dashboards.
 All login, logout, approval, denial, and unauthorized-access events will be auditable and evidence-backed.
 
 This preserves AIRA's fail-closed, evidence-backed, enterprise-grade operating model.
+
+---
+
+## Microfunctions Decision
+
+AIRA will include POC-1 Microfunctions as governed workflow functions inside the identity layer.
+
+These Microfunctions are not separate deployable microservices in POC-1. They are small, auditable, reusable, fail-closed identity workflow functions that support signup, email verification, institution approval, login, session management, RBAC landing, logout, audit, and evidence.
+
+POC-1 will document and prepare the following Microfunction categories:
+
+- Signup Microfunctions
+- Email Verification Microfunctions
+- Institution Approval Microfunctions
+- Login and Session Microfunctions
+- RBAC Landing Microfunctions
+- Logout Microfunctions
+- Evidence Microfunctions
+
+POC-1 will also plan these Microfunction tables:
+
+- aira_security.identity_microfunction_catalog
+- aira_security.identity_microfunction_execution
+
+## Microfunctions Consequences
+
+The POC-1 implementation can be decomposed into small buildable units for AIRA agents.
+
+Each critical identity action can be validated independently.
+
+Audit and evidence behavior can be mapped directly to workflow functions.
+
+Fail-closed behavior can be enforced at the microfunction level.
+
+This improves AIRA's enterprise-grade posture and makes POC-1 more agent-ready.

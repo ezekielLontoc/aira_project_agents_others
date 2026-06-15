@@ -77,3 +77,42 @@ POC-1 is accepted when identity entry, signup, verification, approval, login, se
 ## Target Grade
 
 10 / 10
+
+---
+
+## Microfunctions Evidence Target
+
+POC-1 should provide evidence for these Microfunction categories:
+
+- Signup Microfunctions
+- Email Verification Microfunctions
+- Institution Approval Microfunctions
+- Login and Session Microfunctions
+- RBAC Landing Microfunctions
+- Logout Microfunctions
+- Evidence Microfunctions
+
+POC-1 should provide evidence for these Microfunction tables:
+
+- aira_security.identity_microfunction_catalog
+- aira_security.identity_microfunction_execution
+
+Required Microfunction evidence:
+
+- Microfunction catalog records are created or planned.
+- Microfunction execution records are created or planned.
+- Fail-closed microfunctions are identified.
+- Audit-required microfunctions are identified.
+- Evidence-required microfunctions are identified.
+- Signup microfunctions are mapped to signup flow.
+- Verification microfunctions are mapped to email verification flow.
+- Approval microfunctions are mapped to institution approval flow.
+- Login/session microfunctions are mapped to login flow.
+- RBAC microfunctions are mapped to landing route resolution.
+- Logout microfunctions are mapped to logout flow.
+- Evidence microfunctions are mapped to evidence records.
+- AIRA agents can use microfunctions as the POC-1 build breakdown.
+
+## Microfunctions Acceptance Target
+
+Microfunctions are accepted when they provide a clear, governed, auditable, evidence-backed, fail-closed build breakdown for POC-1.
