@@ -517,3 +517,46 @@ Runtime validation accepted:
 Test identity:
 
 - poc1.runtime.timestampfix.20260615172824@aira.local
+
+---
+
+## POC-1 Build Phase 3 Portal Evidence
+
+Status: PASSED
+
+Scope:
+
+- Static dependency-light portal pages created under accelerator-api.
+- Portal assets created under /portal/assets.
+- accelerator-api WAR rebuilt.
+- Portal runtime deployed to Tomcat on port 9090.
+- Portal pages smoke-tested over server IP.
+
+Created pages:
+
+- /portal/landing.html
+- /portal/signup.html
+- /portal/signup-submitted.html
+- /portal/verify-email.html
+- /portal/pending-approval.html
+- /portal/login.html
+- /portal/home.html
+- /portal/admin-dashboard.html
+- /portal/institution-dashboard.html
+- /portal/developer-dashboard.html
+- /portal/security-dashboard.html
+- /portal/evidence-dashboard.html
+- /portal/viewer-dashboard.html
+
+Runtime URLs:
+
+- Portal: http://192.168.179.193:9090/portal/landing.html
+- Identity runtime: http://192.168.179.193:9091
+
+Validation report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3 Portal Validation Report.md
+
+Next phase:
+
+- POC-1 Phase 3B browser flow validation: signup, verify, admin approve, login, home route, developer dashboard, logout.

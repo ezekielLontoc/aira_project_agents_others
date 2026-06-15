@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIRA POC-1 Institution Admin Dashboard</title>
+  <link rel="stylesheet" href="/portal/assets/poc1.css">
+</head>
+<body>
+  <div class="aira-shell">
+    <header class="aira-topbar">
+      <div class="aira-brand">AIRA <span>POC-1</span></div>
+      <nav class="aira-nav">
+        <a href="/portal/landing.html">Landing</a>
+        <a href="/portal/signup.html">Signup</a>
+        <a href="/portal/login.html">Login</a>
+        <a href="/portal/home.html">Home</a>
+      </nav>
+    </header>
+    <main class="aira-main">
+<section class="card">
+  <span class="badge">Role dashboard</span>
+  <h1 id="dashboardTitle">Institution Admin Dashboard</h1>
+  <div id="sessionStatus" class="notice warn">Checking session...</div>
+  <p>Review institution users, approvals, and role assignments.</p>
+  <section class="grid" style="margin-top:20px">
+    <div class="card"><h3>Identity context</h3><p>Session, institution, and RBAC state are resolved from the runtime identity API.</p></div>
+    <div class="card"><h3>Governed access</h3><p>Access depends on active identity, institution approval, and role assignment.</p></div>
+    <div class="card"><h3>Evidence-ready</h3><p>Login, session, approval, and microfunction execution are captured as evidence.</p></div>
+  </section>
+  <div class="button-row">
+    <a class="btn btn-secondary" href="/portal/home.html">Home Router</a>
+    <button class="btn btn-danger" onclick="AIRA.logout()">Logout</button>
+  </div>
+</section>
+    </main>
+    <footer class="footer">AIRA POC-1 Institution-Aware Identity and RBAC Portal Entry</footer>
+  </div>
+  <script src="/portal/assets/poc1-api.js"></script>
+<script>AIRA.dashboardTitle('Institution Admin');</script>
+</body>
+</html>

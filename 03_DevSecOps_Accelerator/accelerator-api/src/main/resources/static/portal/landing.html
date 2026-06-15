@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIRA POC-1 Landing</title>
+  <link rel="stylesheet" href="/portal/assets/poc1.css">
+</head>
+<body>
+  <div class="aira-shell">
+    <header class="aira-topbar">
+      <div class="aira-brand">AIRA <span>POC-1</span></div>
+      <nav class="aira-nav">
+        <a href="/portal/landing.html">Landing</a>
+        <a href="/portal/signup.html">Signup</a>
+        <a href="/portal/login.html">Login</a>
+        <a href="/portal/home.html">Home</a>
+      </nav>
+    </header>
+    <main class="aira-main">
+<section class="hero">
+  <div>
+    <span class="badge">Governed portal entry</span>
+    <h1>Institution-aware access for AIRA.</h1>
+    <p>POC-1 validates signup, email verification, institution approval, login, session context, and role-based landing.</p>
+    <div class="button-row">
+      <a class="btn btn-primary" href="/portal/signup.html">Request Access</a>
+      <a class="btn btn-secondary" href="/portal/login.html">Login</a>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Runtime validated</h2>
+    <p>This portal connects to the POC-1 identity APIs on the security runtime.</p>
+    <div class="grid-2">
+      <div><div class="kpi">9090</div><p>Portal runtime</p></div>
+      <div><div class="kpi">9091</div><p>Identity runtime</p></div>
+    </div>
+  </div>
+</section>
+<section class="grid" style="margin-top:24px">
+  <div class="card"><h3>Signup</h3><p>Users request access under an institution context.</p></div>
+  <div class="card"><h3>Approval</h3><p>Admins approve access and assign a role.</p></div>
+  <div class="card"><h3>RBAC landing</h3><p>Users land on the correct dashboard after login.</p></div>
+</section>
+    </main>
+    <footer class="footer">AIRA POC-1 Institution-Aware Identity and RBAC Portal Entry</footer>
+  </div>
+  <script src="/portal/assets/poc1-api.js"></script>
+
+</body>
+</html>

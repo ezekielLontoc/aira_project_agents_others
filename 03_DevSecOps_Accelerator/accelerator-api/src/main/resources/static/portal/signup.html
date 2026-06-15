@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIRA POC-1 Signup</title>
+  <link rel="stylesheet" href="/portal/assets/poc1.css">
+</head>
+<body>
+  <div class="aira-shell">
+    <header class="aira-topbar">
+      <div class="aira-brand">AIRA <span>POC-1</span></div>
+      <nav class="aira-nav">
+        <a href="/portal/landing.html">Landing</a>
+        <a href="/portal/signup.html">Signup</a>
+        <a href="/portal/login.html">Login</a>
+        <a href="/portal/home.html">Home</a>
+      </nav>
+    </header>
+    <main class="aira-main">
+<section class="card">
+  <span class="badge">Request institution access</span>
+  <h1>Signup</h1>
+  <p>Create a POC-1 access request. Local validation uses AIRA-DEMO-INSTITUTION.</p>
+  <div id="formStatus" class="notice hidden"></div>
+  <form onsubmit="AIRA.signup(event)">
+    <div class="grid-2">
+      <label>First name<input id="firstName" required placeholder="POC1"></label>
+      <label>Last name<input id="lastName" required placeholder="User"></label>
+    </div>
+    <label>Email<input id="email" type="email" required placeholder="name@aira.local"></label>
+    <div class="grid-2">
+      <label>Institution key<input id="institutionKey" value="AIRA-DEMO-INSTITUTION"></label>
+      <label>Requested role<select id="requestedRole"><option>DEVELOPER</option><option>VIEWER</option><option>AUDITOR</option><option>SECURITY_OFFICER</option><option>INSTITUTION_ADMIN</option></select></label>
+    </div>
+    <div class="grid-2">
+      <label>Department<input id="department" value="AIRA Runtime Validation"></label>
+      <label>Job title<input id="jobTitle" value="POC-1 Portal User"></label>
+    </div>
+    <label>Reason<textarea id="requestReason">POC-1 Phase 3 portal validation</textarea></label>
+    <div class="grid-2">
+      <label>Password<input id="password" type="password" required value="AiraLocalDev!2026"></label>
+      <label>Confirm password<input id="confirmPassword" type="password" required value="AiraLocalDev!2026"></label>
+    </div>
+    <label><input id="acceptGovernancePolicy" type="checkbox" checked> I accept the governance policy.</label>
+    <label><input id="acceptTermsOfUse" type="checkbox" checked> I accept the terms of use.</label>
+    <button class="btn btn-primary" type="submit">Submit Access Request</button>
+  </form>
+</section>
+    </main>
+    <footer class="footer">AIRA POC-1 Institution-Aware Identity and RBAC Portal Entry</footer>
+  </div>
+  <script src="/portal/assets/poc1-api.js"></script>
+
+</body>
+</html>

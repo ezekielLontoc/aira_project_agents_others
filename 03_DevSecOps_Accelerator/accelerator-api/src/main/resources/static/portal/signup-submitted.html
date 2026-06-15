@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIRA POC-1 Signup Submitted</title>
+  <link rel="stylesheet" href="/portal/assets/poc1.css">
+</head>
+<body>
+  <div class="aira-shell">
+    <header class="aira-topbar">
+      <div class="aira-brand">AIRA <span>POC-1</span></div>
+      <nav class="aira-nav">
+        <a href="/portal/landing.html">Landing</a>
+        <a href="/portal/signup.html">Signup</a>
+        <a href="/portal/login.html">Login</a>
+        <a href="/portal/home.html">Home</a>
+      </nav>
+    </header>
+    <main class="aira-main">
+<section class="card">
+  <span class="badge">Signup submitted</span>
+  <h1>Check verification</h1>
+  <p>Your signup request was submitted for <strong id="submittedEmail"></strong>.</p>
+  <p>For local POC validation only, the backend returns a local-only verification token. Use it on the verification page.</p>
+  <label>Local-only verification token<input id="localToken" readonly></label>
+  <div class="button-row">
+    <a class="btn btn-primary" href="/portal/verify-email.html">Verify Email</a>
+    <a class="btn btn-secondary" href="/portal/login.html">Go to Login</a>
+  </div>
+</section>
+    </main>
+    <footer class="footer">AIRA POC-1 Institution-Aware Identity and RBAC Portal Entry</footer>
+  </div>
+  <script src="/portal/assets/poc1-api.js"></script>
+<script>AIRA.initSignupSubmitted();</script>
+</body>
+</html>
