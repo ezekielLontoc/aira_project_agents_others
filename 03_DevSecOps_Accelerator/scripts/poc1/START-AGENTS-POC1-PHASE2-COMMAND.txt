@@ -1,0 +1,5 @@
+POC-1 Agents Start Build Command
+
+Run this only after POC-1 Build Phase 1 validation passes:
+
+AIRA Agents: start POC-1 Build Phase 2 implementation using the latest GitHub main branch. Use POC-1 documentation, ADR-0013, evidence pack, and the Phase 1 identity database plus microfunction catalog as the source of truth. Build step by step in this order: architecture-agent review, security-agent review, developer-agent database integration, test-agent validation plan, evidence-agent evidence hooks, documentation-agent API/docs sync, cicd-agent quality gates, knowledge-fabric-agent mapping. Do not bypass fail-closed controls. Do not proceed to portal pages until identity core APIs are ready.
