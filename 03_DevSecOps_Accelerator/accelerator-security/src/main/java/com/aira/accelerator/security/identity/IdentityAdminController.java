@@ -25,7 +25,7 @@ public class IdentityAdminController {
     @PostMapping("/access-requests/{requestId}/approve")
     public ResponseEntity<Map<String, Object>> approve(
         @RequestHeader(value = "X-AIRA-Admin-Key", required = false) String adminKey,
-        @PathVariable UUID requestId,
+        @PathVariable("requestId") UUID requestId,
         @RequestBody(required = false) Map<String, Object> request
     ) {
         Map<String, Object> safeRequest = request == null ? Map.of() : request;
@@ -35,7 +35,7 @@ public class IdentityAdminController {
     @PostMapping("/access-requests/{requestId}/reject")
     public ResponseEntity<Map<String, Object>> reject(
         @RequestHeader(value = "X-AIRA-Admin-Key", required = false) String adminKey,
-        @PathVariable UUID requestId,
+        @PathVariable("requestId") UUID requestId,
         @RequestBody(required = false) Map<String, Object> request
     ) {
         Map<String, Object> safeRequest = request == null ? Map.of() : request;

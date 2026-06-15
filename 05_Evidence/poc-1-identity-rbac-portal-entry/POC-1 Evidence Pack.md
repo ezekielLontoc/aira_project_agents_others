@@ -390,3 +390,54 @@ Runtime validation test identity:
 Next phase:
 
 - POC-1 Build Phase 3: portal pages and browser flow.
+
+---
+
+## POC-1 PathVariable Approval Runtime Repair Evidence
+
+Status: PASSED
+
+Exact root cause:
+
+- Spring MVC could not bind UUID requestId from the admin approval path.
+- The controller used @PathVariable UUID requestId without explicit path variable name.
+- Runtime WAR did not expose Java parameter-name metadata for Spring to infer the variable name.
+
+Repair:
+
+- Updated IdentityAdminController to use @PathVariable("requestId") UUID requestId.
+- Rebuilt accelerator-security WAR.
+- Redeployed ROOT.war into Tomcat container mapped to port 9091.
+- Re-ran the complete runtime identity flow.
+
+Runtime validation confirmed:
+
+- Signup API works.
+- Email verification API works.
+- Admin approval API works.
+- Login API works.
+- Session API works.
+- Me API works.
+- Landing context API works.
+- Logout API works.
+- Session after logout is denied.
+- Approved access request persisted.
+- Active DEVELOPER role assignment persisted.
+- Login audit records created.
+- Microfunction execution records created.
+
+Runtime validation report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Runtime Validation Report.md
+
+Repair log:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 PathVariable Approval Repair Log.md
+
+Runtime validation test identity:
+
+- poc1.runtime.pathvariable.20260615171825@aira.local
+
+Next phase:
+
+- POC-1 Build Phase 3: portal pages and browser flow.

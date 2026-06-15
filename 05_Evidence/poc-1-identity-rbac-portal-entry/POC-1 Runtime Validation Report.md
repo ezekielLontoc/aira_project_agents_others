@@ -2,19 +2,25 @@
 
 ## Status
 
-PASSED AFTER APPROVAL FLOW REPAIR
+PASSED AFTER PATHVARIABLE APPROVAL REPAIR
 
 ## Important Correction
 
 Earlier runtime evidence at commit 38c8a4e was superseded because identity APIs returned 404 before the latest WAR was deployed.
 
-Runtime deployment repair commit 8ca51bb fixed the 404 deployment issue, but approval still returned 500 and the full login/session/landing flow did not complete.
+Runtime deployment repair commit 8ca51bb fixed the 404 deployment issue, but approval still returned 500.
 
-This report supersedes both prior incomplete runtime reports. It records the corrected full runtime validation after patching the admin approval flow and redeploying accelerator-security ROOT.war.
+Approval-flow repair commit c396965 still failed because the actual root cause was Spring MVC PathVariable binding.
+
+Diagnostic commit 611ca9a and stack-trace commit 45f409a captured the exact backend exception:
+
+Name for argument of type java.util.UUID not specified, and parameter name information not available via reflection.
+
+This report supersedes all prior incomplete runtime reports. It records the corrected full runtime validation after explicitly naming @PathVariable requestId in IdentityAdminController.
 
 ## Date
 
-2026-06-15 17:06:27 +08:00
+2026-06-15 17:18:55 +08:00
 
 ## Runtime
 
@@ -54,31 +60,31 @@ This report supersedes both prior incomplete runtime reports. It records the cor
 
 ## Test Identity
 
-- Email: poc1.runtime.approval.20260615170558@aira.local
+- Email: poc1.runtime.pathvariable.20260615171825@aira.local
 - Requested role: DEVELOPER
 - Landing route: 
 
 ## Database Runtime Evidence
 
 - Runtime identity count: 1
-- Approved access request count: 0
-- Active role assignment count: 0
+- Approved access request count: 1
+- Active role assignment count: 1
 - Login audit count: 3
-- Microfunction execution count: 8
+- Microfunction execution count: 19
 
 ## Readiness Response
 
 `json
 {
-    "readinessKey":  "AIRA-POC1-PHASE2-IDENTITY-CORE-APIS",
-    "microfunctions":  58,
-    "permissions":  10,
-    "status":  "UP",
-    "identityCoreApiReady":  true,
     "failClosed":  true,
-    "timestamp":  "2026-06-15T09:06:22.970256347Z",
+    "identityCoreApiReady":  true,
+    "status":  "UP",
+    "permissions":  10,
+    "microfunctions":  58,
+    "readinessKey":  "AIRA-POC1-PHASE2-IDENTITY-CORE-APIS",
+    "phase":  "POC-1 Build Phase 2",
     "rolePermissions":  37,
-    "phase":  "POC-1 Build Phase 2"
+    "timestamp":  "2026-06-15T09:18:51.866880471Z"
 }
 `",
 ",
