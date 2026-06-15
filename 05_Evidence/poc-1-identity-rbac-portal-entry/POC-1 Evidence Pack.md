@@ -230,3 +230,24 @@ Next phase after successful validation:
 
 - Runtime API validation against PostgreSQL and Tomcat Docker runtime.
 - Then portal pages can be built only after identity core APIs are verified.
+---
+
+## POC-1 Build Phase 2 Repair Evidence
+
+Status: Completed by repair script.
+
+Repair scope:
+
+- Added missing accelerator-security dependency for spring-security-crypto.
+- Restored BCryptPasswordEncoder compilation support.
+- Re-ran Maven package for accelerator-security.
+- Re-ran Phase 2 validation in pre-commit mode.
+- Confirmed identity core API source files remain present.
+- Confirmed Phase 2 is ready for commit and push after repair.
+
+Repair acceptance:
+
+- accelerator-security pom.xml contains spring-security-crypto.
+- Maven build succeeds.
+- Phase 2 validation succeeds.
+- GitHub push succeeds.
