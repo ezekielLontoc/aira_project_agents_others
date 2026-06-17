@@ -1,9 +1,15 @@
 openapi: 3.0.3
 info:
   title: AIRA POC-1B Login Risk and Step-Up Governance API
-  version: 0.1.0
-  description: Planning baseline API contract for POC-1B.
+  version: 0.2.0
+  description: Phase 2 backend API foundation for POC-1B login risk, step-up authentication, and account lock governance.
 paths:
+  /health:
+    get:
+      summary: Runtime health check
+      responses:
+        "200":
+          description: Health response
   /api/v1/identity/risk/readiness:
     get:
       summary: Login risk readiness
@@ -15,70 +21,81 @@ paths:
       summary: Login risk microfunction catalog
       responses:
         "200":
-          description: Microfunction catalog
+          description: MicroFunction catalog
   /api/v1/identity/risk/events:
     get:
       summary: List suspicious login risk events
       responses:
         "200":
           description: Risk event list
+    post:
+      summary: Create suspicious login risk event
+      responses:
+        "201":
+          description: Risk event created
+  /api/v1/identity/risk/events/{eventId}:
+    get:
+      summary: Get suspicious login risk event
+      responses:
+        "200":
+          description: Risk event detail
   /api/v1/identity/risk/events/{eventId}/review:
     post:
       summary: Review suspicious login risk event
-      parameters:
-        - name: eventId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         "200":
           description: Review accepted
+  /api/v1/identity/risk/login-failures:
+    get:
+      summary: List login failure triage records
+      responses:
+        "200":
+          description: Login failure triage list
+  /api/v1/identity/risk/login-failures/triage:
+    post:
+      summary: Create login failure triage record
+      responses:
+        "201":
+          description: Triage created
+  /api/v1/identity/risk/incidents:
+    get:
+      summary: List login incident analyses
+      responses:
+        "200":
+          description: Incident list
+  /api/v1/identity/risk/incidents/{incidentId}:
+    get:
+      summary: Get login incident analysis
+      responses:
+        "200":
+          description: Incident detail
+  /api/v1/identity/risk/accounts/locked:
+    get:
+      summary: List locked accounts
+      responses:
+        "200":
+          description: Locked account list
   /api/v1/identity/risk/accounts/{identityId}/lock:
     post:
       summary: Lock account
-      parameters:
-        - name: identityId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
-        "200":
+        "201":
           description: Account locked
   /api/v1/identity/risk/accounts/{identityId}/unlock-request:
     post:
       summary: Create account unlock request
-      parameters:
-        - name: identityId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
-        "200":
+        "201":
           description: Unlock request created
   /api/v1/identity/risk/unlock-requests/{requestId}/approve:
     post:
       summary: Approve unlock request
-      parameters:
-        - name: requestId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         "200":
           description: Unlock approved
   /api/v1/identity/risk/unlock-requests/{requestId}/reject:
     post:
       summary: Reject unlock request
-      parameters:
-        - name: requestId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         "200":
           description: Unlock rejected
@@ -86,17 +103,17 @@ paths:
     post:
       summary: Create step-up challenge
       responses:
-        "200":
+        "201":
           description: Challenge created
   /api/v1/identity/risk/step-up/challenges/{challengeId}/verify:
     post:
       summary: Verify step-up challenge
-      parameters:
-        - name: challengeId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         "200":
-          description: Challenge verified
+          description: Challenge verified or denied
+  /api/v1/identity/risk/policy-decisions:
+    get:
+      summary: List policy decisions
+      responses:
+        "200":
+          description: Policy decision list
