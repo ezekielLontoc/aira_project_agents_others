@@ -1,0 +1,80 @@
+{
+  "status": "PASSED",
+  "simUsers": 12,
+  "simBatchSize": 4,
+  "durationMs": 2235,
+  "results": [
+    {
+      "email": "poc1.heavy.20260617035300720.cb838m@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035300721.v99o6m@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035300722.7yosed@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035300723.aighc4@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301359.amjm7z@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301359.psnbz1@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301360.p92go8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301361.il81iu@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301978.wov3tw@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301978.tfkdjm@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301979.za45be@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617035301980.tcan0h@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    }
+  ]
+}

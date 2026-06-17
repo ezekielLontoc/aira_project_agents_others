@@ -1,0 +1,21 @@
+{
+    "devDependencies":  {
+                            "@playwright/test":  "^1.61.0",
+                            "@types/node":  "^25.9.3",
+                            "dotenv":  "^17.4.2",
+                            "log4js":  "^6.9.1"
+                        },
+    "scripts":  {
+                    "test:poc1-heavy":  "playwright test tests/aira-poc1-heavy.spec.js --project=chromium",
+                    "test:poc1-heavy:chromium":  "playwright test tests/aira-poc1-heavy.spec.js --project=chromium",
+                    "test:poc1-heavy:headed":  "playwright test tests/aira-poc1-heavy.spec.js --project=chromium --headed",
+                    "test:poc1-heavy:report":  "playwright show-report",
+                    "test:poc1-enterprise":  "playwright test tests/aira-poc1-enterprise.spec.js --project=chromium",
+                    "test:poc1-enterprise:headed":  "playwright test tests/aira-poc1-enterprise.spec.js --project=chromium --headed",
+                    "test:poc1-enterprise:report":  "playwright show-report",
+                    "test:poc1-all":  "playwright test tests/aira-poc1-heavy.spec.js tests/aira-poc1-enterprise.spec.js --project=chromium",
+                    "test:poc1-random-mf":  "playwright test tests/aira-poc1-randomized-microfunctions.spec.js --project=chromium",
+                    "test:poc1-validation-suite":  "playwright test tests/aira-poc1-heavy.spec.js tests/aira-poc1-enterprise.spec.js tests/aira-poc1-randomized-microfunctions.spec.js --project=chromium",
+                    "test:poc1-validation-report":  "playwright show-report \"D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\playwright-artifacts\\playwright-report\""
+                }
+}

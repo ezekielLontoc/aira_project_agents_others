@@ -1,0 +1,6 @@
+{
+  "status": "PASSED",
+  "url": "http://192.168.179.193:9090/portal/home.html",
+  "email": "poc1.browser.20260615180057@aira.local",
+  "sessionTokenPresentAfterLogout": false
+}

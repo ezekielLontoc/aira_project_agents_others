@@ -1,0 +1,40 @@
+{
+  "status": "PASSED",
+  "results": [
+    {
+      "roleKey": "DEVELOPER",
+      "expectedRoute": "/portal/developer-dashboard.html",
+      "actualRoute": "/portal/developer-dashboard.html",
+      "email": "poc1.heavy.20260617053114578.d0tqkh@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "AUDITOR",
+      "expectedRoute": "/portal/evidence-dashboard.html",
+      "actualRoute": "/portal/evidence-dashboard.html",
+      "email": "poc1.heavy.20260617053115090.iem435@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "SECURITY_OFFICER",
+      "expectedRoute": "/portal/security-dashboard.html",
+      "actualRoute": "/portal/security-dashboard.html",
+      "email": "poc1.heavy.20260617053115571.z7511i@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "INSTITUTION_ADMIN",
+      "expectedRoute": "/portal/institution-dashboard.html",
+      "actualRoute": "/portal/institution-dashboard.html",
+      "email": "poc1.heavy.20260617053116055.8m4f64@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "PLATFORM_ADMIN",
+      "expectedRoute": "/portal/admin-dashboard.html",
+      "actualRoute": "/portal/admin-dashboard.html",
+      "email": "poc1.heavy.20260617053116580.mh0r8k@aira.local",
+      "afterLogoutStatus": "DENIED"
+    }
+  ]
+}

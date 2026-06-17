@@ -1,0 +1,11 @@
+{
+  "status": "PASSED",
+  "url": "http://192.168.179.193:9090/portal/index.html",
+  "expected": "All portal checks passed",
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T06-24-48-870Z-enterprise-portal-control-surface.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T06-24-48-870Z-enterprise-portal-control-surface.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T06:24:48.870Z"
+  }
+}

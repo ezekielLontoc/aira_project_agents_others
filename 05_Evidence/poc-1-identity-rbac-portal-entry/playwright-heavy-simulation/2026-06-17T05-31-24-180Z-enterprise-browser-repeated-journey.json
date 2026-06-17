@@ -1,0 +1,26 @@
+{
+  "status": "PASSED",
+  "cycles": [
+    {
+      "cycle": 1,
+      "email": "poc1.browser.20260615180057@aira.local",
+      "role": "DEVELOPER",
+      "dashboard": "/portal/developer-dashboard.html",
+      "logoutClearedToken": true
+    },
+    {
+      "cycle": 2,
+      "email": "poc1.browser.20260615180057@aira.local",
+      "role": "DEVELOPER",
+      "dashboard": "/portal/developer-dashboard.html",
+      "logoutClearedToken": true
+    },
+    {
+      "cycle": 3,
+      "email": "poc1.browser.20260615180057@aira.local",
+      "role": "DEVELOPER",
+      "dashboard": "/portal/developer-dashboard.html",
+      "logoutClearedToken": true
+    }
+  ]
+}

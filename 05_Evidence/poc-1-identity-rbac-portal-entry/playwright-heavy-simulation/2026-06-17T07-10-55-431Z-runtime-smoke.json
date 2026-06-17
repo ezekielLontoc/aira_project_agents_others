@@ -1,0 +1,71 @@
+{
+  "status": "PASSED",
+  "results": [
+    {
+      "url": "http://192.168.179.193:9090/portal/index.html",
+      "status": 200,
+      "title": "AIRA Portal"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/landing.html",
+      "status": 200,
+      "title": "AIRA POC-1 Landing"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/signup.html",
+      "status": 200,
+      "title": "AIRA POC-1 Signup"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/login.html",
+      "status": 200,
+      "title": "AIRA POC-1 Login"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/home.html",
+      "status": 200,
+      "title": "AIRA POC-1 Home"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/developer-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Developer Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/admin-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Platform Admin Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/institution-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Institution Admin Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/security-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Security Officer Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/evidence-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Evidence Auditor Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/viewer-dashboard.html",
+      "status": 200,
+      "title": "AIRA POC-1 Viewer Dashboard"
+    },
+    {
+      "url": "http://192.168.179.193:9090/portal/assets/poc1-api.js",
+      "status": 200,
+      "title": ""
+    }
+  ],
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T07-10-55-431Z-runtime-smoke.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T07-10-55-431Z-runtime-smoke.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T07:10:55.431Z"
+  }
+}

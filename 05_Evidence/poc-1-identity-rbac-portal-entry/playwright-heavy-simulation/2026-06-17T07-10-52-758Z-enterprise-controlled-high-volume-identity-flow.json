@@ -1,0 +1,231 @@
+{
+  "status": "PASSED",
+  "simUsers": 36,
+  "batchSize": 6,
+  "durationMs": 5720,
+  "usersPerSecondApprox": 6.29,
+  "results": [
+    {
+      "email": "poc1.heavy.20260617071047007.jyrvqc@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047007.hod3mx@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047008.tauzce@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047009.1ims6s@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047009.5ar411@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047010.aobn1z@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047750.bucgg4@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047750.fczo0f@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047751.b5uzmq@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047751.mhhb41@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047752.9sil76@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071047752.uwtsup@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048489.4ctexa@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048490.eat28f@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048490.c1srxl@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048491.2rva0b@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048491.b9zeus@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071048492.3pchl4@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049211.wpbt9e@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049212.ey93hx@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049212.bv3i2f@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049213.6hs7qo@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049213.7iknke@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049214.9chab8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049954.5zcw9n@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049955.rkhp36@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049955.utalxg@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049956.cshc5j@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049956.woejny@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071049957.r4j6bc@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050698.e8jl26@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050698.eus025@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050699.s8jm2d@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050699.8pub2n@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050700.ljnuox@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617071050700.nkcugw@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    }
+  ],
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T07-10-52-758Z-enterprise-controlled-high-volume-identity-flow.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T07-10-52-758Z-enterprise-controlled-high-volume-identity-flow.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T07:10:52.758Z"
+  }
+}

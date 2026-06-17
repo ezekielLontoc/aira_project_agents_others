@@ -1,0 +1,46 @@
+{
+  "status": "PASSED",
+  "results": [
+    {
+      "roleKey": "DEVELOPER",
+      "expectedRoute": "/portal/developer-dashboard.html",
+      "actualRoute": "/portal/developer-dashboard.html",
+      "email": "poc1.heavy.20260617062451307.h1j2h4@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "AUDITOR",
+      "expectedRoute": "/portal/evidence-dashboard.html",
+      "actualRoute": "/portal/evidence-dashboard.html",
+      "email": "poc1.heavy.20260617062451804.2me8f4@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "SECURITY_OFFICER",
+      "expectedRoute": "/portal/security-dashboard.html",
+      "actualRoute": "/portal/security-dashboard.html",
+      "email": "poc1.heavy.20260617062452290.hz3z45@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "INSTITUTION_ADMIN",
+      "expectedRoute": "/portal/institution-dashboard.html",
+      "actualRoute": "/portal/institution-dashboard.html",
+      "email": "poc1.heavy.20260617062452765.c12noi@aira.local",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "roleKey": "PLATFORM_ADMIN",
+      "expectedRoute": "/portal/admin-dashboard.html",
+      "actualRoute": "/portal/admin-dashboard.html",
+      "email": "poc1.heavy.20260617062453234.gluajx@aira.local",
+      "afterLogoutStatus": "DENIED"
+    }
+  ],
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T06-24-53-956Z-enterprise-role-landing-matrix.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T06-24-53-956Z-enterprise-role-landing-matrix.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T06:24:53.956Z"
+  }
+}

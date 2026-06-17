@@ -1,0 +1,11 @@
+{
+  "status": "PASSED",
+  "denialMode": "BODY_OR_UNAUTHENTICATED_DENIAL",
+  "httpStatus": 200,
+  "body": {
+    "status": "DENIED",
+    "message": "Invalid session."
+  },
+  "bodyPreview": "{\"status\":\"DENIED\",\"message\":\"Invalid session.\"}",
+  "sessionTokenReturned": false
+}

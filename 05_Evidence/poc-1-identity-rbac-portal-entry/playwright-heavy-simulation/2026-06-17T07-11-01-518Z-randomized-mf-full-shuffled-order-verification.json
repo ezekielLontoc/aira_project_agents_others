@@ -1,0 +1,362 @@
+{
+  "status": "PASSED",
+  "mode": "FULL_SHUFFLED_ORDER",
+  "rounds": [
+    {
+      "round": 1,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-032",
+        "MF-IDENTITY-051",
+        "MF-IDENTITY-009",
+        "MF-IDENTITY-016",
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-023",
+        "MF-IDENTITY-044",
+        "MF-IDENTITY-003"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-049",
+        "MF-IDENTITY-028",
+        "MF-IDENTITY-007",
+        "MF-IDENTITY-048",
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-031",
+        "MF-IDENTITY-027",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-030"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 2,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-056",
+        "MF-IDENTITY-035",
+        "MF-IDENTITY-036",
+        "MF-IDENTITY-051",
+        "MF-IDENTITY-005",
+        "MF-IDENTITY-055",
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-057"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-044",
+        "MF-IDENTITY-003",
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-043",
+        "MF-IDENTITY-014",
+        "MF-IDENTITY-031",
+        "MF-IDENTITY-027",
+        "MF-IDENTITY-024",
+        "MF-IDENTITY-042"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 3,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-036",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-009",
+        "MF-IDENTITY-053",
+        "MF-IDENTITY-043",
+        "MF-IDENTITY-008",
+        "MF-IDENTITY-045",
+        "MF-IDENTITY-057"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-042",
+        "MF-IDENTITY-046",
+        "MF-IDENTITY-033",
+        "MF-IDENTITY-041",
+        "MF-IDENTITY-052",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-021",
+        "MF-IDENTITY-044"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 4,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-051",
+        "MF-IDENTITY-038",
+        "MF-IDENTITY-043",
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-004",
+        "MF-IDENTITY-036",
+        "MF-IDENTITY-016",
+        "MF-IDENTITY-017",
+        "MF-IDENTITY-047",
+        "MF-IDENTITY-021"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-048",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-024",
+        "MF-IDENTITY-015",
+        "MF-IDENTITY-018",
+        "MF-IDENTITY-011",
+        "MF-IDENTITY-049",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-008",
+        "MF-IDENTITY-039"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 5,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-017",
+        "MF-IDENTITY-001",
+        "MF-IDENTITY-037",
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-039",
+        "MF-IDENTITY-015",
+        "MF-IDENTITY-009",
+        "MF-IDENTITY-028",
+        "MF-IDENTITY-010"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-045",
+        "MF-IDENTITY-027",
+        "MF-IDENTITY-004",
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-035",
+        "MF-IDENTITY-023",
+        "MF-IDENTITY-047",
+        "MF-IDENTITY-021",
+        "MF-IDENTITY-032",
+        "MF-IDENTITY-053"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 6,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-032",
+        "MF-IDENTITY-034",
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-005",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-043",
+        "MF-IDENTITY-046",
+        "MF-IDENTITY-004",
+        "MF-IDENTITY-048",
+        "MF-IDENTITY-001"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-045",
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-027",
+        "MF-IDENTITY-044",
+        "MF-IDENTITY-031",
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-057",
+        "MF-IDENTITY-006",
+        "MF-IDENTITY-023",
+        "MF-IDENTITY-049"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 7,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-051",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-015",
+        "MF-IDENTITY-028",
+        "MF-IDENTITY-041",
+        "MF-IDENTITY-023",
+        "MF-IDENTITY-021",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-020"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-057",
+        "MF-IDENTITY-003",
+        "MF-IDENTITY-024",
+        "MF-IDENTITY-027",
+        "MF-IDENTITY-047",
+        "MF-IDENTITY-049",
+        "MF-IDENTITY-045",
+        "MF-IDENTITY-014",
+        "MF-IDENTITY-031",
+        "MF-IDENTITY-025"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 8,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-002",
+        "MF-IDENTITY-014",
+        "MF-IDENTITY-055",
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-018",
+        "MF-IDENTITY-033",
+        "MF-IDENTITY-004",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-011",
+        "MF-IDENTITY-032"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-045",
+        "MF-IDENTITY-010",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-005",
+        "MF-IDENTITY-021",
+        "MF-IDENTITY-028",
+        "MF-IDENTITY-016",
+        "MF-IDENTITY-030"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 9,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-031",
+        "MF-IDENTITY-007",
+        "MF-IDENTITY-006",
+        "MF-IDENTITY-017",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-018",
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-043"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-034",
+        "MF-IDENTITY-052",
+        "MF-IDENTITY-003",
+        "MF-IDENTITY-024",
+        "MF-IDENTITY-055",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-002",
+        "MF-IDENTITY-019",
+        "MF-IDENTITY-012",
+        "MF-IDENTITY-057"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 10,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-032",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-053",
+        "MF-IDENTITY-015",
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-046",
+        "MF-IDENTITY-016",
+        "MF-IDENTITY-009",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-020"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-018",
+        "MF-IDENTITY-047",
+        "MF-IDENTITY-037",
+        "MF-IDENTITY-003",
+        "MF-IDENTITY-012",
+        "MF-IDENTITY-035",
+        "MF-IDENTITY-019",
+        "MF-IDENTITY-039",
+        "MF-IDENTITY-030"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 11,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-041",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-035",
+        "MF-IDENTITY-013",
+        "MF-IDENTITY-020",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-055",
+        "MF-IDENTITY-043",
+        "MF-IDENTITY-034"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-004",
+        "MF-IDENTITY-006",
+        "MF-IDENTITY-042",
+        "MF-IDENTITY-050",
+        "MF-IDENTITY-026",
+        "MF-IDENTITY-016",
+        "MF-IDENTITY-033",
+        "MF-IDENTITY-053",
+        "MF-IDENTITY-029",
+        "MF-IDENTITY-048"
+      ],
+      "verifiedKeyCount": 58
+    },
+    {
+      "round": 12,
+      "catalogCount": 58,
+      "shuffledFirstTen": [
+        "MF-IDENTITY-006",
+        "MF-IDENTITY-015",
+        "MF-IDENTITY-025",
+        "MF-IDENTITY-030",
+        "MF-IDENTITY-058",
+        "MF-IDENTITY-002",
+        "MF-IDENTITY-022",
+        "MF-IDENTITY-038",
+        "MF-IDENTITY-048",
+        "MF-IDENTITY-024"
+      ],
+      "shuffledLastTen": [
+        "MF-IDENTITY-033",
+        "MF-IDENTITY-008",
+        "MF-IDENTITY-042",
+        "MF-IDENTITY-047",
+        "MF-IDENTITY-057",
+        "MF-IDENTITY-040",
+        "MF-IDENTITY-019",
+        "MF-IDENTITY-053",
+        "MF-IDENTITY-028",
+        "MF-IDENTITY-056"
+      ],
+      "verifiedKeyCount": 58
+    }
+  ],
+  "expectedKeyCount": 58,
+  "totalKeyAssertions": 696,
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T07-11-01-518Z-randomized-mf-full-shuffled-order-verification.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T07-11-01-518Z-randomized-mf-full-shuffled-order-verification.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T07:11:01.518Z"
+  }
+}

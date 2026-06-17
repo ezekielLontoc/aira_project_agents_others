@@ -1,0 +1,15 @@
+{
+  "status": "PASSED",
+  "mode": "ORDERED",
+  "expectedCount": 58,
+  "actualCount": 58,
+  "firstExpected": "MF-IDENTITY-001",
+  "lastExpected": "MF-IDENTITY-058",
+  "missing": [],
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T07-11-00-822Z-randomized-mf-ordered-full-catalog-verification.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T07-11-00-822Z-randomized-mf-ordered-full-catalog-verification.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T07:11:00.822Z"
+  }
+}

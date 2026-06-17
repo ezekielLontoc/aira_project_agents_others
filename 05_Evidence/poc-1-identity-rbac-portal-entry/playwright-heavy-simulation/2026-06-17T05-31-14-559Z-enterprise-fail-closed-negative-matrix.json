@@ -1,0 +1,37 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "name": "bad-password-login",
+      "httpStatus": 200,
+      "body": {
+        "status": "DENIED",
+        "message": "Access denied."
+      }
+    },
+    {
+      "name": "missing-api-key-session",
+      "httpStatus": 200,
+      "body": {
+        "status": "DENIED",
+        "message": "Invalid session."
+      }
+    },
+    {
+      "name": "invalid-verification-token",
+      "httpStatus": 200,
+      "body": {
+        "status": "DENIED",
+        "message": "Verification token is invalid or expired."
+      }
+    },
+    {
+      "name": "invalid-institution-signup",
+      "httpStatus": 200,
+      "body": {
+        "status": "DENIED",
+        "message": "Access request could not be accepted."
+      }
+    }
+  ]
+}

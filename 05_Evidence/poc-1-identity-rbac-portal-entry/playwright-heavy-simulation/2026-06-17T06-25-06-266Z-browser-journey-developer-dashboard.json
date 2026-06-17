@@ -1,0 +1,13 @@
+{
+  "status": "PASSED",
+  "url": "http://192.168.179.193:9090/portal/developer-dashboard.html",
+  "email": "poc1.browser.20260615180057@aira.local",
+  "expectedRole": "DEVELOPER",
+  "sessionTokenPresent": true,
+  "artifactMirror": {
+    "localPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-heavy-simulation\\2026-06-17T06-25-06-266Z-browser-journey-developer-dashboard.json",
+    "validationPath": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T06-25-06-266Z-browser-journey-developer-dashboard.json",
+    "validationRoot": "D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others",
+    "generatedAt": "2026-06-17T06:25:06.266Z"
+  }
+}

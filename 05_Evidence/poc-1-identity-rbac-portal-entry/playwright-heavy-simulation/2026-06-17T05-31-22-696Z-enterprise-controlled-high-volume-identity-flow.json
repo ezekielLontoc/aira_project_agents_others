@@ -1,0 +1,225 @@
+{
+  "status": "PASSED",
+  "simUsers": 36,
+  "batchSize": 6,
+  "durationMs": 5422,
+  "usersPerSecondApprox": 6.64,
+  "results": [
+    {
+      "email": "poc1.heavy.20260617053117259.mf5da4@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053117260.znzc8a@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053117260.1x0lyy@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053117261.qfqgmy@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053117261.1xsbyf@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053117262.psrolx@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118006.ds2lak@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118007.4826tt@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118008.xq87s8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118008.ugb0xm@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118009.erjbmx@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118009.0wb564@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118771.a1pcy2@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118771.xvbr9h@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118772.9ky8m5@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118772.67emh8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118773.330ayn@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053118773.3x6hld@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119544.qcrye8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119545.au4s1x@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119545.s9e9lt@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119546.y7m6zc@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119546.yncq1w@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053119547.ac6ah7@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120300.ilrr2i@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120300.v1xd49@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120301.ua70a3@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120301.y3ekq7@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120302.89y6qv@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053120302.fntqhp@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121021.05jh5y@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121022.fmr3e4@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121022.t7surv@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121023.lgxuvf@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121023.67ns86@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    },
+    {
+      "email": "poc1.heavy.20260617053121024.33djq8@aira.local",
+      "roleKey": "DEVELOPER",
+      "landingRoute": "/portal/developer-dashboard.html",
+      "afterLogoutStatus": "DENIED"
+    }
+  ]
+}

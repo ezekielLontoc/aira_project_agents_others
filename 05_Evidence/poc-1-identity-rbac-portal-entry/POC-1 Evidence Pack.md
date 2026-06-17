@@ -661,3 +661,39 @@ Final accepted result:
 Recommended next build phase:
 
 - POC-2 - Institution Admin Console and Access Governance.
+
+# POC-1A Final Closure Evidence
+
+Status: ACCEPTED
+
+Score: 10/10
+
+POC-1A adds the Playwright enterprise validation and simulation hardening layer for the closed POC-1 runtime.
+
+POC-1A validation completed with 22/22 Playwright tests passing across:
+
+- Baseline heavy simulation.
+- Enterprise portal and identity simulation.
+- Ordered microfunction verification.
+- Randomized microfunction probe verification.
+- Full shuffled microfunction verification.
+- Browser journey validation.
+- Role landing matrix validation.
+- Negative fail-closed matrix validation.
+- Artifact generation into the AIRA GitHub Validation destination.
+
+Validation destination:
+
+D:\ChatGPT Workspace Folder Projects\AIRA GitHub Validation\aira_project_agents_others
+
+Primary summary:
+
+D:\ChatGPT Workspace Folder Projects\AIRA GitHub Validation\aira_project_agents_others\05_Evidence\poc-1-identity-rbac-portal-entry\playwright-enterprise-validation\POC-1 Playwright Enterprise Validation Run Summary.md
+
+Local closure summary:
+
+05_Evidence\poc-1-identity-rbac-portal-entry\POC-1A Playwright Enterprise Validation Closure Summary.md
+
+Decision:
+
+POC-1A is accepted as a 10/10 Playwright enterprise validation and simulation hardening layer. POC-1 remains closed and accepted. POC-2 may begin only after POC-1A is committed, pushed, and locally verified.

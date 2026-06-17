@@ -1,0 +1,86 @@
+{
+  "status": "PASSED",
+  "pageCount": 16,
+  "results": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "contains": "AIRA AI-Native Platform"
+    },
+    {
+      "path": "landing.html",
+      "status": 200,
+      "contains": "AIRA POC-1"
+    },
+    {
+      "path": "signup.html",
+      "status": 200,
+      "contains": "Request institution access"
+    },
+    {
+      "path": "signup-submitted.html",
+      "status": 200,
+      "contains": "Check verification"
+    },
+    {
+      "path": "verify-email.html",
+      "status": 200,
+      "contains": "Verify Email"
+    },
+    {
+      "path": "pending-approval.html",
+      "status": 200,
+      "contains": "Pending Approval"
+    },
+    {
+      "path": "login.html",
+      "status": 200,
+      "contains": "Login"
+    },
+    {
+      "path": "home.html",
+      "status": 200,
+      "contains": "Home router"
+    },
+    {
+      "path": "developer-dashboard.html",
+      "status": 200,
+      "contains": "Developer Dashboard"
+    },
+    {
+      "path": "admin-dashboard.html",
+      "status": 200,
+      "contains": "Dashboard"
+    },
+    {
+      "path": "institution-dashboard.html",
+      "status": 200,
+      "contains": "Dashboard"
+    },
+    {
+      "path": "security-dashboard.html",
+      "status": 200,
+      "contains": "Dashboard"
+    },
+    {
+      "path": "evidence-dashboard.html",
+      "status": 200,
+      "contains": "Dashboard"
+    },
+    {
+      "path": "viewer-dashboard.html",
+      "status": 200,
+      "contains": "Dashboard"
+    },
+    {
+      "path": "assets/poc1-api.js",
+      "status": 200,
+      "contains": "resolveRoleLabel"
+    },
+    {
+      "path": "assets/poc1.css",
+      "status": 200,
+      "contains": "body"
+    }
+  ]
+}

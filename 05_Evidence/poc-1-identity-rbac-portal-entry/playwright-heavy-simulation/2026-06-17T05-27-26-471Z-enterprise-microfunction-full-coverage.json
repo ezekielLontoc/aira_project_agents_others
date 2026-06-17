@@ -1,0 +1,19 @@
+{
+  "status": "PASSED",
+  "readiness": {
+    "failClosed": true,
+    "timestamp": "2026-06-17T05:27:26.453086660Z",
+    "rolePermissions": 37,
+    "phase": "POC-1 Build Phase 2",
+    "readinessKey": "AIRA-POC1-PHASE2-IDENTITY-CORE-APIS",
+    "microfunctions": 58,
+    "permissions": 10,
+    "status": "UP",
+    "identityCoreApiReady": true
+  },
+  "microfunctionCount": 58,
+  "expectedKeyCount": 58,
+  "missing": [],
+  "firstExpected": "MF-IDENTITY-001",
+  "lastExpected": "MF-IDENTITY-058"
+}
