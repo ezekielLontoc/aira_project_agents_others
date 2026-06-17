@@ -10,11 +10,11 @@ ACCEPTED
 
 ## Completed At
 
-2026-06-17T17:33:24.0666753+08:00
+2026-06-17T17:36:24.4765335+08:00
 
 ## Correction Note
 
-Phase 3 required repairs after the initial frontend commit because the portal server root was passed incorrectly when the path contained spaces. The final validation starts the portal server from the portal working directory and does not pass the root path as an argument. This produced real Playwright evidence.
+Phase 3 required repairs after the initial frontend commit because the portal server root was passed incorrectly and Playwright did not discover tests when the test file path was passed as an argument. The final validation uses Playwright config discovery, requires real JSON evidence, and commits the Playwright artifacts folder.
 
 ## What Was Built
 

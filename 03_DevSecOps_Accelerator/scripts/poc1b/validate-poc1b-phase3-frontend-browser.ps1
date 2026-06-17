@@ -36,6 +36,14 @@ if ($null -eq (Get-Command npx -ErrorAction SilentlyContinue)) {
     throw "npx is required for Playwright validation but was not found."
 }
 
+if (!(Test-Path $PlaywrightConfigPath)) {
+    throw "Missing Playwright config: $PlaywrightConfigPath"
+}
+
+if (!(Test-Path $PlaywrightTestPath)) {
+    throw "Missing Playwright test file: $PlaywrightTestPath"
+}
+
 foreach ($Path in @($RunEvidencePath, $ApiStdoutPath, $ApiStderrPath, $PortalStdoutPath, $PortalStderrPath)) {
     if (Test-Path $Path) {
         Remove-Item $Path -Force
@@ -117,7 +125,7 @@ try {
     $env:POC1B_PHASE3_PORTAL_BASE = $PortalBase
     $env:POC1B_PHASE3_ARTIFACT_ROOT = $ArtifactRoot
 
-    npx playwright test $PlaywrightTestPath --config $PlaywrightConfigPath --project chromium
+    npx playwright test --config "$PlaywrightConfigPath" --project chromium
 
     if ($LASTEXITCODE -ne 0) {
         throw "POC-1B Phase 3 Playwright validation failed."
