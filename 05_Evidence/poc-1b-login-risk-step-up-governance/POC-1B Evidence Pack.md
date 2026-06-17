@@ -89,29 +89,31 @@ Decision:
 
 POC-1B Phase 1 is accepted as the additive technical foundation before backend API implementation.
 
-# POC-1B Phase 2 Backend API Foundation Evidence
+# # # POC-1B Phase 2 Backend API Foundation Evidence
 
 Status: ACCEPTED
 
 Score: 10/10 Phase 2 Backend API Foundation
 
-Phase 2 completed an additive backend API reference runtime and validation harness for:
+Correction note:
 
-- Suspicious Login Risk Review
-- Login Failure Auto-Triage
-- Account Lock / Unlock Human Approval
-- Policy-Based Step-Up Authentication
-- AI-Assisted Login Incident Analysis
-- Policy decision recording
-- MicroFunction catalog exposure
+Phase 2 backend validation was repaired and rerun successfully. The final repair starts Node from the server working directory, handles paths with spaces correctly, uses separate stdout/stderr .txt logs, and requires real JSON evidence.
 
 Validation result:
 
-- 
+- PASSED
+
+Check count:
+
+- 23
 
 MicroFunction count:
 
-- 
+- 40
+
+Policy decision count:
+
+- 1
 
 Decision:
 

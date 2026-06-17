@@ -3,18 +3,19 @@ $ErrorActionPreference = "Stop"
 Set-Location "D:\ChatGPT Workspace Folder Projects\AIRA Projects"
 
 $RepoRoot = "D:\ChatGPT Workspace Folder Projects\AIRA Projects"
-$ServerPath = Join-Path $RepoRoot "03_DevSecOps_Accelerator\poc1b-runtime\login-risk-api\poc1b-login-risk-api-server.js"
+$ServerDir = Join-Path $RepoRoot "03_DevSecOps_Accelerator\poc1b-runtime\login-risk-api"
+$ServerFile = "poc1b-login-risk-api-server.js"
+$ServerPath = Join-Path $ServerDir $ServerFile
 $EvidenceRoot = Join-Path $RepoRoot "05_Evidence\poc-1b-login-risk-step-up-governance"
+
 $RunEvidencePath = Join-Path $EvidenceRoot "POC-1B Phase 2 Backend API Validation Run.json"
-$StdoutLogPath = Join-Path $EvidenceRoot "POC-1B Phase 2 Backend API Server stdout.log"
-$StderrLogPath = Join-Path $EvidenceRoot "POC-1B Phase 2 Backend API Server stderr.log"
+$StdoutLogPath = Join-Path $EvidenceRoot "POC-1B Phase 2 Backend API Server stdout.txt"
+$StderrLogPath = Join-Path $EvidenceRoot "POC-1B Phase 2 Backend API Server stderr.txt"
 
 $Port = 9191
 $BaseUrl = "http://127.0.0.1:$Port"
 
-$NodeCommand = Get-Command node -ErrorAction SilentlyContinue
-
-if ($null -eq $NodeCommand) {
+if ($null -eq (Get-Command node -ErrorAction SilentlyContinue)) {
     throw "Node.js is required for POC-1B Phase 2 validation but node was not found."
 }
 
@@ -22,23 +23,9 @@ if (!(Test-Path $ServerPath)) {
     throw "Missing POC-1B API server at $ServerPath"
 }
 
-if (Test-Path $RunEvidencePath) {
-    Remove-Item $RunEvidencePath -Force
-}
-
-if (Test-Path $StdoutLogPath) {
-    Remove-Item $StdoutLogPath -Force
-}
-
-if (Test-Path $StderrLogPath) {
-    Remove-Item $StderrLogPath -Force
-}
-
-$ExistingNode = Get-Process node -ErrorAction SilentlyContinue | Where-Object {
-    try {
-        $_.Path -and $_.Path.ToLower().EndsWith("node.exe")
-    } catch {
-        $false
+foreach ($Path in @($RunEvidencePath, $StdoutLogPath, $StderrLogPath)) {
+    if (Test-Path $Path) {
+        Remove-Item $Path -Force
     }
 }
 
@@ -68,7 +55,14 @@ function Assert-True {
 }
 
 try {
-    $ServerProcess = Start-Process -FilePath "node" -ArgumentList @($ServerPath, "--port", "$Port") -PassThru -WindowStyle Hidden -RedirectStandardOutput $StdoutLogPath -RedirectStandardError $StderrLogPath
+    $ServerProcess = Start-Process `
+        -FilePath "node" `
+        -WorkingDirectory $ServerDir `
+        -ArgumentList @($ServerFile, "--port", "$Port") `
+        -PassThru `
+        -WindowStyle Hidden `
+        -RedirectStandardOutput $StdoutLogPath `
+        -RedirectStandardError $StderrLogPath
 
     $Ready = $false
 
@@ -93,11 +87,12 @@ try {
         throw "POC-1B API server did not become ready on $BaseUrl"
     }
 
-    $CheckResults = New-Object System.Collections.Generic.List[object]
+    $Checks = New-Object System.Collections.Generic.List[object]
 
     function Add-Check {
         param([string]$Name)
-        $CheckResults.Add([ordered]@{
+
+        $Checks.Add([ordered]@{
             name = $Name
             status = "PASSED"
             timestamp = (Get-Date).ToString("o")
@@ -149,7 +144,7 @@ try {
     $RiskReviewed = Invoke-JsonPost "$BaseUrl/api/v1/identity/risk/events/$RiskEventId/review" @{
         reviewedBy = "SECURITY_OFFICER"
         reviewDecision = "STEP_UP_REQUIRED"
-        reviewNotes = "Validated by POC-1B Phase 2 repair."
+        reviewNotes = "Validated by POC-1B Phase 2 final repair."
         status = "CLOSED"
     }
 
@@ -198,7 +193,7 @@ try {
 
     $UnlockApproved = Invoke-JsonPost "$BaseUrl/api/v1/identity/risk/unlock-requests/$UnlockRequestId/approve" @{
         approvedBy = "SECURITY_OFFICER"
-        decisionNotes = "Approved by POC-1B Phase 2 validation repair."
+        decisionNotes = "Approved by POC-1B Phase 2 final validation."
     }
 
     Assert-True ($UnlockApproved.approved -eq $true) "Unlock approval endpoint approved request"
@@ -255,8 +250,8 @@ try {
         status = "PASSED"
         score = "10/10 Phase 2 Backend API Foundation"
         baseUrl = $BaseUrl
-        checkCount = $CheckResults.Count
-        checks = $CheckResults
+        checkCount = $Checks.Count
+        checks = $Checks
         createdRiskEventId = $RiskEventId
         createdIncidentId = $IncidentId
         createdUnlockRequestId = $UnlockRequestId

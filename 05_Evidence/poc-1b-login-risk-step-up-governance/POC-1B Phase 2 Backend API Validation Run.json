@@ -1,0 +1,132 @@
+{
+    "completedAt":  "2026-06-17T17:06:20.9326413+08:00",
+    "status":  "PASSED",
+    "score":  "10/10 Phase 2 Backend API Foundation",
+    "baseUrl":  "http://127.0.0.1:9191",
+    "checkCount":  23,
+    "checks":  [
+                   {
+                       "name":  "readiness",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8288145+08:00"
+                   },
+                   {
+                       "name":  "readiness-microfunction-count",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8409491+08:00"
+                   },
+                   {
+                       "name":  "microfunction-catalog",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8439478+08:00"
+                   },
+                   {
+                       "name":  "risk-event-created",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8811997+08:00"
+                   },
+                   {
+                       "name":  "step-up-policy-decision",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8831997+08:00"
+                   },
+                   {
+                       "name":  "incident-created",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8852018+08:00"
+                   },
+                   {
+                       "name":  "risk-event-detail",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8882000+08:00"
+                   },
+                   {
+                       "name":  "risk-event-review",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8922142+08:00"
+                   },
+                   {
+                       "name":  "incident-detail",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8942244+08:00"
+                   },
+                   {
+                       "name":  "login-failure-triage",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.8973553+08:00"
+                   },
+                   {
+                       "name":  "account-lock",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9003626+08:00"
+                   },
+                   {
+                       "name":  "locked-account-list",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9003626+08:00"
+                   },
+                   {
+                       "name":  "unlock-request-created",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9047987+08:00"
+                   },
+                   {
+                       "name":  "unlock-approved",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9068125+08:00"
+                   },
+                   {
+                       "name":  "account-unlocked",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9079788+08:00"
+                   },
+                   {
+                       "name":  "locked-list-empty-after-unlock",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9089804+08:00"
+                   },
+                   {
+                       "name":  "step-up-created",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9118470+08:00"
+                   },
+                   {
+                       "name":  "step-up-verified",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9241323+08:00"
+                   },
+                   {
+                       "name":  "step-up-allowed-login",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9251327+08:00"
+                   },
+                   {
+                       "name":  "policy-decisions",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9286411+08:00"
+                   },
+                   {
+                       "name":  "risk-event-list",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9296435+08:00"
+                   },
+                   {
+                       "name":  "incident-list",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9306434+08:00"
+                   },
+                   {
+                       "name":  "login-failure-list",
+                       "status":  "PASSED",
+                       "timestamp":  "2026-06-17T17:06:20.9316434+08:00"
+                   }
+               ],
+    "createdRiskEventId":  "risk-1781687180873-f65f9701",
+    "createdIncidentId":  "incident-1781687180874-c763f553",
+    "createdUnlockRequestId":  "unlock-1781687180902-6893cb90",
+    "createdStepUpChallengeId":  "stepup-1781687180910-7e8f8621",
+    "microfunctionCount":  40,
+    "policyDecisionCount":  1,
+    "stdoutLog":  "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\POC-1B Phase 2 Backend API Server stdout.txt",
+    "stderrLog":  "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\POC-1B Phase 2 Backend API Server stderr.txt"
+}
