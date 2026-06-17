@@ -611,3 +611,31 @@ Validation:
 Report:
 
 - 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3B Role Display Polish Report.md
+
+---
+
+## POC-1 Phase 3B Final Browser Validation Evidence
+
+Status: PASSED
+
+Browser-confirmed result:
+
+- User reached /portal/developer-dashboard.html.
+- User displayed: poc1.browser.20260615180057@aira.local.
+- Role displayed: DEVELOPER.
+- Home router resolved landing route to /portal/developer-dashboard.html.
+
+Automated runtime recheck:
+
+- Portal pages returned HTTP 2xx.
+- Portal JS includes resolveRoleLabel.
+- Identity API login/session/landing/logout flow passed.
+- Session after logout returned DENIED.
+
+Final report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3B Final Browser Validation Report.md
+
+Accepted result:
+
+- POC-1 Phase 3B browser flow validation is accepted.
