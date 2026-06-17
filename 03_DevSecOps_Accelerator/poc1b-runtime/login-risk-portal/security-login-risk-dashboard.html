@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Security Login Risk Dashboard</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="security-login-risk-dashboard">
+<header>
+  <h1>POC-1B Security Login Risk Dashboard</h1>
+  <p class="muted">Suspicious Login Risk Review, MicroFunction catalog, policy decisions, and incident visibility.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card">
+      <h2>Readiness</h2>
+      <div id="readiness-status" class="metric">Not checked</div>
+      <p id="readiness-detail" class="muted">Backend readiness will appear here.</p>
+      <button data-testid="load-readiness">Load readiness</button>
+    </div>
+    <div class="card">
+      <h2>MicroFunctions</h2>
+      <div id="microfunction-count" class="metric">0</div>
+      <p class="muted">Expected: MF-LOGIN-RISK-001 through MF-LOGIN-RISK-040.</p>
+      <button data-testid="load-microfunctions">Load MicroFunctions</button>
+    </div>
+    <div class="card">
+      <h2>Create Demo Risk Event</h2>
+      <p class="muted">Creates a high-risk login event that should trigger STEP_UP and incident analysis.</p>
+      <button data-testid="create-risk-event">Create high-risk event</button>
+      <p>Risk Event: <span id="risk-event-id" class="badge">none</span></p>
+      <p>Incident: <span id="incident-id" class="badge">none</span></p>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Dashboard Output</h2>
+    <pre id="dashboard-output">{}</pre>
+  </section>
+</main>
+<script>
+document.querySelector('[data-testid="load-readiness"]').addEventListener('click', async function () {
+  const data = await POC1B.get('/api/v1/identity/risk/readiness');
+  POC1B.setStatus('readiness-status', data.status, data.status === 'READY' ? 'metric status-good' : 'metric status-warn');
+  POC1B.setStatus('readiness-detail', data.score || 'No score');
+  POC1B.writeJson('dashboard-output', data);
+});
+
+document.querySelector('[data-testid="load-microfunctions"]').addEventListener('click', async function () {
+  const data = await POC1B.get('/api/v1/identity/risk/microfunctions');
+  POC1B.setStatus('microfunction-count', String(data.count), 'metric status-good');
+  POC1B.writeJson('dashboard-output', data);
+});
+
+document.querySelector('[data-testid="create-risk-event"]').addEventListener('click', async function () {
+  const data = await POC1B.post('/api/v1/identity/risk/events', {
+    institutionKey: 'AIRA-DEMO-INSTITUTION',
+    identityId: 'poc1b.phase3.user',
+    email: 'poc1b.phase3.user@aira.local',
+    eventType: 'LOGIN_ATTEMPT',
+    riskScore: 82,
+    failedAttemptsInWindow: 3,
+    sourceIp: '10.10.30.42',
+    userAgent: 'POC1B-Phase3-Browser',
+    riskReasons: ['NEW_DEVICE', 'HIGH_RISK_SCORE'],
+    evidence: { screen: 'security-login-risk-dashboard' }
+  });
+
+  POC1B.remember('poc1bRiskEventId', data.riskEvent.riskEventId);
+  POC1B.remember('poc1bIncidentId', data.incident.incidentId);
+
+  POC1B.setStatus('risk-event-id', data.riskEvent.riskEventId);
+  POC1B.setStatus('incident-id', data.incident.incidentId);
+  POC1B.writeJson('dashboard-output', data);
+});
+</script>
+</body>
+</html>

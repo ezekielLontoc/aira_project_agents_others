@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Login Failure Triage</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="login-failure-triage">
+<header>
+  <h1>POC-1B Login Failure Auto-Triage</h1>
+  <p class="muted">Classify failed login attempts and recommend actions.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="card">
+    <h2>Create Demo Triage</h2>
+    <p class="muted">Five failed attempts should recommend account lock.</p>
+    <button data-testid="create-triage">Create failure triage</button>
+    <span id="triage-action" class="badge">none</span>
+  </section>
+  <section class="card">
+    <h2>Triage Output</h2>
+    <pre id="triage-output">{}</pre>
+  </section>
+</main>
+<script>
+document.querySelector('[data-testid="create-triage"]').addEventListener('click', async function () {
+  const data = await POC1B.post('/api/v1/identity/risk/login-failures/triage', {
+    institutionKey: 'AIRA-DEMO-INSTITUTION',
+    identityId: 'poc1b.phase3.user',
+    email: 'poc1b.phase3.user@aira.local',
+    failureCategory: 'BAD_PASSWORD',
+    failedAttemptsInWindow: 5,
+    evidence: { screen: 'login-failure-triage' }
+  });
+
+  POC1B.setStatus('triage-action', data.triage.recommendedAction);
+  POC1B.writeJson('triage-output', data);
+});
+</script>
+</body>
+</html>

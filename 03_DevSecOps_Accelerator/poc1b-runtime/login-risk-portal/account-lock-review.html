@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Account Lock Review</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="account-lock-review">
+<header>
+  <h1>POC-1B Account Lock Review</h1>
+  <p class="muted">Lock risky accounts and verify locked account queue.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card">
+      <h2>Lock Demo Account</h2>
+      <button data-testid="lock-account">Lock account</button>
+      <span id="lock-status" class="badge">not locked</span>
+    </div>
+    <div class="card">
+      <h2>Locked Accounts</h2>
+      <button data-testid="load-locked-accounts">Load locked accounts</button>
+      <span id="locked-count" class="badge">0</span>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Lock Output</h2>
+    <pre id="lock-output">{}</pre>
+  </section>
+</main>
+<script>
+document.querySelector('[data-testid="lock-account"]').addEventListener('click', async function () {
+  const data = await POC1B.post('/api/v1/identity/risk/accounts/poc1b.phase3.user/lock', {
+    institutionKey: 'AIRA-DEMO-INSTITUTION',
+    email: 'poc1b.phase3.user@aira.local',
+    lockReason: 'POC1B_PHASE3_BROWSER_LOCK',
+    lockSource: 'POLICY',
+    lockedBy: 'SYSTEM',
+    evidence: { screen: 'account-lock-review' }
+  });
+
+  POC1B.setStatus('lock-status', data.accountLock.lockStatus, 'badge status-bad');
+  POC1B.writeJson('lock-output', data);
+});
+
+document.querySelector('[data-testid="load-locked-accounts"]').addEventListener('click', async function () {
+  const data = await POC1B.get('/api/v1/identity/risk/accounts/locked');
+  POC1B.setStatus('locked-count', String(data.count));
+  POC1B.writeJson('lock-output', data);
+});
+</script>
+</body>
+</html>

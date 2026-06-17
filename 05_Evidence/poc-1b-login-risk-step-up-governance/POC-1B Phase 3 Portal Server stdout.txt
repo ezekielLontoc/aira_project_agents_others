@@ -1,0 +1,2 @@
+POC-1B portal server listening on http://127.0.0.1:9192
+Root: D:\ChatGPT

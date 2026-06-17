@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Login Incident Review</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="login-incident-review">
+<header>
+  <h1>POC-1B Login Incident Review</h1>
+  <p class="muted">Review AI-assisted login incident analysis and close security review decisions.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card">
+      <h2>Incident Detail</h2>
+      <p>Incident ID</p>
+      <input id="incident-id-input" data-testid="incident-id-input" placeholder="incident id from dashboard">
+      <button data-testid="load-incident">Load incident</button>
+    </div>
+    <div class="card">
+      <h2>Risk Event Review</h2>
+      <p>Risk Event ID</p>
+      <input id="risk-event-id-input" data-testid="risk-event-id-input" placeholder="risk event id from dashboard">
+      <button data-testid="review-risk-event">Close review</button>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Incident Output</h2>
+    <pre id="incident-output">{}</pre>
+  </section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('incident-id-input').value = POC1B.recall('poc1bIncidentId') || '';
+  document.getElementById('risk-event-id-input').value = POC1B.recall('poc1bRiskEventId') || '';
+});
+
+document.querySelector('[data-testid="load-incident"]').addEventListener('click', async function () {
+  const incidentId = document.getElementById('incident-id-input').value;
+  const data = await POC1B.get('/api/v1/identity/risk/incidents/' + encodeURIComponent(incidentId));
+  POC1B.writeJson('incident-output', data);
+});
+
+document.querySelector('[data-testid="review-risk-event"]').addEventListener('click', async function () {
+  const riskEventId = document.getElementById('risk-event-id-input').value;
+  const data = await POC1B.post('/api/v1/identity/risk/events/' + encodeURIComponent(riskEventId) + '/review', {
+    reviewedBy: 'SECURITY_OFFICER',
+    reviewDecision: 'STEP_UP_REQUIRED',
+    reviewNotes: 'Reviewed from POC-1B Phase 3 browser screen.',
+    status: 'CLOSED'
+  });
+  POC1B.writeJson('incident-output', data);
+});
+</script>
+</body>
+</html>

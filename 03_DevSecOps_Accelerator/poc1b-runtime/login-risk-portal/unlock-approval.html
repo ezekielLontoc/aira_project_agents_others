@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Unlock Approval</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="unlock-approval">
+<header>
+  <h1>POC-1B Account Unlock Human Approval</h1>
+  <p class="muted">Create an unlock request and approve it through a human approval decision.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card">
+      <h2>Create Unlock Request</h2>
+      <button data-testid="create-unlock-request">Create unlock request</button>
+      <p>Request: <span id="unlock-request-id" class="badge">none</span></p>
+    </div>
+    <div class="card">
+      <h2>Approve Unlock</h2>
+      <input id="unlock-request-input" data-testid="unlock-request-input" placeholder="unlock request id">
+      <button data-testid="approve-unlock">Approve unlock</button>
+      <span id="unlock-status" class="badge">pending</span>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Unlock Output</h2>
+    <pre id="unlock-output">{}</pre>
+  </section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('unlock-request-input').value = POC1B.recall('poc1bUnlockRequestId') || '';
+});
+
+document.querySelector('[data-testid="create-unlock-request"]').addEventListener('click', async function () {
+  const data = await POC1B.post('/api/v1/identity/risk/accounts/poc1b.phase3.user/unlock-request', {
+    requestedBy: 'SECURITY_OFFICER',
+    requestReason: 'POC1B_PHASE3_BROWSER_UNLOCK',
+    evidence: { screen: 'unlock-approval' }
+  });
+
+  POC1B.remember('poc1bUnlockRequestId', data.unlockRequest.unlockRequestId);
+  document.getElementById('unlock-request-input').value = data.unlockRequest.unlockRequestId;
+  POC1B.setStatus('unlock-request-id', data.unlockRequest.unlockRequestId);
+  POC1B.writeJson('unlock-output', data);
+});
+
+document.querySelector('[data-testid="approve-unlock"]').addEventListener('click', async function () {
+  const requestId = document.getElementById('unlock-request-input').value;
+  const data = await POC1B.post('/api/v1/identity/risk/unlock-requests/' + encodeURIComponent(requestId) + '/approve', {
+    approvedBy: 'SECURITY_OFFICER',
+    decisionNotes: 'Approved from POC-1B Phase 3 browser screen.'
+  });
+
+  POC1B.setStatus('unlock-status', data.accountUnlocked ? 'UNLOCKED' : 'NOT_UNLOCKED', data.accountUnlocked ? 'badge status-good' : 'badge status-bad');
+  POC1B.writeJson('unlock-output', data);
+});
+</script>
+</body>
+</html>

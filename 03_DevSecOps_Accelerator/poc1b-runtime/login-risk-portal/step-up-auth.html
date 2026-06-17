@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>POC-1B Step-Up Authentication</title>
+  <link rel="stylesheet" href="./assets/poc1b.css">
+  <script src="./assets/poc1b-client.js"></script>
+</head>
+<body data-screen="step-up-auth">
+<header>
+  <h1>POC-1B Policy-Based Step-Up Authentication</h1>
+  <p class="muted">Create and verify a local code challenge for high-risk login.</p>
+  <div id="poc1b-nav"></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card">
+      <h2>Create Challenge</h2>
+      <button data-testid="create-step-up">Create step-up challenge</button>
+      <p>Challenge: <span id="challenge-id" class="badge">none</span></p>
+    </div>
+    <div class="card">
+      <h2>Verify Challenge</h2>
+      <input id="challenge-code" data-testid="challenge-code" value="246810">
+      <button data-testid="verify-step-up">Verify code</button>
+      <span id="stepup-status" class="badge">pending</span>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Step-Up Output</h2>
+    <pre id="stepup-output">{}</pre>
+  </section>
+</main>
+<script>
+document.querySelector('[data-testid="create-step-up"]').addEventListener('click', async function () {
+  const data = await POC1B.post('/api/v1/identity/risk/step-up/challenges', {
+    institutionKey: 'AIRA-DEMO-INSTITUTION',
+    identityId: 'poc1b.phase3.user',
+    email: 'poc1b.phase3.user@aira.local',
+    challengeType: 'LOCAL_CODE',
+    localCode: '246810',
+    evidence: { screen: 'step-up-auth' }
+  });
+
+  POC1B.remember('poc1bStepUpChallengeId', data.challenge.challengeId);
+  POC1B.setStatus('challenge-id', data.challenge.challengeId);
+  POC1B.writeJson('stepup-output', data);
+});
+
+document.querySelector('[data-testid="verify-step-up"]').addEventListener('click', async function () {
+  const challengeId = POC1B.recall('poc1bStepUpChallengeId');
+  const code = document.getElementById('challenge-code').value;
+  const data = await POC1B.post('/api/v1/identity/risk/step-up/challenges/' + encodeURIComponent(challengeId) + '/verify', {
+    code: code
+  });
+
+  POC1B.setStatus('stepup-status', data.allowLogin ? 'ALLOW_LOGIN' : 'DENIED', data.allowLogin ? 'badge status-good' : 'badge status-bad');
+  POC1B.writeJson('stepup-output', data);
+});
+</script>
+</body>
+</html>
