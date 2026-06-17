@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:flowable="http://flowable.org/bpmn"
+             targetNamespace="https://aira.local/workflows/poc1b">
+  <process id="poc1bAccountUnlockApproval" name="POC-1B Account Unlock Approval" isExecutable="true">
+    <startEvent id="startUnlockRequest" name="Unlock Request Created"/>
+    <sequenceFlow id="flowStartToSecurityReview" sourceRef="startUnlockRequest" targetRef="securityOfficerReview"/>
+
+    <userTask id="securityOfficerReview" name="Security Officer Review" flowable:candidateGroups="SECURITY_OFFICER"/>
+    <sequenceFlow id="flowSecurityReviewToDecision" sourceRef="securityOfficerReview" targetRef="unlockDecision"/>
+
+    <exclusiveGateway id="unlockDecision" name="Unlock Decision"/>
+    <sequenceFlow id="flowApproved" sourceRef="unlockDecision" targetRef="unlockAccount">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approved == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flowRejected" sourceRef="unlockDecision" targetRef="keepLocked">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approved == false}]]></conditionExpression>
+    </sequenceFlow>
+
+    <serviceTask id="unlockAccount" name="Unlock Account and Record Evidence" flowable:delegateExpression="${poc1bUnlockAccountDelegate}"/>
+    <sequenceFlow id="flowUnlockToEnd" sourceRef="unlockAccount" targetRef="endApproved"/>
+
+    <serviceTask id="keepLocked" name="Keep Account Locked and Record Evidence" flowable:delegateExpression="${poc1bKeepLockedDelegate}"/>
+    <sequenceFlow id="flowKeepLockedToEnd" sourceRef="keepLocked" targetRef="endRejected"/>
+
+    <endEvent id="endApproved" name="Unlock Approved"/>
+    <endEvent id="endRejected" name="Unlock Rejected"/>
+  </process>
+</definitions>

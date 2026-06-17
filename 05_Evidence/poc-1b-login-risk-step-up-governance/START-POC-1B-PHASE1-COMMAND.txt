@@ -1,0 +1,5 @@
+Next command:
+
+Begin POC-1B Phase 1.
+
+Build additive Flyway migrations, seed MF-LOGIN-RISK-001 through MF-LOGIN-RISK-040, add OPA/Rego policy tests, add Flowable unlock workflow skeleton, add validation script, run Maven/Flyway/database validation, update POC-1B Evidence Pack, commit, and push.

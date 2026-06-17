@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: AIRA POC-1B Login Risk and Step-Up Governance API
+  version: 0.1.0
+  description: Planning baseline API contract for POC-1B.
+paths:
+  /api/v1/identity/risk/readiness:
+    get:
+      summary: Login risk readiness
+      responses:
+        "200":
+          description: Readiness response
+  /api/v1/identity/risk/microfunctions:
+    get:
+      summary: Login risk microfunction catalog
+      responses:
+        "200":
+          description: Microfunction catalog
+  /api/v1/identity/risk/events:
+    get:
+      summary: List suspicious login risk events
+      responses:
+        "200":
+          description: Risk event list
+  /api/v1/identity/risk/events/{eventId}/review:
+    post:
+      summary: Review suspicious login risk event
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Review accepted
+  /api/v1/identity/risk/accounts/{identityId}/lock:
+    post:
+      summary: Lock account
+      parameters:
+        - name: identityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Account locked
+  /api/v1/identity/risk/accounts/{identityId}/unlock-request:
+    post:
+      summary: Create account unlock request
+      parameters:
+        - name: identityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Unlock request created
+  /api/v1/identity/risk/unlock-requests/{requestId}/approve:
+    post:
+      summary: Approve unlock request
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Unlock approved
+  /api/v1/identity/risk/unlock-requests/{requestId}/reject:
+    post:
+      summary: Reject unlock request
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Unlock rejected
+  /api/v1/identity/risk/step-up/challenges:
+    post:
+      summary: Create step-up challenge
+      responses:
+        "200":
+          description: Challenge created
+  /api/v1/identity/risk/step-up/challenges/{challengeId}/verify:
+    post:
+      summary: Verify step-up challenge
+      parameters:
+        - name: challengeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Challenge verified
