@@ -3,6 +3,30 @@ const { test, expect } = require('@playwright/test');
 const portalBase = process.env.POC1B_PHASE3_PORTAL_BASE || 'http://127.0.0.1:9192';
 const apiBase = process.env.POC1B_PHASE3_API_BASE || 'http://127.0.0.1:9191';
 
+async function createHighRiskEvent(request, suffix = 'default') {
+  const response = await request.post(`${apiBase}/api/v1/identity/risk/events`, {
+    data: {
+      institutionKey: 'AIRA-DEMO-INSTITUTION',
+      identityId: `poc1b.phase3.${suffix}`,
+      email: `poc1b.phase3.${suffix}@aira.local`,
+      eventType: 'LOGIN_ATTEMPT',
+      riskScore: 82,
+      failedAttemptsInWindow: 3,
+      sourceIp: '10.10.30.42',
+      userAgent: 'POC1B-Phase3-Browser',
+      riskReasons: ['NEW_DEVICE', 'HIGH_RISK_SCORE'],
+      evidence: { source: 'phase3-playwright' }
+    }
+  });
+
+  expect(response.ok()).toBeTruthy();
+  const json = await response.json();
+  expect(json.riskEvent.riskEventId).toBeTruthy();
+  expect(json.policyDecision.decision).toBe('STEP_UP');
+  expect(json.incident.incidentId).toBeTruthy();
+  return json;
+}
+
 test.describe.serial('POC-1B Phase 3 frontend browser validation', () => {
   test('01 frontend screen inventory loads all POC-1B pages', async ({ page }) => {
     const screens = [
@@ -42,11 +66,16 @@ test.describe.serial('POC-1B Phase 3 frontend browser validation', () => {
     await expect(page.locator('#dashboard-output')).toContainText('AI-assisted summary');
   });
 
-  test('04 incident review loads incident and closes risk review', async ({ page }) => {
+  test('04 incident review loads incident and closes risk review', async ({ page, request }) => {
+    const created = await createHighRiskEvent(request, 'incident-review');
+
     await page.goto(`${portalBase}/login-incident-review.html`);
 
-    await expect(page.locator('[data-testid="incident-id-input"]')).not.toHaveValue('');
-    await expect(page.locator('[data-testid="risk-event-id-input"]')).not.toHaveValue('');
+    await page.fill('[data-testid="incident-id-input"]', created.incident.incidentId);
+    await page.fill('[data-testid="risk-event-id-input"]', created.riskEvent.riskEventId);
+
+    await expect(page.locator('[data-testid="incident-id-input"]')).toHaveValue(created.incident.incidentId);
+    await expect(page.locator('[data-testid="risk-event-id-input"]')).toHaveValue(created.riskEvent.riskEventId);
 
     await page.click('[data-testid="load-incident"]');
     await expect(page.locator('#incident-output')).toContainText('AI-assisted summary');
@@ -75,7 +104,19 @@ test.describe.serial('POC-1B Phase 3 frontend browser validation', () => {
     await expect(page.locator('#lock-output')).toContainText('poc1b.phase3.user');
   });
 
-  test('07 unlock approval creates request and approves unlock', async ({ page }) => {
+  test('07 unlock approval creates request and approves unlock', async ({ page, request }) => {
+    const lockResponse = await request.post(`${apiBase}/api/v1/identity/risk/accounts/poc1b.phase3.user/lock`, {
+      data: {
+        institutionKey: 'AIRA-DEMO-INSTITUTION',
+        email: 'poc1b.phase3.user@aira.local',
+        lockReason: 'POC1B_PHASE3_BROWSER_UNLOCK_PRECONDITION',
+        lockSource: 'POLICY',
+        lockedBy: 'SYSTEM'
+      }
+    });
+
+    expect(lockResponse.ok()).toBeTruthy();
+
     await page.goto(`${portalBase}/unlock-approval.html`);
 
     await page.click('[data-testid="create-unlock-request"]');

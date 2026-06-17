@@ -10,11 +10,19 @@ ACCEPTED
 
 ## Completed At
 
-2026-06-17T17:36:24.4765335+08:00
+2026-06-17T17:41:41.9900126+08:00
 
 ## Correction Note
 
-Phase 3 required repairs after the initial frontend commit because the portal server root was passed incorrectly and Playwright did not discover tests when the test file path was passed as an argument. The final validation uses Playwright config discovery, requires real JSON evidence, and commits the Playwright artifacts folder.
+Phase 3 required final scoped repair because Playwright was previously discovering non-POC-1B tests and one POC-1B test relied on state from an earlier test.
+
+The final repair:
+
+- Scoped Playwright to tests/aira-poc1b-phase3-frontend.spec.js only.
+- Rewrote the incident review test to create its own backend risk event.
+- Cleaned accidental POC-1 heavy simulation output.
+- Recreated Phase 3 artifacts from a scoped browser run.
+- Required real Phase 3 JSON evidence before writing acceptance evidence.
 
 ## What Was Built
 
@@ -36,9 +44,9 @@ Phase 3 added a static portal server to serve the POC-1B frontend screens locall
 ## Browser Validation Result
 
 - Status: PASSED
-- Score: 10/10 Phase 2 Backend API Foundation
-- Expected tests: 
-- Playwright status: 
+- Score: 10/10 Phase 3 Frontend Browser Validation
+- Expected tests: 9
+- Playwright status: PASSED
 
 ## Evidence Artifacts
 

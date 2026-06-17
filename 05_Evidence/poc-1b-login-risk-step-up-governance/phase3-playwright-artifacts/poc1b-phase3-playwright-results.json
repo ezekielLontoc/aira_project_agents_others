@@ -21,7 +21,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 5
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "projects": [
@@ -30,14 +30,14 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 5
+          "actualWorkers": 1
         },
         "id": "chromium",
         "name": "chromium",
         "testDir": "D:/ChatGPT Workspace Folder Projects/AIRA Projects/tests",
         "testIgnore": [],
         "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+          "aira-poc1b-phase3-frontend.spec.js"
         ],
         "timeout": 60000
       }
@@ -71,1540 +71,10 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.61.0",
-    "workers": 10,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
-    {
-      "title": "aira-poc1-enterprise.spec.js",
-      "file": "aira-poc1-enterprise.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "AIRA POC-1 Enterprise Heavy Simulation Gate",
-          "file": "aira-poc1-enterprise.spec.js",
-          "line": 103,
-          "column": 6,
-          "specs": [
-            {
-              "title": "01 enterprise portal control surface passes live checks",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5554,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.665] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.665] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Enterprise Heavy Simulation Gate starting\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Portal base URL: http://192.168.179.193:9090/portal\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Identity base URL: http://192.168.179.193:9091\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Enterprise users: 36\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Enterprise batch size: 6\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Browser cycles: 3\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m Microfunction repeats: 5\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.666] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.409] [INFO] poc1-heavy -\u001b[39m Enterprise portal control surface evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-08-405Z-enterprise-portal-control-surface.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:02.628Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--fdc18--surface-passes-live-checks-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--fdc18--surface-passes-live-checks-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--fdc18--surface-passes-live-checks-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-35e76b73fb8463547df6",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 135,
-              "column": 3
-            },
-            {
-              "title": "02 enterprise portal page inventory validates all generated POC-1 pages",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1380,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.145] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: index.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.186] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: landing.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.216] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: signup.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.243] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: signup-submitted.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.268] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: verify-email.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.301] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: pending-approval.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.329] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: login.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.349] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: home.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.370] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: developer-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.394] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: admin-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.516] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: institution-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.543] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: security-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.569] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: evidence-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.598] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: viewer-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.616] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: assets/poc1-api.js\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.633] [INFO] poc1-heavy -\u001b[39m Portal inventory OK: assets/poc1.css\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.638] [INFO] poc1-heavy -\u001b[39m Enterprise portal page inventory evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-09-633Z-enterprise-portal-page-inventory.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:08.942Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--9450f-s-all-generated-POC-1-pages-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--9450f-s-all-generated-POC-1-pages-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--9450f-s-all-generated-POC-1-pages-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-070c57b52b24849db323",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 166,
-              "column": 3
-            },
-            {
-              "title": "03 enterprise identity microfunction catalog has full MF-IDENTITY-001 through MF-IDENTITY-058 coverage",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 99,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.525] [INFO] poc1-heavy -\u001b[39m Enterprise microfunction coverage evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-10-522Z-enterprise-microfunction-full-coverage.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:10.478Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--28ae4-gh-MF-IDENTITY-058-coverage-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-d2dca8877bce33e09fe4",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 216,
-              "column": 3
-            },
-            {
-              "title": "04 enterprise microfunction catalog remains stable across repeated reads",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 70,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.663] [INFO] poc1-heavy -\u001b[39m Enterprise microfunction stability evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-10-660Z-enterprise-microfunction-stability.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:10.619Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--75722-table-across-repeated-reads-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-b2a9662556cf96e0a335",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 264,
-              "column": 3
-            },
-            {
-              "title": "05 enterprise fail-closed matrix validates negative identity paths",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 287,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.963] [INFO] poc1-heavy -\u001b[39m Enterprise fail-closed matrix evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-10-960Z-enterprise-fail-closed-negative-matrix.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:10.714Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--40cc6-tes-negative-identity-paths-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-d8453c876cf62924305a",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 312,
-              "column": 3
-            },
-            {
-              "title": "06 enterprise role landing matrix validates all generated role dashboards that are supported by RBAC",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2910,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:11.035] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093611035.xtw5hx@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:11.553] [INFO] poc1-heavy -\u001b[39m Role landing matrix OK: DEVELOPER -> /portal/developer-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:11.553] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093611553.hcswod@aira.local role=AUDITOR\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:12.102] [INFO] poc1-heavy -\u001b[39m Role landing matrix OK: AUDITOR -> /portal/evidence-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:12.102] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093612102.hmy3ig@aira.local role=SECURITY_OFFICER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:12.610] [INFO] poc1-heavy -\u001b[39m Role landing matrix OK: SECURITY_OFFICER -> /portal/security-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:12.610] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093612610.7tuvmz@aira.local role=INSTITUTION_ADMIN\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.193] [INFO] poc1-heavy -\u001b[39m Role landing matrix OK: INSTITUTION_ADMIN -> /portal/institution-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.193] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093613193.f2epoi@aira.local role=PLATFORM_ADMIN\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.696] [INFO] poc1-heavy -\u001b[39m Role landing matrix OK: PLATFORM_ADMIN -> /portal/admin-dashboard.html\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.942] [INFO] poc1-heavy -\u001b[39m Enterprise role landing matrix evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-13-937Z-enterprise-role-landing-matrix.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:11.029Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--57879--that-are-supported-by-RBAC-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-d3cd3177b60e2a60e1ce",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 441,
-              "column": 3
-            },
-            {
-              "title": "07 enterprise controlled high-volume identity simulation passes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6006,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.998] [INFO] poc1-heavy -\u001b[39m Running batch 1 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.998] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093613998.tlwekf@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.999] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093613999.8of5s0@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.000] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614000.pyrhu7@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.000] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614000.gpxmnk@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.001] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614001.8srstm@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.001] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614001.je0wvh@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.751] [INFO] poc1-heavy -\u001b[39m Running batch 2 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.751] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614751.no9lt1@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.752] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614752.de9886@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.753] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614752.cx2wr8@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.753] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614753.6ahrpb@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.754] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614754.gehdbt@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:14.754] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093614754.5zhyou@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.502] [INFO] poc1-heavy -\u001b[39m Running batch 3 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.502] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615502.rreo6m@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.503] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615503.2oxow3@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.504] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615504.g7ebp5@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.504] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615504.q89a0o@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.505] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615505.n5gerr@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:15.505] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093615505.oihop7@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.285] [INFO] poc1-heavy -\u001b[39m Running batch 4 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.285] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616285.5xs6bf@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.286] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616286.notb0m@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.286] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616286.6v8547@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.287] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616287.swzlic@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.287] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616287.psijht@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:16.288] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093616288.rbjp0t@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.109] [INFO] poc1-heavy -\u001b[39m Running batch 5 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.109] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617109.y2ng4x@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.110] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617110.0afshw@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.110] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617110.rtxcsb@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.111] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617111.6b8qjt@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.112] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617112.hhfusc@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.112] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617112.ob46z9@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.856] [INFO] poc1-heavy -\u001b[39m Running batch 6 with 6 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.857] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617857.alsv7n@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.857] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617857.fkq6jd@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.858] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617858.49ax4u@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.858] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617858.zbi6i5@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.859] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617859.xftno4@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:17.859] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093617859.raud0l@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:20.002] [INFO] poc1-heavy -\u001b[39m Enterprise high-volume identity evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-19-937Z-enterprise-controlled-high-volume-identity-flow.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:13.992Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--cb74b--identity-simulation-passes-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-b4d705e8eeb29e17c66c",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 495,
-              "column": 3
-            },
-            {
-              "title": "08 enterprise browser journey repeats login, home router, dashboard, logout cycles",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1694,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:20.681] [INFO] poc1-heavy -\u001b[39m Enterprise browser cycle 1/3 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.081] [INFO] poc1-heavy -\u001b[39m Enterprise browser cycle 2/3 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.481] [INFO] poc1-heavy -\u001b[39m Enterprise browser cycle 3/3 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.484] [INFO] poc1-heavy -\u001b[39m Enterprise repeated browser journey evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-21-482Z-enterprise-browser-repeated-journey.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:20.124Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--04058-ter-dashboard-logout-cycles-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--04058-ter-dashboard-logout-cycles-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--04058-ter-dashboard-logout-cycles-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-0a8d6b395974069e0bce",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 563,
-              "column": 3
-            },
-            {
-              "title": "09 enterprise portal JS integration validates runtime contract markers",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 37,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.939] [INFO] poc1-heavy -\u001b[39m Enterprise portal JS marker evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-21-937Z-enterprise-portal-js-contract-markers.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:21.920Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--f46c3-es-runtime-contract-markers-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-2492f8f7bd59ee88b421",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 616,
-              "column": 3
-            },
-            {
-              "title": "10 enterprise final gate summary records 10 out of 10 readiness result",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.991] [INFO] poc1-heavy -\u001b[39m Enterprise final gate summary evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-21-985Z-enterprise-final-gate-summary.json\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:21.996] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Enterprise Heavy Simulation Gate complete\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:21.982Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-enterprise-AIRA--e1da5--out-of-10-readiness-result-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "6e30d78153e82cc5622b-33070f4a7826be6b032c",
-              "file": "aira-poc1-enterprise.spec.js",
-              "line": 652,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "aira-poc1-heavy.spec.js",
-      "file": "aira-poc1-heavy.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "AIRA POC-1 Heavy Simulation Suite",
-          "file": "aira-poc1-heavy.spec.js",
-          "line": 21,
-          "column": 6,
-          "specs": [
-            {
-              "title": "01 runtime smoke: portal pages and portal JS are reachable",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 4381,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.649] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.650] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Heavy Simulation Suite starting\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.650] [INFO] poc1-heavy -\u001b[39m Portal base URL: http://192.168.179.193:9090/portal\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.650] [INFO] poc1-heavy -\u001b[39m Identity base URL: http://192.168.179.193:9091\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.651] [INFO] poc1-heavy -\u001b[39m Simulation users: 12\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.651] [INFO] poc1-heavy -\u001b[39m Batch size: 4\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.651] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:06.790] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/index.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:06.890] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/landing.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:06.932] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/signup.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:06.966] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/login.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:06.997] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/home.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.039] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/developer-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.071] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/admin-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.106] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/institution-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.133] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/security-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.169] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/evidence-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.197] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/viewer-dashboard.html status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.227] [INFO] poc1-heavy -\u001b[39m Portal smoke OK: http://192.168.179.193:9090/portal/assets/poc1-api.js status=200\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.232] [INFO] poc1-heavy -\u001b[39m Runtime smoke evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-07-227Z-runtime-smoke.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:02.612Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-c8f21-and-portal-JS-are-reachable-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-c8f21-and-portal-JS-are-reachable-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-c8f21-and-portal-JS-are-reachable-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-1f3cd5deb4614d326867",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 47,
-              "column": 3
-            },
-            {
-              "title": "02 identity readiness and microfunction catalog are healthy",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 99,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.800] [INFO] poc1-heavy -\u001b[39m Identity readiness and microfunction evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-07-797Z-identity-readiness-microfunctions.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:07.736Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-a719b-unction-catalog-are-healthy-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-0f12131739791ac6a6bb",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 88,
-              "column": 3
-            },
-            {
-              "title": "03 CORS preflight allows portal-to-identity protected calls",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 48,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:07.894] [INFO] poc1-heavy -\u001b[39m CORS evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-07-891Z-cors-preflight.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:07.879Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-fd970-to-identity-protected-calls-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-fc123d0bf9f98f3cde4c",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 129,
-              "column": 3
-            },
-            {
-              "title": "04 negative path: bad password is denied",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 404,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.341] [INFO] poc1-heavy -\u001b[39m Negative bad password evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-08-337Z-negative-bad-password.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:07.976Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-d11a8-path-bad-password-is-denied-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-62a3c103a4eb0531e042",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 155,
-              "column": 3
-            },
-            {
-              "title": "05 negative path: missing API key is denied or not authorized",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 41,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.441] [INFO] poc1-heavy -\u001b[39m Negative missing API key evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-08-438Z-negative-missing-api-key.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:08.421Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-45078-is-denied-or-not-authorized-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-c504cce010c1e30b15aa",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 219,
-              "column": 3
-            },
-            {
-              "title": "06 full identity flow simulation across controlled batches",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 2567,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.524] [INFO] poc1-heavy -\u001b[39m Running batch 1 with 4 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.525] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093608525.kgsn5d@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.526] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093608526.jbbowq@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.527] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093608527.opqopb@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:08.528] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093608528.jw0ryo@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.465] [INFO] poc1-heavy -\u001b[39m Running batch 2 with 4 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.465] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093609465.ionydt@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.466] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093609466.98r71y@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.467] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093609467.dkgwje@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:09.467] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093609467.n86idf@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.030] [INFO] poc1-heavy -\u001b[39m Running batch 3 with 4 item(s)\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.030] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093610030.3ms8cc@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.031] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093610031.y37w4e@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.032] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093610031.oqvggv@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:10.032] [INFO] poc1-heavy -\u001b[39m Creating identity flow for poc1.heavy.20260617093610032.1v4s6y@aira.local role=DEVELOPER\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:11.087] [INFO] poc1-heavy -\u001b[39m Controlled batch identity flow evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-11-047Z-controlled-batch-identity-flow.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:08.516Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-4fd88-n-across-controlled-batches-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-8f3129cac31e2c43752b",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 292,
-              "column": 3
-            },
-            {
-              "title": "07 browser journey: validated browser account reaches developer dashboard",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 728,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:11.660] [INFO] poc1-heavy -\u001b[39m Browser journey evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-11-656Z-browser-journey-developer-dashboard.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:11.143Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-07251-reaches-developer-dashboard-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-07251-reaches-developer-dashboard-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-07251-reaches-developer-dashboard-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-3e0f61d7d4ff52c1cdca",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 354,
-              "column": 3
-            },
-            {
-              "title": "08 browser journey: home router resolves developer dashboard",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 714,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:12.430] [INFO] poc1-heavy -\u001b[39m Home router evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-12-427Z-browser-home-router.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:11.924Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-828e8-esolves-developer-dashboard-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-828e8-esolves-developer-dashboard-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-828e8-esolves-developer-dashboard-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-2db7a99db8af9d81cdbb",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 384,
-              "column": 3
-            },
-            {
-              "title": "09 browser logout: session clears and home redirects/denies",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 893,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.376] [INFO] poc1-heavy -\u001b[39m Logout browser evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-13-374Z-browser-logout-denied-home.json\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:13.595] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Heavy Simulation Suite complete\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:12.692Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-0db9e-s-and-home-redirects-denies-chromium\\test-finished-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-0db9e-s-and-home-redirects-denies-chromium\\video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-heavy-AIRA-POC-1-0db9e-s-and-home-redirects-denies-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "fe7d05404e4e7cd62327-fd79d119932c18d37239",
-              "file": "aira-poc1-heavy.spec.js",
-              "line": 412,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "aira-poc1-randomized-microfunctions.spec.js",
-      "file": "aira-poc1-randomized-microfunctions.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "AIRA POC-1 Randomized Microfunction Enterprise Simulation",
-          "file": "aira-poc1-randomized-microfunctions.spec.js",
-          "line": 54,
-          "column": 6,
-          "specs": [
-            {
-              "title": "01 ordered MF-IDENTITY-001 through MF-IDENTITY-058 catalog verification",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 959,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.635] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.636] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Randomized Microfunction Enterprise Simulation starting\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.637] [INFO] poc1-heavy -\u001b[39m Identity base URL: http://192.168.179.193:9091\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.637] [INFO] poc1-heavy -\u001b[39m Random rounds: 12\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.637] [INFO] poc1-heavy -\u001b[39m Probes per round: 18\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:02.637] [INFO] poc1-heavy -\u001b[39m ============================================================\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.520] [INFO] poc1-heavy -\u001b[39m Ordered microfunction verification evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-03-419Z-randomized-mf-ordered-full-catalog-verification.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:02.605Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-randomized-micro-897db-TY-058-catalog-verification-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "19fd68655f1abf32c00b-48470632793c5f6d7a6d",
-              "file": "aira-poc1-randomized-microfunctions.spec.js",
-              "line": 80,
-              "column": 3
-            },
-            {
-              "title": "02 randomized microfunction probe matrix validates unique shuffled probes",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 416,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.718] [INFO] poc1-heavy -\u001b[39m Random microfunction round 1/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.745] [INFO] poc1-heavy -\u001b[39m Random microfunction round 2/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.769] [INFO] poc1-heavy -\u001b[39m Random microfunction round 3/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.792] [INFO] poc1-heavy -\u001b[39m Random microfunction round 4/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.820] [INFO] poc1-heavy -\u001b[39m Random microfunction round 5/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.853] [INFO] poc1-heavy -\u001b[39m Random microfunction round 6/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.895] [INFO] poc1-heavy -\u001b[39m Random microfunction round 7/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.930] [INFO] poc1-heavy -\u001b[39m Random microfunction round 8/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.963] [INFO] poc1-heavy -\u001b[39m Random microfunction round 9/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:03.990] [INFO] poc1-heavy -\u001b[39m Random microfunction round 10/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.021] [INFO] poc1-heavy -\u001b[39m Random microfunction round 11/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.054] [INFO] poc1-heavy -\u001b[39m Random microfunction round 12/12 passed with 18 probes\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.060] [INFO] poc1-heavy -\u001b[39m Randomized microfunction probe matrix evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-04-055Z-randomized-mf-probe-matrix.json\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:03.683Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-randomized-micro-03e1c-ates-unique-shuffled-probes-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "19fd68655f1abf32c00b-340195012a1fad67dd18",
-              "file": "aira-poc1-randomized-microfunctions.spec.js",
-              "line": 130,
-              "column": 3
-            },
-            {
-              "title": "03 randomized microfunction full shuffled-order verification validates all keys multiple times",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 449,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.195] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 1/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.228] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 2/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.270] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 3/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.301] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 4/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.337] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 5/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.371] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 6/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.410] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 7/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.459] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 8/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.489] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 9/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.513] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 10/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.537] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 11/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.561] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction round 12/12 passed\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.566] [INFO] poc1-heavy -\u001b[39m Full shuffled microfunction verification evidence written: D:\\ChatGPT Workspace Folder Projects\\AIRA GitHub Validation\\aira_project_agents_others\\05_Evidence\\poc-1-identity-rbac-portal-entry\\playwright-enterprise-validation\\2026-06-17T09-36-04-561Z-randomized-mf-full-shuffled-order-verification.json\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-06-17 17:36:04.603] [INFO] poc1-heavy -\u001b[39m AIRA POC-1 Randomized Microfunction Enterprise Simulation complete\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T09:36:04.145Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1-randomized-micro-4e79d-tes-all-keys-multiple-times-chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "19fd68655f1abf32c00b-3b2455510de2079452c3",
-              "file": "aira-poc1-randomized-microfunctions.spec.js",
-              "line": 211,
-              "column": 3
-            }
-          ]
-        }
-      ]
-    },
     {
       "title": "aira-poc1b-phase3-frontend.spec.js",
       "file": "aira-poc1b-phase3-frontend.spec.js",
@@ -1615,7 +85,7 @@
         {
           "title": "POC-1B Phase 3 frontend browser validation",
           "file": "aira-poc1b-phase3-frontend.spec.js",
-          "line": 6,
+          "line": 30,
           "column": 15,
           "specs": [
             {
@@ -1631,15 +101,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1202,
+                      "duration": 589,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:02.405Z",
+                      "startTime": "2026-06-17T09:41:35.848Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1665,7 +135,7 @@
               ],
               "id": "8968ae83e60a7cdbf47e-9496a80276c33d16ff30",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 7,
+              "line": 31,
               "column": 3
             },
             {
@@ -1681,15 +151,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 513,
+                      "duration": 657,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:04.403Z",
+                      "startTime": "2026-06-17T09:41:36.645Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1715,7 +185,7 @@
               ],
               "id": "8968ae83e60a7cdbf47e-1e02094dba2ca6bc08b2",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 24,
+              "line": 48,
               "column": 3
             },
             {
@@ -1731,15 +201,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 387,
+                      "duration": 391,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:04.979Z",
+                      "startTime": "2026-06-17T09:41:37.361Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1765,12 +235,12 @@
               ],
               "id": "8968ae83e60a7cdbf47e-9a598f0d5551acb1162e",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 35,
+              "line": 59,
               "column": 3
             },
             {
               "title": "04 incident review loads incident and closes risk review",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1781,40 +251,21 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 10720,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-testid=\"incident-id-input\"]')\nExpected: not \u001b[32m\"\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"incident-id-input\"]')\u001b[22m\n\u001b[2m    23 × locator resolved to <input id=\"incident-id-input\" data-testid=\"incident-id-input\" placeholder=\"incident id from dashboard\"/>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-testid=\"incident-id-input\"]')\nExpected: not \u001b[32m\"\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"incident-id-input\"]')\u001b[22m\n\u001b[2m    23 × locator resolved to <input id=\"incident-id-input\" data-testid=\"incident-id-input\" placeholder=\"incident id from dashboard\"/>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\tests\\aira-poc1b-phase3-frontend.spec.js:48:73",
-                        "location": {
-                          "file": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\tests\\aira-poc1b-phase3-frontend.spec.js",
-                          "column": 73,
-                          "line": 48
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${portalBase}/login-incident-review.html`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"incident-id-input\"]'\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"risk-event-id-input\"]'\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"load-incident\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\tests\\aira-poc1b-phase3-frontend.spec.js",
-                            "column": 73,
-                            "line": 48
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-testid=\"incident-id-input\"]')\nExpected: not \u001b[32m\"\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"incident-id-input\"]')\u001b[22m\n\u001b[2m    23 × locator resolved to <input id=\"incident-id-input\" data-testid=\"incident-id-input\" placeholder=\"incident id from dashboard\"/>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 46 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${portalBase}/login-incident-review.html`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"incident-id-input\"]'\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"risk-event-id-input\"]'\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m\n \u001b[90m 51 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"load-incident\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\tests\\aira-poc1b-phase3-frontend.spec.js:48:73\u001b[22m"
-                        }
-                      ],
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 521,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:05.424Z",
+                      "startTime": "2026-06-17T09:41:37.829Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-15ee4-dent-and-closes-risk-review-chromium\\test-failed-1.png"
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-15ee4-dent-and-closes-risk-review-chromium\\test-finished-1.png"
                         },
                         {
                           "name": "video",
@@ -1822,29 +273,19 @@
                           "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-15ee4-dent-and-closes-risk-review-chromium\\video.webm"
                         },
                         {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-15ee4-dent-and-closes-risk-review-chromium\\error-context.md"
-                        },
-                        {
                           "name": "trace",
                           "contentType": "application/zip",
                           "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-15ee4-dent-and-closes-risk-review-chromium\\trace.zip"
                         }
-                      ],
-                      "errorLocation": {
-                        "file": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\tests\\aira-poc1b-phase3-frontend.spec.js",
-                        "column": 73,
-                        "line": 48
-                      }
+                      ]
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-85c99611085d4a371bb5",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 45,
+              "line": 69,
               "column": 3
             },
             {
@@ -1860,25 +301,41 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 424,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:16.254Z",
+                      "startTime": "2026-06-17T09:41:38.482Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-92822-age-recommends-account-lock-chromium\\test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-92822-age-recommends-account-lock-chromium\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-92822-age-recommends-account-lock-chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-98d415cdd645d6b425c2",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 59,
+              "line": 88,
               "column": 3
             },
             {
@@ -1894,25 +351,41 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 464,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:16.257Z",
+                      "startTime": "2026-06-17T09:41:38.964Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-33d2a-ount-and-shows-locked-queue-chromium\\test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-33d2a-ount-and-shows-locked-queue-chromium\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-33d2a-ount-and-shows-locked-queue-chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-1c81958baacc5eb19119",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 67,
+              "line": 96,
               "column": 3
             },
             {
@@ -1928,25 +401,41 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 543,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:16.260Z",
+                      "startTime": "2026-06-17T09:41:39.487Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-0c4ba-request-and-approves-unlock-chromium\\test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-0c4ba-request-and-approves-unlock-chromium\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-0c4ba-request-and-approves-unlock-chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-ba4dd7dcbded7ffdae10",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 78,
+              "line": 107,
               "column": 3
             },
             {
@@ -1962,25 +451,41 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 462,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:16.263Z",
+                      "startTime": "2026-06-17T09:41:40.094Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-43cec-ates-and-verifies-challenge-chromium\\test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-43cec-ates-and-verifies-challenge-chromium\\video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-43cec-ates-and-verifies-challenge-chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-b7148174c26a71544a72",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 89,
+              "line": 130,
               "column": 3
             },
             {
@@ -1996,147 +501,45 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": -1,
-                      "parallelIndex": -1,
-                      "status": "skipped",
-                      "duration": 0,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 60,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:36:16.267Z",
+                      "startTime": "2026-06-17T09:41:40.606Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\aira-poc1b-phase3-frontend-be44a-n-browser-generated-records-chromium\\trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "expected"
                 }
               ],
               "id": "8968ae83e60a7cdbf47e-2c1bda42684d2ed7ef93",
               "file": "aira-poc1b-phase3-frontend.spec.js",
-              "line": 102,
+              "line": 143,
               "column": 3
             }
           ]
-        }
-      ]
-    },
-    {
-      "title": "example.spec.js",
-      "file": "example.spec.js",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "has title",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
-                  "status": "passed",
-                  "duration": 4413,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-06-17T09:36:02.389Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-has-title-chromium\\test-finished-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-has-title-chromium\\video.webm"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-has-title-chromium\\trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "dd9b2edffe9b7501040c-fe3fbe2603922999b144",
-          "file": "example.spec.js",
-          "line": 4,
-          "column": 5
-        },
-        {
-          "title": "get started link",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
-                  "status": "passed",
-                  "duration": 1586,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-06-17T09:36:07.716Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-get-started-link-chromium\\test-finished-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-get-started-link-chromium\\video.webm"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\test-results\\example-get-started-link-chromium\\trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "dd9b2edffe9b7501040c-18206e4c4b88f5cba6b3",
-          "file": "example.spec.js",
-          "line": 11,
-          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-17T09:35:59.602Z",
-    "duration": 22609.848,
-    "expected": 27,
-    "skipped": 5,
-    "unexpected": 1,
+    "startTime": "2026-06-17T09:41:35.382Z",
+    "duration": 5525.028,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
     "flaky": 0
   }
 }

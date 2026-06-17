@@ -1,0 +1,22 @@
+{
+    "completedAt":  "2026-06-17T17:41:41.5352804+08:00",
+    "status":  "PASSED",
+    "score":  "10/10 Phase 3 Frontend Browser Validation",
+    "apiBase":  "http://127.0.0.1:9191",
+    "portalBase":  "http://127.0.0.1:9192",
+    "expectedTests":  9,
+    "playwrightStatus":  "PASSED",
+    "artifactRoot":  "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts",
+    "playwrightJsonReport":  "D:\\ChatGPT Workspace Folder Projects\\AIRA Projects\\05_Evidence\\poc-1b-login-risk-step-up-governance\\phase3-playwright-artifacts\\poc1b-phase3-playwright-results.json",
+    "traceCount":  18,
+    "videoCount":  16,
+    "screenshotCount":  16,
+    "screens":  [
+                    "security-login-risk-dashboard.html",
+                    "login-incident-review.html",
+                    "login-failure-triage.html",
+                    "account-lock-review.html",
+                    "unlock-approval.html",
+                    "step-up-auth.html"
+                ]
+}

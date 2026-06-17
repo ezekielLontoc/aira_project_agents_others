@@ -119,7 +119,7 @@ Decision:
 
 POC-1B Phase 2 is accepted as the backend API foundation before frontend screen implementation.
 
-# # # # POC-1B Phase 3 Frontend Browser Validation Evidence
+# # # # # POC-1B Phase 3 Frontend Browser Validation Evidence
 
 Status: ACCEPTED
 
@@ -127,7 +127,7 @@ Score: 10/10 Phase 3 Frontend Browser Validation
 
 Correction note:
 
-Phase 3 browser validation was repaired and rerun successfully. The final repair uses Playwright config discovery, handles paths with spaces correctly, and requires real JSON and Playwright evidence.
+Phase 3 browser validation was repaired and rerun successfully. The final repair scoped Playwright to only tests/aira-poc1b-phase3-frontend.spec.js, made the incident review test self-contained, cleaned accidental non-POC-1B evidence output, and required real JSON and Playwright evidence.
 
 Validated screens:
 
@@ -141,8 +141,8 @@ Validated screens:
 Browser validation:
 
 - Status: PASSED
-- Expected tests: 
-- Playwright status: 
+- Expected tests: 9
+- Playwright status: PASSED
 
 Decision:
 

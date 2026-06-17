@@ -10,12 +10,20 @@ PASSED
 
 ## Completed At
 
-2026-06-17T17:36:24.4765335+08:00
+2026-06-17T17:41:41.9900126+08:00
 
 ## Runtime
 
-- API server: 
-- Portal server: 
+- API server: http://127.0.0.1:9191
+- Portal server: http://127.0.0.1:9192
+
+## Scope Correction
+
+This final repair scoped Playwright to only the POC-1B Phase 3 browser validation file:
+
+- tests/aira-poc1b-phase3-frontend.spec.js
+
+It also made the incident review test self-contained by creating its own risk event through the API before loading the incident review screen.
 
 ## Screens Validated
 
@@ -28,7 +36,7 @@ PASSED
 
 ## Browser Validation
 
-Playwright validated 9 browser/API checks:
+Playwright validated 9 scoped POC-1B browser/API checks:
 
 1. Frontend screen inventory loads all POC-1B pages.
 2. Dashboard shows readiness and 40 MicroFunctions.
@@ -42,12 +50,12 @@ Playwright validated 9 browser/API checks:
 
 ## Artifacts
 
-- Artifact root: 
-- Playwright JSON report: 
-- Trace files: 
-- Video files: 
-- Screenshot files: 
+- Artifact root: D:\ChatGPT Workspace Folder Projects\AIRA Projects\05_Evidence\poc-1b-login-risk-step-up-governance\phase3-playwright-artifacts
+- Playwright JSON report: D:\ChatGPT Workspace Folder Projects\AIRA Projects\05_Evidence\poc-1b-login-risk-step-up-governance\phase3-playwright-artifacts\poc1b-phase3-playwright-results.json
+- Trace files: 18
+- Video files: 16
+- Screenshot files: 16
 
 ## Decision
 
-POC-1B Phase 3 frontend browser validation is accepted based on real Playwright evidence.
+POC-1B Phase 3 frontend browser validation is accepted based on real scoped Playwright evidence.

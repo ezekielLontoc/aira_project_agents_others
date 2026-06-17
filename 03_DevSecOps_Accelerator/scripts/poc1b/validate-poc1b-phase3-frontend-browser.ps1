@@ -125,7 +125,7 @@ try {
     $env:POC1B_PHASE3_PORTAL_BASE = $PortalBase
     $env:POC1B_PHASE3_ARTIFACT_ROOT = $ArtifactRoot
 
-    npx playwright test --config "$PlaywrightConfigPath" --project chromium
+    & npx.cmd playwright test --config $PlaywrightConfigPath --project chromium
 
     if ($LASTEXITCODE -ne 0) {
         throw "POC-1B Phase 3 Playwright validation failed."
@@ -133,6 +133,14 @@ try {
 
     if (!(Test-Path $PlaywrightJsonReportPath)) {
         throw "Playwright JSON report was not created: $PlaywrightJsonReportPath"
+    }
+
+    $PlaywrightReport = Get-Content $PlaywrightJsonReportPath -Raw | ConvertFrom-Json
+
+    if ($null -ne $PlaywrightReport.stats -and $null -ne $PlaywrightReport.stats.expected) {
+        if ([int]$PlaywrightReport.stats.expected -ne 9) {
+            throw "Expected exactly 9 scoped POC-1B tests, but Playwright expected count was $($PlaywrightReport.stats.expected)."
+        }
     }
 
     $TraceCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.zip" -ErrorAction SilentlyContinue).Count
