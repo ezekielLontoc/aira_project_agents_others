@@ -41,3 +41,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+.env.poc1
+.github/workflows/playwright.yml
