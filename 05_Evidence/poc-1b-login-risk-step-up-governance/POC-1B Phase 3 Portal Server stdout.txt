@@ -1,2 +1,2 @@
 POC-1B portal server listening on http://127.0.0.1:9192
-Root: D:\ChatGPT
+Root: D:\ChatGPT Workspace Folder Projects\AIRA Projects\03_DevSecOps_Accelerator\poc1b-runtime\login-risk-portal

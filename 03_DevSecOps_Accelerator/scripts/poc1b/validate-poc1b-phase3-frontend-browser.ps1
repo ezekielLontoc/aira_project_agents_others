@@ -105,7 +105,7 @@ try {
     $PortalProcess = Start-Process `
         -FilePath "node" `
         -WorkingDirectory $PortalServerDir `
-        -ArgumentList @($PortalServerFile, "--port", "$PortalPort", "--root", $PortalServerDir) `
+        -ArgumentList @($PortalServerFile, "--port", "$PortalPort") `
         -PassThru `
         -WindowStyle Hidden `
         -RedirectStandardOutput $PortalStdoutPath `
