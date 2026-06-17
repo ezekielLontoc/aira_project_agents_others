@@ -18,6 +18,8 @@ for (let i = 0; i < args.length; i += 1) {
   }
 }
 
+root = path.resolve(root);
+
 const contentTypes = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
@@ -35,24 +37,35 @@ function send(res, statusCode, body, contentType) {
   res.end(body);
 }
 
+function safeFilePath(urlPathname) {
+  let pathname = decodeURIComponent(urlPathname || '/');
+
+  if (pathname === '/' || pathname === '') {
+    pathname = '/security-login-risk-dashboard.html';
+  }
+
+  pathname = pathname.replace(/^\/+/, '');
+  const resolved = path.resolve(root, pathname);
+
+  if (!resolved.toLowerCase().startsWith(root.toLowerCase())) {
+    return null;
+  }
+
+  return resolved;
+}
+
 const server = http.createServer((req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    let pathname = decodeURIComponent(url.pathname);
+    const resolved = safeFilePath(url.pathname);
 
-    if (pathname === '/' || pathname === '') {
-      pathname = '/security-login-risk-dashboard.html';
-    }
-
-    const resolved = path.resolve(root, '.' + pathname);
-
-    if (!resolved.startsWith(path.resolve(root))) {
+    if (!resolved) {
       send(res, 403, 'Forbidden');
       return;
     }
 
     if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
-      send(res, 404, 'Not found');
+      send(res, 404, `Not found: ${resolved}`);
       return;
     }
 
@@ -60,7 +73,7 @@ const server = http.createServer((req, res) => {
     const content = fs.readFileSync(resolved);
     send(res, 200, content, contentTypes[ext] || 'application/octet-stream');
   } catch (error) {
-    send(res, 500, error.message);
+    send(res, 500, error.stack || error.message);
   }
 });
 

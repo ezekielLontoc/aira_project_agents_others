@@ -119,13 +119,15 @@ Decision:
 
 POC-1B Phase 2 is accepted as the backend API foundation before frontend screen implementation.
 
-# POC-1B Phase 3 Frontend Browser Validation Evidence
+# # POC-1B Phase 3 Frontend Browser Validation Evidence
 
 Status: ACCEPTED
 
 Score: 10/10 Phase 3 Frontend Browser Validation
 
-Phase 3 added browser-facing frontend screens and validated them through Playwright against the POC-1B backend API runtime.
+Correction note:
+
+The first Phase 3 run created the frontend screens but failed before browser validation because the portal server did not become ready. The repaired validation passed and produced real Playwright evidence.
 
 Validated screens:
 

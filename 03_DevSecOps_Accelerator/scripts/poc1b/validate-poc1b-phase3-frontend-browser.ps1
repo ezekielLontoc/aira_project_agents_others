@@ -51,16 +51,31 @@ New-Item -ItemType Directory -Force -Path $ArtifactRoot | Out-Null
 $ApiProcess = $null
 $PortalProcess = $null
 
+function Show-File-IfExists {
+    param(
+        [string]$Path,
+        [string]$Label
+    )
+
+    if (Test-Path $Path) {
+        Write-Host ""
+        Write-Host $Label -ForegroundColor Yellow
+        Get-Content $Path
+    }
+}
+
 function Wait-HttpReady {
     param(
         [string]$Url,
-        [string]$Label
+        [string]$Label,
+        [string]$StdoutPath,
+        [string]$StderrPath
     )
 
     foreach ($Attempt in 1..50) {
         try {
-            $Response = Invoke-RestMethod -Method Get -Uri $Url -TimeoutSec 2
-            if ($null -ne $Response) {
+            $Response = Invoke-WebRequest -Method Get -Uri $Url -TimeoutSec 2 -UseBasicParsing
+            if ($Response.StatusCode -ge 200 -and $Response.StatusCode -lt 300) {
                 Write-Host "[PASS] $Label is ready at $Url" -ForegroundColor Green
                 return
             }
@@ -68,6 +83,9 @@ function Wait-HttpReady {
             Start-Sleep -Milliseconds 500
         }
     }
+
+    Show-File-IfExists $StdoutPath "$Label stdout:"
+    Show-File-IfExists $StderrPath "$Label stderr:"
 
     throw "$Label did not become ready at $Url"
 }
@@ -82,7 +100,7 @@ try {
         -RedirectStandardOutput $ApiStdoutPath `
         -RedirectStandardError $ApiStderrPath
 
-    Wait-HttpReady "$ApiBase/health" "POC-1B API server"
+    Wait-HttpReady "$ApiBase/health" "POC-1B API server" $ApiStdoutPath $ApiStderrPath
 
     $PortalProcess = Start-Process `
         -FilePath "node" `
@@ -93,7 +111,7 @@ try {
         -RedirectStandardOutput $PortalStdoutPath `
         -RedirectStandardError $PortalStderrPath
 
-    Wait-HttpReady "$PortalBase/security-login-risk-dashboard.html" "POC-1B portal server"
+    Wait-HttpReady "$PortalBase/security-login-risk-dashboard.html" "POC-1B portal server" $PortalStdoutPath $PortalStderrPath
 
     $env:POC1B_PHASE3_API_BASE = $ApiBase
     $env:POC1B_PHASE3_PORTAL_BASE = $PortalBase
@@ -109,17 +127,9 @@ try {
         throw "Playwright JSON report was not created: $PlaywrightJsonReportPath"
     }
 
-    $Report = Get-Content $PlaywrightJsonReportPath -Raw | ConvertFrom-Json
-
-    $TraceCount = 0
-    $VideoCount = 0
-    $ScreenshotCount = 0
-
-    if (Test-Path $ArtifactRoot) {
-        $TraceCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.zip" -ErrorAction SilentlyContinue).Count
-        $VideoCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.webm" -ErrorAction SilentlyContinue).Count
-        $ScreenshotCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.png" -ErrorAction SilentlyContinue).Count
-    }
+    $TraceCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.zip" -ErrorAction SilentlyContinue).Count
+    $VideoCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.webm" -ErrorAction SilentlyContinue).Count
+    $ScreenshotCount = @(Get-ChildItem $ArtifactRoot -Recurse -File -Filter "*.png" -ErrorAction SilentlyContinue).Count
 
     $Results = [ordered]@{
         completedAt = (Get-Date).ToString("o")

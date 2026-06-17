@@ -10,7 +10,11 @@ ACCEPTED
 
 ## Completed At
 
-2026-06-17T17:25:16.0719774+08:00
+2026-06-17T17:29:49.4901862+08:00
+
+## Correction Note
+
+The first Phase 3 run created and pushed the frontend screens but failed before browser validation because the portal server did not become ready. This repair fixed portal server path handling, reran Playwright validation, required real JSON evidence, and rewrote evidence from the successful browser run.
 
 ## What Was Built
 
