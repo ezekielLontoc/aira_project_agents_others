@@ -135,6 +135,33 @@ const AIRA = (() => {
     }
   }
 
+
+  function resolveRoleLabel(session) {
+    if (!session) { return 'UNKNOWN'; }
+
+    if (session.roleKey) { return session.roleKey; }
+    if (session.primaryRole) { return session.primaryRole; }
+    if (session.role) { return session.role; }
+    if (session.requestedRole) { return session.requestedRole; }
+
+    if (Array.isArray(session.roles) && session.roles.length > 0) {
+      const firstRole = session.roles[0];
+      if (typeof firstRole === 'string') { return firstRole; }
+      if (firstRole.roleKey) { return firstRole.roleKey; }
+      if (firstRole.role) { return firstRole.role; }
+      if (firstRole.name) { return firstRole.name; }
+    }
+
+    if (session.landingRoute === '/portal/developer-dashboard.html') { return 'DEVELOPER'; }
+    if (session.landingRoute === '/portal/admin-dashboard.html') { return 'PLATFORM_ADMIN'; }
+    if (session.landingRoute === '/portal/institution-dashboard.html') { return 'INSTITUTION_ADMIN'; }
+    if (session.landingRoute === '/portal/security-dashboard.html') { return 'SECURITY_OFFICER'; }
+    if (session.landingRoute === '/portal/evidence-dashboard.html') { return 'AUDITOR'; }
+    if (session.landingRoute === '/portal/viewer-dashboard.html') { return 'VIEWER'; }
+
+    return 'AUTHORIZED_USER';
+  }
+
   async function hydrateSession(targetId = 'sessionStatus') {
     try {
       const session = await request('/api/v1/identity/session', { method: 'GET', headers: authHeaders() });
@@ -147,7 +174,7 @@ const AIRA = (() => {
       const node = document.getElementById(targetId);
       if (node) {
         node.className = 'notice success';
-        node.textContent = 'Signed in as ' + session.email + ' with role ' + session.roleKey + '.';
+        node.textContent = 'Signed in as ' + session.email + ' with role ' + resolveRoleLabel(session) + '.';
       }
       return session;
     } catch (error) {

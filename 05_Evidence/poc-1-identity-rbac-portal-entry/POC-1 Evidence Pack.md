@@ -586,3 +586,28 @@ Validation:
 Report:
 
 - 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3B Portal CORS Repair Report.md
+
+---
+
+## POC-1 Phase 3B Role Display Polish Evidence
+
+Status: PASSED
+
+Issue:
+
+- Browser dashboard showed role undefined after successful login.
+
+Repair:
+
+- Added portal-side resolveRoleLabel(session).
+- Supports roleKey, primaryRole, role, requestedRole, roles array, and landingRoute fallback.
+- Rebuilt and redeployed accelerator-api portal WAR.
+
+Validation:
+
+- Served portal JS includes resolveRoleLabel.
+- Developer dashboard, home router, and login page smoke-tested.
+
+Report:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Phase 3B Role Display Polish Report.md
