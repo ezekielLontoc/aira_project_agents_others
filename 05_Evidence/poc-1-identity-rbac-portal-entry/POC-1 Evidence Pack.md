@@ -639,3 +639,25 @@ Final report:
 Accepted result:
 
 - POC-1 Phase 3B browser flow validation is accepted.
+
+---
+
+## POC-1 Final Closure Evidence
+
+Status: ACCEPTED
+
+Closure summary:
+
+- 05_Evidence/poc-1-identity-rbac-portal-entry/POC-1 Final Closure Summary.md
+
+Final accepted result:
+
+- POC-1 is complete for the defined local governed runtime scope.
+- Browser flow validated successfully.
+- Role displayed as DEVELOPER.
+- Runtime identity login/session/landing/logout flow passed.
+- Final evidence commit: 5612991d898b250fa9e763e4663ac5bb6f699d0d.
+
+Recommended next build phase:
+
+- POC-2 - Institution Admin Console and Access Governance.
